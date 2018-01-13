@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+
+
+    <div class="ui-g">
+        <div class="ui-g-4" style="text-align: left; padding: 0">
+            <h:outputText value="#{jruTestUIConstants.SHORT_APP_NAME} #{jruTestUIConstants.VERSION}"/>
+        </div>
+        <div class="ui-g-4" style="text-align: center; padding: 0">
+            <h:outputText value="#{request.servletContext.serverInfo}"/>
+        </div>
+        <div class="ui-g-4" style="text-align: right; padding: 0">
+            <h:outputText value="PrimeFaces V#{jsfLib.primefacesVersion} [on #{jsfLib.jsfVersion}]"/>
+        </div>
+    </div>
+</ui:composition>

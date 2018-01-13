@@ -1,0 +1,15 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix} ------------------------------------------------------------------------------------
+${licensePrefix}
+${licensePrefix} JPA Real User Test Monitor project
+${licensePrefix}
+${licensePrefix} Module:  ${project.displayName} (${project.name})
+${licensePrefix} File:    ${nameAndExt}
+${licensePrefix} Created: ${date} ${time}
+${licensePrefix}
+${licensePrefix} ------------------------------------------------------------------------------------
+<#if licenseLast??>
+${licenseLast}
+</#if>

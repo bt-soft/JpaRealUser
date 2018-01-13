@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                template="./templates/simplePageTemplate.xhtml"
+                >
+
+    <ui:define name="title">
+        #{GFMonUIConstants.SHORT_APP_NAME} - Bejelentkezés
+    </ui:define>
+
+    <ui:define name="htmlHead">
+        <style type="text/css">
+            .login-box {
+                background-color: whitesmoke;
+                width: auto;
+                padding: 2em 4em 2em 4em;
+                display: box;
+                border-style: solid;
+                border-width: thin;
+                border-color: grey;
+                position: fixed;
+                top: 80%;
+                left: 80%;
+                transform: translate(-80%, -80%);
+            }
+
+            .gitHubpanel {
+                width: 20%;
+                position: fixed;
+                top: 10%;
+                left: 5%;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+
+
+        <p:panel id="gitHubPanel" styleClass="gitHubpanel">
+            <h:panelGrid columns="2">
+                <i class="fa fa-github" aria-hidden="true" />
+                <p:outputLabel value="gitHub Infó" style="font-size: 1.2em;"/>
+            </h:panelGrid>
+            <pe:github id="gitHub" repository="bt-soft/RealJpaUser" iconForks="true" iconIssues="true" iconStars="true"/>
+        </p:panel>
+
+
+        <div class="login-box">
+
+            <h:form id="loginForm" onsubmit="document.getElementById('loginForm').action = 'j_security_check';" prependId="false">
+
+                <p:outputLabel value="Bejelentkezés" style="font-size: 4em;"/>
+
+
+                <h:panelGrid style="margin-top: 1em">
+                    <p:panelGrid columns="2">
+                        <p:outputLabel style="width: 1em; height: 1em" for="j_username">
+                            <i class="fa fa-user"/>
+                        </p:outputLabel>
+                        <p:inputText id="j_username"
+                                     autocomplete="off"
+                                     style="border: none"
+                                     placeholder="Felhasználó neve"
+                                     >
+                        </p:inputText>
+                    </p:panelGrid>
+
+                    <p:panelGrid columns="2">
+                        <p:outputLabel for="j_password"><i class="fa fa-lock"/></p:outputLabel>
+                        <p:password id="j_password"
+                                    autocomplete="off"
+                                    style="border: none"
+                                    placeholder="Jelszó"
+                                    >
+                        </p:password>
+                    </p:panelGrid>
+                </h:panelGrid>
+
+                <p:separator/>
+
+                <h:panelGroup>
+                    <p:commandButton value="Belépés"
+                                     ajax="false"
+                                     icon="ui-icon-person"
+                                     style="float: right"
+                                     />
+
+                    <p:commandButton value="user1"
+                                     ajax="false"
+                                     onclick="$('#j_username').val('user1'); $('#j_password').val('pass12');"
+                                     icon="fa fa-user-circle-o"
+                                     rendered="#{isDeveloperMode}"
+                                     style="float: left; color: yellowgreen"
+                                     />
+                </h:panelGroup>
+
+            </h:form>
+
+        </div>
+
+    </ui:define>
+
+</ui:composition>

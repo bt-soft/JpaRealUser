@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./../templates/simplePageTemplate.xhtml"
+                >
+
+    <ui:define name="title">
+        Hiba
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <p:panel>
+                <h1>Váratlan hiba!</h1>
+                <p:outputLabel value="Üzenet: " style="font-weight: bold"/>
+                <h:outputText value="#{pfExceptionHandler.message}" style="color: red; font-weight: bold"/>
+
+                <!--<input type="button" onclick="window.location.replace(document.referrer);" value="Vissza" style="float: right"/>-->
+                <p:commandButton onclick="window.location.replace(document.referrer);" icon="fa fa-reply"  value="Vissza" ajax="false" style="float: right; margin-top: -1em"/>
+            </p:panel>
+
+            <p:panel style="background: whitesmoke; padding-left: 2em">
+                <h:outputText value="#{pfExceptionHandler.formattedStackTrace}" escape="false" style="font-family: 'Courier New';"/>
+            </p:panel>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

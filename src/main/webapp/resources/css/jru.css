@@ -1,0 +1,194 @@
+@CHARSET "UTF-8";
+
+/** --- Layout definíciók ------------------------------------------------------------------------------------------------------------------------------------*/
+
+html,body {
+
+    /*font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;*/
+    font-family: "Segoe UI";
+
+    /* https://www.w3schools.com/css/css_font.asp:
+        Az 1em egyenlő az aktuális betűmérettel.
+        A böngészők alapértelmezett szövegmérete 16 oldal.
+        Így az 1em alapértelmezett mérete 16px.
+        0.75em = 10px :)
+    */
+    /*font-size: 1em;*/
+    font-size: 1.5vh !important;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+root {
+    font-size: 1em;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.ui-widget {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1em;
+}
+.ui-widget .ui-widget {
+    font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 0.8em;
+}
+
+
+/** --- Layout definíciók ------------------------------------------------------------------------------------------------------------------------------------*/
+#simple-body {
+    background-image: -webkit-gradient(
+        linear,
+        right bottom,
+        right top,
+        color-stop(0, #ededed),
+        color-stop(0.08, #eaeaea),
+        color-stop(1, #2f2f2f),
+        color-stop(1, #aaaaaa)
+        );
+    background-image: -o-linear-gradient(top, #ededed 0%, #eaeaea 8%, #2f2f2f 100%, #aaaaaa 100%);
+    background-image: -moz-linear-gradient(top, #ededed 0%, #eaeaea 8%, #2f2f2f 100%, #aaaaaa 100%);
+    background-image: -webkit-linear-gradient(top, #ededed 0%, #eaeaea 8%, #2f2f2f 100%, #aaaaaa 100%);
+    background-image: -ms-linear-gradient(top, #ededed 0%, #eaeaea 8%, #2f2f2f 100%, #aaaaaa 100%);
+    background-image: linear-gradient(to top, #ededed 0%, #eaeaea 8%, #2f2f2f 100%, #aaaaaa 100%);
+}
+
+
+#bodyWrapper {
+    padding: 0;
+    margin: 0;
+    min-height:100%;
+}
+
+#header {
+    top:0;
+    position: absolute;
+    width: 100%;
+
+    height: 4em;
+
+    color: white;
+    background-color: hsla(0, 5%, 96%, 0.57);
+}
+
+#main {
+    min-height: 89.5%;
+    padding-top: 4em;
+    padding-bottom: 2em;
+    background-color: hsla(24, 30%, 90%, 0.3);
+
+}
+
+#footer {
+    background-color: hsla(0, 0%, 78%, 0.29);
+    color: black;
+    width: 100%;
+
+    height: 2em;
+    margin-top: -1em;
+}
+
+/* Képernyő közepére */
+.centerOfScreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* a 'margin-left'-et és a 'margin-top'-ot a komponens mérete szerint utánahúzni! */
+}
+
+
+.alignLeft {
+    text-align: left;
+}
+.alignCenter {
+    text-align: center;
+}
+.alignRight {
+    text-align: right;
+}
+
+/** --- Header feliratok ------------------------------------------------------------------------------------------------------------------------------*/
+.header-version {
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: Arial;
+    color: teal;
+}
+.header-detail-prompt {
+    font-size: 0.6em;
+}
+.header-detail-value {
+    font-size: 0.6em;
+    margin-left: 0.5em
+}
+
+/** --- Általánoc -------------------------------------------------------------------------------------------------------------------------------------*/
+.disabled-text {
+    color: grey;
+}
+
+
+/** --- Input -----------------------------------------------------------------------------------------------------------------------------------------*/
+/* Watermark jelszóhoz */
+.ui-watermark {
+    color: #d0d0d0 !important;
+}
+/* IE watermark */
+*:-ms-input-placeholder {
+    color: #d0d0d0 !important;
+}
+
+
+/** --- PanelGrid ---------------------------------------------------------------------------------------------------------------------------------*/
+/* Panelgrid margin és padding nélkül */
+.strictPanelGrid.ui-panelgrid>*>tr,
+.strictPanelGrid.ui-panelgrid>*>tr>td {
+    margin: 0;
+    padding: 0;
+}
+
+/* Panelgrid keret nélkül */
+.noBorderPanelGrid.ui-panelgrid>*>tr,
+.noBorderPanelGrid.ui-panelgrid>*>tr>td {
+    border: none;
+}
+
+/* Átlátszó panelgrid */
+.transparentPanelGrid tr,
+.transparentPanelGrid td {
+    background: transparent !important;
+}
+
+/** cellatartalom felülre */
+.top-aligned-columns td{
+    vertical-align: top;
+}
+
+/** cellatartalom jobbra */
+.rigth-aligned-columns td{
+    text-align: right;
+}
+
+/** --- Nézegetős Dialógusok PanelGrid ------------------------------------------------------------------------------------------------------------*/
+.viewDlgTblPrompt{
+    text-align: right;
+    font-weight: bold;
+    background-color: menu;
+}
+.viewDlgTblValue{
+}
+
+
+/** --- DataTable ---------------------------------------------------------------------------------------------------------------------------------*/
+/* filter a header text után */
+.ui-datatable th .ui-column-filter {
+    display: inline;
+    margin-left: 0.5em;
+}

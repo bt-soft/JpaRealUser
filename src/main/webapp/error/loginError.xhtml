@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./../templates/simplePageTemplate.xhtml"
+                >
+
+    <ui:define name="title">
+        #{GFMonUIConstants.SHORT_APP_NAME} - Login Hiba
+    </ui:define>
+
+    <ui:define name="htmlHead">
+        <style type="text/css">
+            .error-box {
+                background-color: whitesmoke;
+                width: auto;
+                padding: 4em;
+                display: box;
+                border-style: solid;
+                border-width: thin;
+                border-color: grey;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <p:panel styleClass="error-box" style="padding: 2em">
+
+            <h:panelGrid columns="2" styleClass="transparentPanelGrid noBorderPanelGrid ">
+
+                <i class="fa fa-4x fa fa-exclamation-triangle" aria-hidden="true"/>
+
+                <p:panelGrid columns="1" styleClass="strictPanelGrid noBorderPanelGrid top-aligned-columns" >
+                    <h:outputText value="Bejelentkezési hiba!" style="color: tomato; font-weight: bolder; font-size: 2em"/>
+                    <p:spacer/>
+                    <h:outputText value="Érvénytelen felhasználó név vagy jelszó." style=""/>
+                </p:panelGrid>
+
+            </h:panelGrid>
+
+            <p:separator/>
+
+            <h:form>
+                <p:spacer/>
+                <p:commandButton  action="/login.xhtml?faces-redirect=true" icon="fa fa-reply"  value="Újra" style="float: right"/>
+            </h:form>
+
+
+        </p:panel>
+
+
+    </ui:define>
+
+</ui:composition>

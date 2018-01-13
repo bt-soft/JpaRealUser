@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
+<resources>
+
+    <!--  JDBC -->
+    <jdbc-resource enabled="true"
+                   jndi-name="jdbc/jruTest"
+                   object-type="user"
+                   pool-name="connectionPool_JruTest">
+        <description>JPA Real User Test DataSource</description>
+    </jdbc-resource>
+
+
+
+    <jdbc-connection-pool name="connectionPool_JruTest"
+                          steady-pool-size="0"
+                          pool-resize-quantity="1"
+                          max-pool-size="100"
+
+                          res-type="javax.sql.ConnectionPoolDataSource"
+                          datasource-classname="oracle.jdbc.pool.OracleDataSource"
+
+                          init-sql="BEGIN EXECUTE IMMEDIATE('ALTER SESSION SET CURRENT_SCHEMA = schemaowner'); END;"
+    >
+
+        <description>JPA Real User Test ConnectionPool</description>
+
+        <property name="User" value="jpauser"></property>
+        <property name="Password" value="jpauser"></property>
+        <property name="URL" value="jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = Test)))"/>
+    </jdbc-connection-pool>
+
+</resources>

@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+
+                template="./../templates/pageTemplate.xhtml">
+
+    <ui:define name="title">
+        JRU -Test
+    </ui:define>
+
+    <ui:define name="htmlHead">
+
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="mainForm">
+
+            <h:outputLabel for="testData" value="Test data:" />
+            <h:inputText id="testData" value="#{mainView.testData}" />
+            <p:commandButton id="submitBtn" value="Submit" icon="fa fa-floppy-o" action="#{mainView.doTest()}" update=":growl"/>
+
+            <br/>
+
+            <p:commandButton id="logoutBtn" value="Logout" icon="fa fa-sign-out" action="#{jsfLib.logout()}" update=":growl"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

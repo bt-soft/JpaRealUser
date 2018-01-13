@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      >
+
+    <p:importConstants type="hu.btsoft.realjpauser.JruTestUIConstants" var="jruTestUIConstants"/>
+
+
+    <h:head>
+
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <!--<link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}/resources/images/favicon.png" />-->
+        </f:facet>
+
+        <h:outputStylesheet name="/css/jru.css"/>
+        <h:outputScript library="js" name="jru.js" />
+
+
+        <title>
+            <ui:insert name="title" >#{jruTestUIConstants.SHORT_APP_NAME} - title</ui:insert>
+        </title>
+
+
+        <ui:insert name="htmlHead" >
+        </ui:insert>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            window.history.forward();
+            function noBack() {
+                window.history.forward();
+            }
+            //]]>
+        </script>
+
+    </h:head>
+
+    <h:body id="body" onload="noBack();" onunload="">
+
+        <!-- runtime konstansok -->
+        <c:set var="isDeveloperMode" scope="request" value="#{'Development' eq facesContext.application.projectStage}" />
+        <c:set var="isRunningOnWebLogic" scope="request" value="#{fn:startsWith(request.servletContext.serverInfo, 'WebLogic')}" />
+
+        <p:growl id="growl" widgetVar="growl" showDetail="true" showSummary="true"/>
+        <ui:debug hotkey="x" rendered="#{isDeveloperMode}" />
+
+
+        <div id="bodyWrapper">
+            <div id="header">
+                <ui:insert name="header">
+                    <ui:include src="header.xhtml"/>
+                </ui:insert>
+            </div>
+
+            <div id="main">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+
+            <div id="footer">
+                <ui:insert name="footer">
+                    <ui:include src="footer.xhtml" />
+                </ui:insert>
+            </div>
+
+        </div>
+
+
+        <ui:include src="../dialogs/confirmationDgl.xhtml" />
+
+        <pe:blockUI widgetVar = "blockUI" >
+            <h:panelGrid columns = "1" style = "text-align: center">
+                <h:graphicImage library = "images"
+                                name = "loader/ajax-loader-spiner2.gif"
+                                style = "/*margin-right: 12px;*/ vertical-align: middle;" />
+                <h:outputText value = "Dolgozom..." style = "white-space: nowrap;" />
+            </h:panelGrid>
+        </pe:blockUI>
+
+    </h:body>
+
+
+
+</html>
