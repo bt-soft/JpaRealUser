@@ -10,6 +10,6 @@
     </security-role-mapping>
     <security-role-mapping>
         <role-name>APP_JRU_ADMIN</role-name>
-        <group-name>APP_ADMIN</group-name>
+        <group-name>JRU_ADMIN</group-name>
     </security-role-mapping>
 </glassfish-web-app>

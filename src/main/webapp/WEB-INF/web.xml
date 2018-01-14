@@ -131,10 +131,6 @@
         <exception-type>java.lang.Throwable</exception-type>
         <location>/faces/error/error.xhtml</location>
     </error-page>
-    <error-page>
-        <error-code>403</error-code>
-        <location>/faces/error/403-forbidden.xhtml</location>
-    </error-page>
 
     <session-config>
         <session-timeout>30</session-timeout>
@@ -154,6 +150,7 @@
         <auth-constraint>
             <description>App role-ok a használathoz</description>
             <role-name>APP_JRU_USER</role-name>
+            <role-name>APP_JRU_ADMIN</role-name>
         </auth-constraint>
         <user-data-constraint>
             <description>NONE | INTEGRAL | CONFIDENTIAL (SSL)</description>

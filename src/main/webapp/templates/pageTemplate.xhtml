@@ -49,10 +49,12 @@
         <!-- runtime konstansok -->
         <c:set var="isDeveloperMode" scope="request" value="#{'Development' eq facesContext.application.projectStage}" />
         <c:set var="isRunningOnWebLogic" scope="request" value="#{fn:startsWith(request.servletContext.serverInfo, 'WebLogic')}" />
+        <c:set var="isAdmin" scope="request" value="#{request.isUserInRole('APP_JRU_ADMIN')}" />
 
         <p:growl id="growl" widgetVar="growl" showDetail="true" showSummary="true"/>
         <ui:debug hotkey="x" rendered="#{isDeveloperMode}" />
 
+        #{isAdmin}
 
         <div id="bodyWrapper">
             <div id="header">

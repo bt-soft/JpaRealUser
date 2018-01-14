@@ -6,6 +6,8 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
 
+                xmlns:bt="http://bt-soft.hu/jsf/ui"
+
                 template="./../templates/pageTemplate.xhtml">
 
     <ui:define name="title">
@@ -17,9 +19,11 @@
     </ui:define>
 
     <ui:define name="content">
+
+
         <h:form id="mainForm">
 
-            <p:panelGrid columns="3">
+            <p:panelGrid columns="3" styleClass="noBorderPanelGrid transparentpanelGrid">
                 <h:outputLabel for="testData" value="Test data:" />
                 <h:inputText id="testData" value="#{mainView.testData}" />
                 <p:commandButton id="submitBtn" value="Submit" icon="fa fa-floppy-o" action="#{mainView.doTest()}" update=":growl"/>
@@ -29,6 +33,22 @@
 
             <p:commandButton id="logoutBtn" value="Logout" icon="fa fa-sign-out" action="#{jsfLib.logout()}" update=":growl"/>
         </h:form>
+
+
+        <bt:disablePanel disabled="#{not isAdmin}">
+
+            <p:separator />
+
+            <h:form id="adminForm">
+                <h:outputLabel id="adminLabel" value="Label"/>
+                <br/>
+                <h:outputText id="adminText" value="Text" />
+            </h:form>
+        </bt:disablePanel>
+
+
+
+
     </ui:define>
 
 </ui:composition>

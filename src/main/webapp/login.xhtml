@@ -89,10 +89,17 @@
                                      style="float: right"
                                      />
 
+                    <p:commandButton value="admin"
+                                     ajax="false"
+                                     onclick="$('#j_username').val('admin'); $('#j_password').val('pass12');"
+                                     icon="fa fa-user-circle-o"
+                                     rendered="#{isDeveloperMode}"
+                                     style="float: left; color: yellowgreen"
+                                     />
                     <p:commandButton value="user1"
                                      ajax="false"
                                      onclick="$('#j_username').val('user1'); $('#j_password').val('pass12');"
-                                     icon="fa fa-user-circle-o"
+                                     icon="fa fa fa-magic"
                                      rendered="#{isDeveloperMode}"
                                      style="float: left; color: yellowgreen"
                                      />
