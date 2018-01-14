@@ -9,7 +9,7 @@
  *
  *  ------------------------------------------------------------------------------------
  */
-package hu.btsoft.realjpauser.view.jsf.component;
+package hu.btsoft.jru.core.jsf.component;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -33,7 +33,7 @@ import org.primefaces.component.datatable.DataTable;
  *
  * @author BT
  */
-@FacesComponent("hu.btsoft.realjpauser.view.jsf.component.UIDisablePanel")
+@FacesComponent("hu.btsoft.jru.core.jsf.component.UIDisablePanel")
 @Slf4j
 public class UIDisablePanel extends UIComponentBase {
 

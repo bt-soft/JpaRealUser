@@ -9,9 +9,9 @@
  *
  *  ------------------------------------------------------------------------------------
  */
-package hu.btsoft.realjpauser.view;
+package hu.btsoft.jru.view;
 
-import hu.btsoft.realjpauser.view.jsf.JsfLib;
+import hu.btsoft.jru.core.jsf.JsfLib;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;

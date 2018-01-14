@@ -9,9 +9,9 @@
  *
  *  ------------------------------------------------------------------------------------
  */
-package hu.btsoft.realjpauser.model.service;
+package hu.btsoft.jru.model.service;
 
-import hu.btsoft.realjpauser.model.entity.JruTbl;
+import hu.btsoft.jru.model.entity.JruTbl;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

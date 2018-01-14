@@ -9,7 +9,7 @@
  *
  *  ------------------------------------------------------------------------------------
  */
-package hu.btsoft.realjpauser.core;
+package hu.btsoft.jru.core.version;
 
 import com.github.zafarkhaja.semver.Version;
 import java.io.IOException;

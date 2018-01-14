@@ -9,9 +9,9 @@
  *
  *  ------------------------------------------------------------------------------------
  */
-package hu.btsoft.realjpauser.view.jsf;
+package hu.btsoft.jru.core.jsf;
 
-import hu.btsoft.realjpauser.core.VersionUtils;
+import hu.btsoft.jru.core.version.VersionUtils;
 import java.io.Serializable;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;

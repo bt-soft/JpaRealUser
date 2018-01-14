@@ -9,10 +9,10 @@
  *
  *  ------------------------------------------------------------------------------------
  */
-package hu.btsoft.realjpauser.view;
+package hu.btsoft.jru.view;
 
-import hu.btsoft.realjpauser.model.entity.JruTbl;
-import hu.btsoft.realjpauser.model.service.JruService;
+import hu.btsoft.jru.model.entity.JruTbl;
+import hu.btsoft.jru.model.service.JruService;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.view.ViewScoped;

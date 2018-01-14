@@ -9,7 +9,7 @@
  *
  *  ------------------------------------------------------------------------------------
  */
-package hu.btsoft.realjpauser.model.entity;
+package hu.btsoft.jru.model.entity;
 
 import java.io.Serializable;
 import javax.persistence.Column;

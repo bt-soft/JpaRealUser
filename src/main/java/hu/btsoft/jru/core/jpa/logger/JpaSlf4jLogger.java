@@ -9,7 +9,7 @@
  *
  *  ------------------------------------------------------------------------------------
  */
-package hu.btsoft.realjpauser.model.jpalogger;
+package hu.btsoft.jru.core.jpa.logger;
 
 import java.util.HashMap;
 import java.util.Map;
