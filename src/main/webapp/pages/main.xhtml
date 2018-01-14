@@ -19,9 +19,11 @@
     <ui:define name="content">
         <h:form id="mainForm">
 
-            <h:outputLabel for="testData" value="Test data:" />
-            <h:inputText id="testData" value="#{mainView.testData}" />
-            <p:commandButton id="submitBtn" value="Submit" icon="fa fa-floppy-o" action="#{mainView.doTest()}" update=":growl"/>
+            <p:panelGrid columns="3">
+                <h:outputLabel for="testData" value="Test data:" />
+                <h:inputText id="testData" value="#{mainView.testData}" />
+                <p:commandButton id="submitBtn" value="Submit" icon="fa fa-floppy-o" action="#{mainView.doTest()}" update=":growl"/>
+            </p:panelGrid>
 
             <br/>
 
