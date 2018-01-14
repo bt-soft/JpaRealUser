@@ -4,10 +4,8 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:f="http://xmlns.jcp.org/jsf/core"
-
                 xmlns:bt="http://bt-soft.hu/jsf/ui"
-
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="./../templates/pageTemplate.xhtml"
                 >
 
@@ -54,6 +52,57 @@
             <h:outputText value="Errors" style="font-size: 2em"/>
 
             <h:form id="adminForm">
+
+                <h:panelGrid columns="3">
+                    <p:commandButton id="refreshBtn"
+                                     value="refresh"
+                                     icon="fa fa-refresh"
+                                     action="#{mainView.doRefreshErrorList()}"
+                                     update="errorsTable errorRecordsTxt"/>
+
+                    <p:outputLabel for="errorRecordsTxt" value="Different JPA User records: "/>
+                    <h:outputText id="errorRecordsTxt" value="#{mainView.errorList eq null ? 0 : mainView.errorList.size()}"/>
+                </h:panelGrid>
+
+                <p:dataTable id="errorsTable"
+                             widgetVar="errorsTable"
+
+                             value="#{mainView.errorList}"
+                             var="jnrl"
+
+                             rowIndexVar="#{jnrl.id}"
+
+                             paginatorPosition="bottom"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="5,10,15"
+                             >
+
+                    <p:column headerText="jnrl Id" style="width: 5em">
+                        <h:outputText value="#{jnrl.id}"/>
+                    </p:column>
+
+                    <p:column headerText="Date">
+                        <h:outputText value="#{jnrl.modTimestamp}">
+                            <f:convertDateTime pattern="yyyy.MM.dd HH:mm:ss"
+                                               timeZone="Europe/Budapest"
+                                               locale="hu_HU"/>
+                        </h:outputText>
+                    </p:column>
+
+                    <p:column headerText="jnrl.jpaUser">
+                        <h:outputText value="#{jnrl.jpaUser}"/>
+                    </p:column>
+
+                    <p:column headerText="jnrl.jruTbl.jpaUser">
+                        <h:outputText value="#{jnrl.jruTbl.jpaUser}"/>
+                    </p:column>
+
+
+
+                </p:dataTable>
+
+
+
             </h:form>
         </bt:disablePanel>
 

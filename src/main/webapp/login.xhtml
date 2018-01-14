@@ -43,7 +43,7 @@
         <p:panel id="gitHubPanel" styleClass="gitHubpanel">
             <h:panelGrid columns="2">
                 <i class="fa fa-github" aria-hidden="true" />
-                <p:outputLabel value="gitHub Infó" style="font-size: 1.2em;"/>
+                <p:outputLabel value="gitHub info" style="font-size: 1.2em;"/>
             </h:panelGrid>
             <pe:github id="gitHub" repository="bt-soft/RealJpaUser" iconForks="true" iconIssues="true" iconStars="true"/>
         </p:panel>
@@ -53,7 +53,7 @@
 
             <h:form id="loginForm" onsubmit="document.getElementById('loginForm').action = 'j_security_check';" prependId="false">
 
-                <p:outputLabel value="Bejelentkezés" style="font-size: 4em;"/>
+                <p:outputLabel value="Login" style="font-size: 4em;"/>
 
 
                 <h:panelGrid style="margin-top: 1em">
@@ -64,7 +64,7 @@
                         <p:inputText id="j_username"
                                      autocomplete="off"
                                      style="border: none"
-                                     placeholder="Felhasználó neve"
+                                     placeholder="Username"
                                      >
                         </p:inputText>
                     </p:panelGrid>
@@ -74,7 +74,7 @@
                         <p:password id="j_password"
                                     autocomplete="off"
                                     style="border: none"
-                                    placeholder="Jelszó"
+                                    placeholder="Password"
                                     >
                         </p:password>
                     </p:panelGrid>
@@ -83,7 +83,7 @@
                 <p:separator/>
 
                 <h:panelGroup>
-                    <p:commandButton value="Belépés"
+                    <p:commandButton value="Login"
                                      ajax="false"
                                      icon="ui-icon-person"
                                      style="float: right"
