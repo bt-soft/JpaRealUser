@@ -2,9 +2,10 @@
 <!--
  ....................................................................................
 
- GF Monitor project
+ JPA Real User Test Monitor project
 
- Module:  gfmon-ui (gfmon-ui)
+
+ Module:  JruTest (JruTest)
  File:    disablepanel.taglib.xml
  Created: 2018.01.01. 16:18:23
 
