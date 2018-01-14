@@ -1,0 +1,878 @@
+Info:   Initializing Mojarra 2.3.2 ( 20170627-2139 e63598abf2ed2bb1a24674f308a734e0dce18a72) for context ''
+Info:   22:35:51.657 TRACE rg.eclipse.persistence.logging.properties(log:132) - 2018-01-14 22:35:51.641--ServerSession(1978814097)--property=eclipselink.logging.level; value=FINEST; translated value=FINEST
+Info:   22:35:51.686 TRACE rg.eclipse.persistence.logging.properties(log:132) - 2018-01-14 22:35:51.686--ServerSession(1978814097)--property=eclipselink.logging.level.sql; value=FINEST; translated value=FINEST
+Info:   22:35:51.686 TRACE rg.eclipse.persistence.logging.properties(log:132) - 2018-01-14 22:35:51.686--ServerSession(1978814097)--property=eclipselink.logging.timestamp; value=false
+Info:   22:35:51.687 TRACE rg.eclipse.persistence.logging.properties(log:132) - 2018-01-14 22:35:51.687--ServerSession(1978814097)--property=eclipselink.logging.thread; value=true
+Info:   22:35:51.687 TRACE rg.eclipse.persistence.logging.properties(log:132) - 2018-01-14 22:35:51.687--ServerSession(1978814097)--property=eclipselink.logging.session; value=true
+Info:   22:35:51.688 TRACE rg.eclipse.persistence.logging.properties(log:132) - 2018-01-14 22:35:51.688--ServerSession(1978814097)--property=eclipselink.logging.parameters; value=true
+Info:   22:35:51.688 TRACE rg.eclipse.persistence.logging.properties(log:132) - 2018-01-14 22:35:51.688--ServerSession(1978814097)--property=eclipselink.logging.level; value=FINEST; translated value=FINEST
+Info:   22:35:51.689 TRACE rg.eclipse.persistence.logging.properties(log:132) - 2018-01-14 22:35:51.688--ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.level.sql; value=FINEST; translated value=FINEST
+Info:   22:35:51.689 TRACE rg.eclipse.persistence.logging.properties(log:132) - 2018-01-14 22:35:51.689--ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.timestamp; value=false
+Info:   22:35:51.689 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.thread; value=true
+Info:   22:35:51.689 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.session; value=true
+Info:   22:35:51.691 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.parameters; value=true
+Info:   22:35:51.691 DEBUG org.eclipse.persistence.logging.server(log:135)    - Thread(Thread[admin-listener(2),5,main])--Configured server platform: org.eclipse.persistence.platform.server.sunas.SunAS9ServerPlatform
+Info:   22:35:51.693 TRACE org.eclipse.persistence.logging.jpa(log:132)       - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Begin predeploying Persistence Unit JruTest-PU; session /file:/E:/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/_JruTest-PU; state Initial; factoryCount 0
+Info:   22:35:51.694 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.orm.throw.exceptions; default value=true
+Info:   22:35:51.694 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.weaving.changetracking; default value=true
+Info:   22:35:51.695 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.weaving.lazy; default value=true
+Info:   22:35:51.696 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.weaving.eager; default value=false
+Info:   22:35:51.696 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.weaving.fetchgroups; default value=true
+Info:   22:35:51.696 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.weaving.internal; default value=true
+Info:   22:35:51.697 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.weaving.rest; default value=true
+Info:   22:35:51.697 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.weaving.mappedsuperclass; default value=true
+Info:   22:35:51.698 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.multitenant.tenants-share-emf; default value=true
+Info:   22:35:51.698 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.multitenant.tenants-share-cache; default value=false
+Info:   22:35:51.701 TRACE org.eclipse.persistence.logging.metadata(log:132)  - Thread(Thread[admin-listener(2),5,main])--Searching for mapping file: [META-INF/orm.xml] at root URL: [file:/E:/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/].
+Info:   22:35:51.717 TRACE org.eclipse.persistence.logging.metadata(log:132)  - Thread(Thread[admin-listener(2),5,main])--Searching for mapping file: [META-INF/eclipselink-orm.xml] at root URL: [file:/E:/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/].
+Info:   22:35:51.911 INFO  org.eclipse.persistence.logging.metadata(log:138)  - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--The access type for the persistent class [class hu.btsoft.jru.model.entity.JruJrnl] is set to [FIELD].
+Info:   22:35:51.936 INFO  org.eclipse.persistence.logging.metadata(log:138)  - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--The target entity (reference) class for the many to one mapping element [field jruTbl] is being defaulted to: class hu.btsoft.jru.model.entity.JruTbl.
+Info:   22:35:51.936 INFO  org.eclipse.persistence.logging.metadata(log:138)  - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--The access type for the persistent class [class hu.btsoft.jru.model.entity.JruTbl] is set to [FIELD].
+Info:   22:35:51.954 INFO  org.eclipse.persistence.logging.metadata(log:138)  - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--The target entity (reference) class for the one to many mapping element [field jruJrnl] is being defaulted to: class hu.btsoft.jru.model.entity.JruJrnl.
+Info:   22:35:51.959 INFO  org.eclipse.persistence.logging.metadata(log:138)  - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--The alias name for the entity class [class hu.btsoft.jru.model.entity.JruJrnl] is being defaulted to: JruJrnl.
+Info:   22:35:51.977 INFO  org.eclipse.persistence.logging.metadata(log:138)  - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--The alias name for the entity class [class hu.btsoft.jru.model.entity.JruTbl] is being defaulted to: JruTbl.
+Info:   22:35:52.015 TRACE org.eclipse.persistence.logging.weaver(log:132)    - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Class [hu.btsoft.jru.model.entity.JruJrnl] registered to be processed by weaver.
+Info:   22:35:52.026 TRACE org.eclipse.persistence.logging.weaver(log:132)    - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Class [hu.btsoft.jru.model.entity.JruTbl] registered to be processed by weaver.
+Info:   22:35:52.026 INFO  org.eclipse.persistence.logging.weaver(log:138)    - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Class hu.btsoft.jru.model.entity.JruTbl could not be weaved for change tracking as it is not supported by its mappings.
+Info:   22:35:52.141 TRACE org.eclipse.persistence.logging.jpa(log:132)       - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--End predeploying Persistence Unit JruTest-PU; session /file:/E:/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/_JruTest-PU; state Predeployed; factoryCount 1
+Info:   22:35:52.157 TRACE org.eclipse.persistence.logging.metamodel(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Canonical Metamodel class [hu.btsoft.jru.model.entity.JruTbl_] not found during initialization.
+Info:   22:35:52.157 TRACE org.eclipse.persistence.logging.metamodel(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Canonical Metamodel class [hu.btsoft.jru.model.entity.JruJrnl_] not found during initialization.
+Info:   22:35:52.168 TRACE org.eclipse.persistence.logging.jpa(log:132)       - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Begin deploying Persistence Unit JruTest-PU; session /file:/E:/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/_JruTest-PU; state Predeployed; factoryCount 1
+Info:   22:35:52.181 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Begin weaver class transformer processing class [hu/btsoft/jru/model/entity/JruJrnl].
+Info:   22:35:52.194 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Initializing compute class writer for [hu/btsoft/jru/model/entity/JruJrnl]. Class loaders: context [215f1760] argument [215f1760].
+Info:   22:35:52.200 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Visiting the end of the class [hu/btsoft/jru/model/entity/JruJrnl].
+Info:   22:35:52.209 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Adding _persistence_get() method into [hu/btsoft/jru/model/entity/JruJrnl].
+Info:   22:35:52.209 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Adding _persistence_set() method into [hu/btsoft/jru/model/entity/JruJrnl].
+Info:   22:35:52.211 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Weaved persistence (PersistenceEntity) [hu/btsoft/jru/model/entity/JruJrnl].
+Info:   22:35:52.212 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Weaved change tracking (ChangeTracker) [hu/btsoft/jru/model/entity/JruJrnl].
+Info:   22:35:52.212 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Weaved fetch groups (FetchGroupTracker) [hu/btsoft/jru/model/entity/JruJrnl].
+Info:   22:35:52.213 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Weaved REST [hu/btsoft/jru/model/entity/JruJrnl].
+Info:   22:35:52.213 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--End weaver class transformer processing class [hu/btsoft/jru/model/entity/JruJrnl].
+Info:   22:35:52.262 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Begin weaver class transformer processing class [hu/btsoft/jru/model/entity/JruTbl].
+Info:   22:35:52.262 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Initializing compute class writer for [hu/btsoft/jru/model/entity/JruTbl]. Class loaders: context [215f1760] argument [215f1760].
+Info:   22:35:52.274 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Visiting the end of the class [hu/btsoft/jru/model/entity/JruTbl].
+Info:   22:35:52.274 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Adding _persistence_get() method into [hu/btsoft/jru/model/entity/JruTbl].
+Info:   22:35:52.275 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Adding _persistence_set() method into [hu/btsoft/jru/model/entity/JruTbl].
+Info:   22:35:52.277 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Weaved persistence (PersistenceEntity) [hu/btsoft/jru/model/entity/JruTbl].
+Info:   22:35:52.278 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Weaved fetch groups (FetchGroupTracker) [hu/btsoft/jru/model/entity/JruTbl].
+Info:   22:35:52.278 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Weaved REST [hu/btsoft/jru/model/entity/JruTbl].
+Info:   22:35:52.278 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--End weaver class transformer processing class [hu/btsoft/jru/model/entity/JruTbl].
+Info:   22:35:52.312 TRACE org.eclipse.persistence.logging.server(log:132)    - Thread(Thread[admin-listener(2),5,main])--Detected server platform: org.eclipse.persistence.platform.server.glassfish.GlassfishPlatform.
+Info:   22:35:52.312 TRACE org.eclipse.persistence.logging.default(log:132)   - Thread(Thread[admin-listener(2),5,main])--initializing session manager
+Info:   22:35:52.321 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.target-server; value=SunAS9; translated value=org.eclipse.persistence.platform.server.sunas.SunAS9ServerPlatform
+Info:   22:35:52.321 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.logger; value=hu.btsoft.jru.core.jpa.logger.JpaSlf4jLogger
+Info:   22:35:52.321 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.level; value=FINEST; translated value=FINEST
+Info:   22:35:52.322 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.level.sql; value=FINEST; translated value=FINEST
+Info:   22:35:52.322 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.timestamp; value=false
+Info:   22:35:52.322 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.thread; value=true
+Info:   22:35:52.322 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.session; value=true
+Info:   22:35:52.322 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.parameters; value=true
+Info:   22:35:52.322 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.level; value=FINEST; translated value=FINEST
+Info:   22:35:52.323 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.level.sql; value=FINEST; translated value=FINEST
+Info:   22:35:52.323 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.timestamp; value=false
+Info:   22:35:52.324 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.thread; value=true
+Info:   22:35:52.324 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.session; value=true
+Info:   22:35:52.324 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.logging.parameters; value=true
+Info:   22:35:52.324 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.target-database; value=Oracle; translated value=org.eclipse.persistence.platform.database.OraclePlatform
+Info:   22:35:52.326 TRACE rg.eclipse.persistence.logging.properties(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--property=eclipselink.session-event-listener; value=hu.btsoft.jru.core.jpa.sessionevent.JpaSessionEventAdapter
+Info:   22:35:52.338 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Missing class details for [hu/btsoft/jru/core/jpa/sessionevent/JpaSessionEventAdapter].
+Info:   22:35:52.338 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Using existing class bytes for [hu/btsoft/jru/core/jpa/sessionevent/JpaSessionEventAdapter].
+Info:   22:35:52.347 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Missing class details for [hu/btsoft/jru/core/jsf/ThreadLocalMap].
+Info:   22:35:52.347 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Using existing class bytes for [hu/btsoft/jru/core/jsf/ThreadLocalMap].
+Info:   22:35:52.355 TRACE .sessionevent.JpaSessionEventAdapter(preLogin:229) - preLogin: null
+Info:   22:35:52.373 INFO  org.eclipse.persistence.logging.default(log:138)   - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.0.v20170811-d680af5
+Info:   22:35:52.376 INFO  rg.eclipse.persistence.logging.connection(log:138) - ServerSession(1978814097)--Connection(453339839)--Thread(Thread[admin-listener(2),5,main])--connecting(DatabaseLogin(
+	platform=>OraclePlatform
+	user name=> ""
+	connector=>JNDIConnector datasource name=>null
+))
+Info:   Loading application [__admingui] at [/]
+Info:   Loading application __admingui done in 6 380 ms
+Info:   22:35:53.155 TRACE ssionevent.JpaSessionEventAdapter(postConnect:355) - postConnect: null
+Info:   22:35:53.155 INFO  rg.eclipse.persistence.logging.connection(log:138) - ServerSession(1978814097)--Connection(1450814471)--Thread(Thread[admin-listener(2),5,main])--Connected: jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = Test)))
+	User: JPAUSER
+	Database: Oracle  Version: Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+	Driver: Oracle JDBC driver  Version: 12.1.0.1.0
+Info:   22:35:53.168 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(459629739)--Thread(Thread[admin-listener(2),5,main])--Connection acquired from connection pool [read].
+Info:   22:35:53.168 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(459629739)--Thread(Thread[admin-listener(2),5,main])--Connection released to connection pool [read].
+Info:   22:35:53.168 INFO  rg.eclipse.persistence.logging.connection(log:138) - ServerSession(1978814097)--Connection(1424409518)--Thread(Thread[admin-listener(2),5,main])--connecting(DatabaseLogin(
+	platform=>OraclePlatform
+	user name=> ""
+	connector=>JNDIConnector datasource name=>null
+))
+Info:   22:35:53.170 TRACE ssionevent.JpaSessionEventAdapter(postConnect:355) - postConnect: null
+Info:   22:35:53.171 INFO  rg.eclipse.persistence.logging.connection(log:138) - ServerSession(1978814097)--Connection(422169985)--Thread(Thread[admin-listener(2),5,main])--Connected: jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = Test)))
+	User: JPAUSER
+	Database: Oracle  Version: Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+	Driver: Oracle JDBC driver  Version: 12.1.0.1.0
+Info:   22:35:53.172 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--sequencing connected, state is Preallocation_NoTransaction_State
+Info:   22:35:53.172 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--sequence JRU_SEQ: preallocation size 50
+Info:   22:35:53.254 INFO  rg.eclipse.persistence.logging.connection(log:138) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--/file:/E:/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/_JruTest-PU login successful
+Info:   22:35:53.254 TRACE sessionevent.JpaSessionEventAdapter(postLogin:234) - postLogin: null
+Info:   22:35:53.265 TRACE org.eclipse.persistence.logging.server(log:132)    - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--JMX MBeanServer instance found: [com.sun.enterprise.v3.admin.DynamicInterceptor@3622d086], # of beans: [25], domain: [DefaultDomain] at index: [0].
+Info:   22:35:53.268 TRACE org.eclipse.persistence.logging.server(log:132)    - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Registered MBean: org.eclipse.persistence.services.mbean.MBeanDevelopmentServices[TopLink:Name=Development-/file_/E_/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/_JruTest-PU,Type=Configuration] on server com.sun.enterprise.v3.admin.DynamicInterceptor@3622d086
+Info:   22:35:53.269 TRACE org.eclipse.persistence.logging.server(log:132)    - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Registered MBean: org.eclipse.persistence.services.glassfish.MBeanGlassfishRuntimeServices[TopLink:Name=Session(/file_/E_/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/_JruTest-PU)] on server com.sun.enterprise.v3.admin.DynamicInterceptor@3622d086
+Info:   22:35:53.270 TRACE org.eclipse.persistence.logging.server(log:132)    - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--EclipseLink JMX Runtime Services is referencing the [Platform ConversionManager] ClassLoader at: [WebappClassLoader (delegate=true; repositories=WEB-INF/classes/)]
+Info:   22:35:53.271 TRACE org.eclipse.persistence.logging.server(log:132)    - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--The applicationName for the MBean attached to session [/file:/E:/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/_JruTest-PU] is [unknown]
+Info:   22:35:53.271 TRACE org.eclipse.persistence.logging.server(log:132)    - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--The moduleName for the MBean attached to session [/file:/E:/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/_JruTest-PU] is [unknown]
+Info:   22:35:53.273 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Missing class details for [hu/btsoft/jru/model/entity/JruTbl_].
+Info:   22:35:53.273 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Using existing class bytes for [hu/btsoft/jru/model/entity/JruTbl_].
+Info:   22:35:53.278 TRACE org.eclipse.persistence.logging.metamodel(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Canonical Metamodel class [hu.btsoft.jru.model.entity.JruTbl_] found and instantiated during initialization.
+Info:   22:35:53.280 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Missing class details for [hu/btsoft/jru/model/entity/JruJrnl_].
+Info:   22:35:53.280 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[admin-listener(2),5,main])--Using existing class bytes for [hu/btsoft/jru/model/entity/JruJrnl_].
+Info:   22:35:53.293 TRACE org.eclipse.persistence.logging.metamodel(log:132) - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--Canonical Metamodel class [hu.btsoft.jru.model.entity.JruJrnl_] found and instantiated during initialization.
+Info:   22:35:53.293 TRACE org.eclipse.persistence.logging.jpa(log:132)       - ServerSession(1978814097)--Thread(Thread[admin-listener(2),5,main])--End deploying Persistence Unit JruTest-PU; session /file:/E:/Munka/JruTest/target/JruTest-0.0.1/WEB-INF/classes/_JruTest-PU; state Deployed; factoryCount 1
+Info:   Portable JNDI names for EJB EntityService: [java:global/JruTest/EntityService, java:global/JruTest/EntityService!hu.btsoft.jru.model.service.EntityService]
+Info:   WELD-000900: 3.0.0 (Final)
+Info:   WELD-000411: Observer method [BackedAnnotatedMethod] org.glassfish.sse.impl.ServerSentEventCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<T>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+Info:   WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jms.injection.JMSCDIExtension.processAnnotatedType(@Observes ProcessAnnotatedType<T>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+Info:   WELD-000411: Observer method [BackedAnnotatedMethod] private org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider.processAnnotatedType(@Observes ProcessAnnotatedType) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.cdi.transaction.TransactionalInterceptorMandatory is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.cdi.transaction.TransactionalInterceptorNever is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.cdi.transaction.TransactionalInterceptorNotSupported is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.cdi.transaction.TransactionalInterceptorRequired is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.cdi.transaction.TransactionalInterceptorRequiresNew is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.cdi.transaction.TransactionalInterceptorSupports is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class com.ibm.jbatch.container.cdi.BatchProducerBean is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.jersey.ext.cdi1x.servlet.internal.CdiExternalRequestScope is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class com.sun.faces.flow.FlowDiscoveryCDIHelper is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.jersey.ext.cdi1x.transaction.internal.WebAppExceptionHolder is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.jersey.ext.cdi1x.transaction.internal.WebAppExceptionInterceptor is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.jersey.ext.cdi1x.transaction.internal.TransactionalExceptionMapper is deprecated from CDI 1.1!
+WARN:   WELD-000146: BeforeBeanDiscovery.addAnnotatedType(AnnotatedType<?>) used for class org.glassfish.jersey.ext.cdi1x.internal.CdiComponentProvider$JaxRsParamProducer is deprecated from CDI 1.1!
+Info:   Initializing Soteria 1.0 for context '/JruTest'
+Info:   Initializing Mojarra 2.3.2 ( 20170627-2139 e63598abf2ed2bb1a24674f308a734e0dce18a72) for context '/JruTest'
+Info:   Monitoring jndi:/server/JruTest/WEB-INF/faces-config.xml for modifications
+Info:   Running on PrimeFaces 6.1
+Info:   Running on PrimeFaces Extensions 6.1
+Info:   Loading application [JruTest] at [/JruTest]
+Info:   JruTest was successfully deployed in 8 232 milliseconds.
+Info:   22:36:26.576 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:26.576 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('123123213', 'user1')
+Info:   22:36:26.580 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:26.582 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user1
+Info:   22:36:26.582 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(2),5,main])--client acquired: 1680373394
+Info:   22:36:26.589 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user1
+Info:   22:36:26.589 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(943180341)--Thread(Thread[http-listener-1(2),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:26.589 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1680373394)--Thread(Thread[http-listener-1(2),5,main])--acquire unit of work: 943180341
+Info:   22:36:26.597 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(943180341)--Thread(Thread[http-listener-1(2),5,main])--PERSIST operation called on: JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null).
+Info:   22:36:26.598 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.603 TRACE org.eclipse.persistence.logging.query(log:132)     - ClientSession(1680373394)--Thread(Thread[http-listener-1(2),5,main])--Execute query ValueReadQuery(sql="SELECT SCHEMAOWNER.JRU_SEQ.NEXTVAL FROM DUAL")
+Info:   22:36:26.603 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user1
+Info:   22:36:26.604 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1230068771)--Thread(Thread[http-listener-1(2),5,main])--Connection acquired from connection pool [read].
+Info:   22:36:26.605 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(2),5,main])--reconnecting to external connection pool
+Info:   22:36:26.703 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user1
+Info:   22:36:26.726 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user1');  END;
+Info:   22:36:26.726 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ServerSession(1978814097)--Connection(636158965)--Thread(Thread[http-listener-1(2),5,main])--SELECT SCHEMAOWNER.JRU_SEQ.NEXTVAL FROM DUAL
+Info:   22:36:26.777 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user1
+Info:   22:36:26.791 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:26.792 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1230068771)--Thread(Thread[http-listener-1(2),5,main])--Connection released to connection pool [read].
+Info:   22:36:26.792 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user1
+Info:   22:36:26.794 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(2),5,main])--sequencing preallocation for JRU_SEQ: objects: 50 , first: 18, last: 67
+Info:   22:36:26.794 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(943180341)--Thread(Thread[http-listener-1(2),5,main])--assign sequence to the object (18 -> JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:26.795 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.795 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.797 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.797 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:26.811 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(943180341)--Thread(Thread[http-listener-1(2),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:26.811 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(943180341)--Thread(Thread[http-listener-1(2),5,main])--begin unit of work commit
+Info:   22:36:26.811 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user1
+Info:   22:36:26.813 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:26.814 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.816 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.818 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:26.818 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1680373394)--Thread(Thread[http-listener-1(2),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:26.819 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user1
+Info:   22:36:26.819 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user1
+Info:   22:36:26.820 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(943180341)--Thread(Thread[http-listener-1(2),5,main])--Execute query InsertObjectQuery(JruTbl(id=18, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:26.820 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user1
+Info:   22:36:26.820 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.821 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.822 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.823 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(35860655)--Thread(Thread[http-listener-1(2),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:26.824 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1680373394)--Thread(Thread[http-listener-1(2),5,main])--reconnecting to external connection pool
+Info:   22:36:26.826 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user1
+Info:   22:36:26.828 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user1');  END;
+Info:   22:36:26.828 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(1680373394)--Connection(2054190522)--Thread(Thread[http-listener-1(2),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [18, user1, 123123213]
+Info:   22:36:26.831 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user1
+Info:   22:36:26.831 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user1
+Info:   22:36:26.834 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user1
+Info:   22:36:26.834 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user1
+Info:   22:36:26.834 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user1
+Info:   22:36:26.836 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:26.836 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(35860655)--Thread(Thread[http-listener-1(2),5,main])--Connection released to connection pool [default].
+Info:   22:36:26.860 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(943180341)--Thread(Thread[http-listener-1(2),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:26.861 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user1
+Info:   22:36:26.862 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(943180341)--Thread(Thread[http-listener-1(2),5,main])--end unit of work commit
+Info:   22:36:26.862 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.863 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:26.864 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(943180341)--Thread(Thread[http-listener-1(2),5,main])--release unit of work
+Info:   22:36:26.865 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user1
+Info:   22:36:26.865 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user1
+Info:   22:36:26.866 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user1
+Info:   22:36:26.866 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1680373394)--Thread(Thread[http-listener-1(2),5,main])--client released
+Info:   22:36:26.866 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user1
+Info:   22:36:26.867 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:29.663 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:29.663 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('asdasdsds', 'user2')
+Info:   22:36:29.663 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:29.672 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user2
+Info:   22:36:29.672 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(1),5,main])--client acquired: 1919178435
+Info:   22:36:29.672 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user2
+Info:   22:36:29.673 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1618081075)--Thread(Thread[http-listener-1(1),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:29.673 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1919178435)--Thread(Thread[http-listener-1(1),5,main])--acquire unit of work: 1618081075
+Info:   22:36:29.673 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1618081075)--Thread(Thread[http-listener-1(1),5,main])--PERSIST operation called on: JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null).
+Info:   22:36:29.673 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.674 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(1618081075)--Thread(Thread[http-listener-1(1),5,main])--assign sequence to the object (19 -> JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:29.674 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.674 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.674 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.674 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:29.676 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1618081075)--Thread(Thread[http-listener-1(1),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:29.676 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1618081075)--Thread(Thread[http-listener-1(1),5,main])--begin unit of work commit
+Info:   22:36:29.676 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user2
+Info:   22:36:29.677 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:29.677 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.677 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.677 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:29.677 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1919178435)--Thread(Thread[http-listener-1(1),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:29.678 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user2
+Info:   22:36:29.678 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user2
+Info:   22:36:29.678 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(1618081075)--Thread(Thread[http-listener-1(1),5,main])--Execute query InsertObjectQuery(JruTbl(id=19, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:29.679 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user2
+Info:   22:36:29.679 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.680 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.681 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.681 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(71645198)--Thread(Thread[http-listener-1(1),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:29.682 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1919178435)--Thread(Thread[http-listener-1(1),5,main])--reconnecting to external connection pool
+Info:   22:36:29.684 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user2
+Info:   22:36:29.685 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user2');  END;
+Info:   22:36:29.685 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(1919178435)--Connection(1802669528)--Thread(Thread[http-listener-1(1),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [19, user2, asdasdsds]
+Info:   22:36:29.688 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user2
+Info:   22:36:29.688 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user2
+Info:   22:36:29.688 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user2
+Info:   22:36:29.695 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user2
+Info:   22:36:29.695 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user2
+Info:   22:36:29.696 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:29.697 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(71645198)--Thread(Thread[http-listener-1(1),5,main])--Connection released to connection pool [default].
+Info:   22:36:29.698 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1618081075)--Thread(Thread[http-listener-1(1),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:29.698 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user2
+Info:   22:36:29.699 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1618081075)--Thread(Thread[http-listener-1(1),5,main])--end unit of work commit
+Info:   22:36:29.699 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.699 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:29.699 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1618081075)--Thread(Thread[http-listener-1(1),5,main])--release unit of work
+Info:   22:36:29.700 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user2
+Info:   22:36:29.701 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user2
+Info:   22:36:29.701 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user2
+Info:   22:36:29.701 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1919178435)--Thread(Thread[http-listener-1(1),5,main])--client released
+Info:   22:36:29.701 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user2
+Info:   22:36:29.701 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:31.261 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:31.261 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('123123213', 'user1')
+Info:   22:36:31.261 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:31.261 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user1
+Info:   22:36:31.271 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(5),5,main])--client acquired: 1919423811
+Info:   22:36:31.271 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user1
+Info:   22:36:31.271 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(2028385809)--Thread(Thread[http-listener-1(5),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:31.272 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1919423811)--Thread(Thread[http-listener-1(5),5,main])--acquire unit of work: 2028385809
+Info:   22:36:31.273 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(2028385809)--Thread(Thread[http-listener-1(5),5,main])--PERSIST operation called on: JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null).
+Info:   22:36:31.273 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.273 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(2028385809)--Thread(Thread[http-listener-1(5),5,main])--assign sequence to the object (20 -> JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:31.273 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.273 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.274 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.274 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:31.274 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(2028385809)--Thread(Thread[http-listener-1(5),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:31.274 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(2028385809)--Thread(Thread[http-listener-1(5),5,main])--begin unit of work commit
+Info:   22:36:31.274 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user1
+Info:   22:36:31.275 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:31.275 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.275 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.275 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:31.275 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1919423811)--Thread(Thread[http-listener-1(5),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:31.275 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user1
+Info:   22:36:31.275 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user1
+Info:   22:36:31.276 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(2028385809)--Thread(Thread[http-listener-1(5),5,main])--Execute query InsertObjectQuery(JruTbl(id=20, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:31.277 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user1
+Info:   22:36:31.277 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.277 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.278 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.278 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1863146290)--Thread(Thread[http-listener-1(5),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:31.279 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1919423811)--Thread(Thread[http-listener-1(5),5,main])--reconnecting to external connection pool
+Info:   22:36:31.279 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user1
+Info:   22:36:31.280 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user1');  END;
+Info:   22:36:31.280 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(1919423811)--Connection(571879164)--Thread(Thread[http-listener-1(5),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [20, user1, 123123213]
+Info:   22:36:31.345 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user1
+Info:   22:36:31.345 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user1
+Info:   22:36:31.345 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user1
+Info:   22:36:31.353 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user1
+Info:   22:36:31.353 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user1
+Info:   22:36:31.354 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:31.355 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1863146290)--Thread(Thread[http-listener-1(5),5,main])--Connection released to connection pool [default].
+Info:   22:36:31.356 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(2028385809)--Thread(Thread[http-listener-1(5),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:31.357 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user1
+Info:   22:36:31.357 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(2028385809)--Thread(Thread[http-listener-1(5),5,main])--end unit of work commit
+Info:   22:36:31.358 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.358 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:31.359 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(2028385809)--Thread(Thread[http-listener-1(5),5,main])--release unit of work
+Info:   22:36:31.360 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user1
+Info:   22:36:31.360 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user1
+Info:   22:36:31.361 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user1
+Info:   22:36:31.361 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1919423811)--Thread(Thread[http-listener-1(5),5,main])--client released
+Info:   22:36:31.362 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user1
+Info:   22:36:31.362 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:32.842 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:32.842 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('asdasdsds', 'user2')
+Info:   22:36:32.842 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:32.844 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user2
+Info:   22:36:32.844 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(3),5,main])--client acquired: 1457836822
+Info:   22:36:32.845 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user2
+Info:   22:36:32.846 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1465793084)--Thread(Thread[http-listener-1(3),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:32.846 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1457836822)--Thread(Thread[http-listener-1(3),5,main])--acquire unit of work: 1465793084
+Info:   22:36:32.846 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1465793084)--Thread(Thread[http-listener-1(3),5,main])--PERSIST operation called on: JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null).
+Info:   22:36:32.846 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.847 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(1465793084)--Thread(Thread[http-listener-1(3),5,main])--assign sequence to the object (21 -> JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:32.847 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.847 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.847 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.847 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:32.848 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1465793084)--Thread(Thread[http-listener-1(3),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:32.848 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1465793084)--Thread(Thread[http-listener-1(3),5,main])--begin unit of work commit
+Info:   22:36:32.848 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user2
+Info:   22:36:32.849 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:32.849 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.849 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.850 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:32.850 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1457836822)--Thread(Thread[http-listener-1(3),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:32.850 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user2
+Info:   22:36:32.850 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user2
+Info:   22:36:32.850 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(1465793084)--Thread(Thread[http-listener-1(3),5,main])--Execute query InsertObjectQuery(JruTbl(id=21, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:32.850 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user2
+Info:   22:36:32.851 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.851 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.851 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.851 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(785472133)--Thread(Thread[http-listener-1(3),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:32.851 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1457836822)--Thread(Thread[http-listener-1(3),5,main])--reconnecting to external connection pool
+Info:   22:36:32.852 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user2
+Info:   22:36:32.853 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user2');  END;
+Info:   22:36:32.853 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(1457836822)--Connection(142088889)--Thread(Thread[http-listener-1(3),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [21, user2, asdasdsds]
+Info:   22:36:32.854 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user2
+Info:   22:36:32.855 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user2
+Info:   22:36:32.855 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user2
+Info:   22:36:32.855 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user2
+Info:   22:36:32.855 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user2
+Info:   22:36:32.856 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:32.856 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(785472133)--Thread(Thread[http-listener-1(3),5,main])--Connection released to connection pool [default].
+Info:   22:36:32.874 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1465793084)--Thread(Thread[http-listener-1(3),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:32.874 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user2
+Info:   22:36:32.874 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1465793084)--Thread(Thread[http-listener-1(3),5,main])--end unit of work commit
+Info:   22:36:32.874 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.884 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:32.884 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1465793084)--Thread(Thread[http-listener-1(3),5,main])--release unit of work
+Info:   22:36:32.884 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user2
+Info:   22:36:32.885 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user2
+Info:   22:36:32.885 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user2
+Info:   22:36:32.885 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1457836822)--Thread(Thread[http-listener-1(3),5,main])--client released
+Info:   22:36:32.885 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user2
+Info:   22:36:32.885 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:34.310 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:34.310 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('123123213', 'user1')
+Info:   22:36:34.310 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:34.310 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user1
+Info:   22:36:34.326 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(1),5,main])--client acquired: 110352730
+Info:   22:36:34.326 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user1
+Info:   22:36:34.327 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1568924774)--Thread(Thread[http-listener-1(1),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:34.327 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(110352730)--Thread(Thread[http-listener-1(1),5,main])--acquire unit of work: 1568924774
+Info:   22:36:34.328 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1568924774)--Thread(Thread[http-listener-1(1),5,main])--PERSIST operation called on: JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null).
+Info:   22:36:34.329 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.329 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(1568924774)--Thread(Thread[http-listener-1(1),5,main])--assign sequence to the object (22 -> JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:34.329 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.329 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.330 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.330 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:34.330 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1568924774)--Thread(Thread[http-listener-1(1),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:34.330 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1568924774)--Thread(Thread[http-listener-1(1),5,main])--begin unit of work commit
+Info:   22:36:34.330 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user1
+Info:   22:36:34.330 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:34.331 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.331 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.332 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:34.332 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(110352730)--Thread(Thread[http-listener-1(1),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:34.332 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user1
+Info:   22:36:34.332 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user1
+Info:   22:36:34.332 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(1568924774)--Thread(Thread[http-listener-1(1),5,main])--Execute query InsertObjectQuery(JruTbl(id=22, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:34.332 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user1
+Info:   22:36:34.333 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.333 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.333 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.333 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1810744255)--Thread(Thread[http-listener-1(1),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:34.333 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(110352730)--Thread(Thread[http-listener-1(1),5,main])--reconnecting to external connection pool
+Info:   22:36:34.334 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user1
+Info:   22:36:34.334 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user1');  END;
+Info:   22:36:34.334 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(110352730)--Connection(688892528)--Thread(Thread[http-listener-1(1),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [22, user1, 123123213]
+Info:   22:36:34.335 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user1
+Info:   22:36:34.337 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user1
+Info:   22:36:34.337 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user1
+Info:   22:36:34.337 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user1
+Info:   22:36:34.337 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user1
+Info:   22:36:34.338 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:34.338 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1810744255)--Thread(Thread[http-listener-1(1),5,main])--Connection released to connection pool [default].
+Info:   22:36:34.340 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1568924774)--Thread(Thread[http-listener-1(1),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:34.340 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user1
+Info:   22:36:34.340 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1568924774)--Thread(Thread[http-listener-1(1),5,main])--end unit of work commit
+Info:   22:36:34.342 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.342 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:34.342 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1568924774)--Thread(Thread[http-listener-1(1),5,main])--release unit of work
+Info:   22:36:34.343 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user1
+Info:   22:36:34.343 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user1
+Info:   22:36:34.343 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user1
+Info:   22:36:34.343 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(110352730)--Thread(Thread[http-listener-1(1),5,main])--client released
+Info:   22:36:34.343 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user1
+Info:   22:36:34.343 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:35.516 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:35.516 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('asdasdsds', 'user2')
+Info:   22:36:35.516 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:35.530 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user2
+Info:   22:36:35.530 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(4),5,main])--client acquired: 1855641720
+Info:   22:36:35.531 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user2
+Info:   22:36:35.531 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1124635039)--Thread(Thread[http-listener-1(4),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:35.531 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1855641720)--Thread(Thread[http-listener-1(4),5,main])--acquire unit of work: 1124635039
+Info:   22:36:35.531 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1124635039)--Thread(Thread[http-listener-1(4),5,main])--PERSIST operation called on: JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null).
+Info:   22:36:35.532 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.532 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(1124635039)--Thread(Thread[http-listener-1(4),5,main])--assign sequence to the object (23 -> JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:35.532 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.532 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.533 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.534 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:35.534 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1124635039)--Thread(Thread[http-listener-1(4),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:35.534 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1124635039)--Thread(Thread[http-listener-1(4),5,main])--begin unit of work commit
+Info:   22:36:35.534 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user2
+Info:   22:36:35.534 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:35.534 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.535 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.535 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:35.535 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1855641720)--Thread(Thread[http-listener-1(4),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:35.535 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user2
+Info:   22:36:35.535 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user2
+Info:   22:36:35.535 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(1124635039)--Thread(Thread[http-listener-1(4),5,main])--Execute query InsertObjectQuery(JruTbl(id=23, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:35.535 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user2
+Info:   22:36:35.536 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.536 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.536 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.536 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(2049768128)--Thread(Thread[http-listener-1(4),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:35.537 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1855641720)--Thread(Thread[http-listener-1(4),5,main])--reconnecting to external connection pool
+Info:   22:36:35.537 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user2
+Info:   22:36:35.537 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user2');  END;
+Info:   22:36:35.539 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(1855641720)--Connection(2100238451)--Thread(Thread[http-listener-1(4),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [23, user2, asdasdsds]
+Info:   22:36:35.540 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user2
+Info:   22:36:35.540 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user2
+Info:   22:36:35.540 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user2
+Info:   22:36:35.540 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user2
+Info:   22:36:35.540 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user2
+Info:   22:36:35.541 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:35.541 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(2049768128)--Thread(Thread[http-listener-1(4),5,main])--Connection released to connection pool [default].
+Info:   22:36:35.542 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1124635039)--Thread(Thread[http-listener-1(4),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:35.544 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user2
+Info:   22:36:35.544 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1124635039)--Thread(Thread[http-listener-1(4),5,main])--end unit of work commit
+Info:   22:36:35.544 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.544 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:35.545 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1124635039)--Thread(Thread[http-listener-1(4),5,main])--release unit of work
+Info:   22:36:35.545 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user2
+Info:   22:36:35.545 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user2
+Info:   22:36:35.545 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user2
+Info:   22:36:35.545 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1855641720)--Thread(Thread[http-listener-1(4),5,main])--client released
+Info:   22:36:35.545 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user2
+Info:   22:36:35.545 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:36.842 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:36.842 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('123123213', 'user1')
+Info:   22:36:36.842 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:36.842 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user1
+Info:   22:36:36.846 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(2),5,main])--client acquired: 296076131
+Info:   22:36:36.846 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user1
+Info:   22:36:36.846 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1482958585)--Thread(Thread[http-listener-1(2),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:36.846 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(296076131)--Thread(Thread[http-listener-1(2),5,main])--acquire unit of work: 1482958585
+Info:   22:36:36.847 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1482958585)--Thread(Thread[http-listener-1(2),5,main])--PERSIST operation called on: JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null).
+Info:   22:36:36.847 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.847 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(1482958585)--Thread(Thread[http-listener-1(2),5,main])--assign sequence to the object (24 -> JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:36.847 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.847 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.848 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.848 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:36.848 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1482958585)--Thread(Thread[http-listener-1(2),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:36.848 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1482958585)--Thread(Thread[http-listener-1(2),5,main])--begin unit of work commit
+Info:   22:36:36.848 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user1
+Info:   22:36:36.848 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:36.848 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.848 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.850 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:36.850 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(296076131)--Thread(Thread[http-listener-1(2),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:36.850 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user1
+Info:   22:36:36.850 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user1
+Info:   22:36:36.850 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(1482958585)--Thread(Thread[http-listener-1(2),5,main])--Execute query InsertObjectQuery(JruTbl(id=24, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:36.850 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user1
+Info:   22:36:36.850 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.850 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.850 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.851 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1330095304)--Thread(Thread[http-listener-1(2),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:36.851 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(296076131)--Thread(Thread[http-listener-1(2),5,main])--reconnecting to external connection pool
+Info:   22:36:36.851 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user1
+Info:   22:36:36.852 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user1');  END;
+Info:   22:36:36.852 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(296076131)--Connection(921505847)--Thread(Thread[http-listener-1(2),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [24, user1, 123123213]
+Info:   22:36:36.854 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user1
+Info:   22:36:36.854 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user1
+Info:   22:36:36.854 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user1
+Info:   22:36:36.855 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user1
+Info:   22:36:36.855 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user1
+Info:   22:36:36.855 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:36.856 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1330095304)--Thread(Thread[http-listener-1(2),5,main])--Connection released to connection pool [default].
+Info:   22:36:36.859 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1482958585)--Thread(Thread[http-listener-1(2),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:36.859 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user1
+Info:   22:36:36.860 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1482958585)--Thread(Thread[http-listener-1(2),5,main])--end unit of work commit
+Info:   22:36:36.860 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.860 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:36.861 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1482958585)--Thread(Thread[http-listener-1(2),5,main])--release unit of work
+Info:   22:36:36.861 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user1
+Info:   22:36:36.861 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user1
+Info:   22:36:36.861 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user1
+Info:   22:36:36.861 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(296076131)--Thread(Thread[http-listener-1(2),5,main])--client released
+Info:   22:36:36.861 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user1
+Info:   22:36:36.861 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:38.190 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:38.190 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('asdasdsds', 'user2')
+Info:   22:36:38.190 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:38.190 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user2
+Info:   22:36:38.199 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(5),5,main])--client acquired: 931920874
+Info:   22:36:38.199 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user2
+Info:   22:36:38.199 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(928320133)--Thread(Thread[http-listener-1(5),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:38.199 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(931920874)--Thread(Thread[http-listener-1(5),5,main])--acquire unit of work: 928320133
+Info:   22:36:38.200 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(928320133)--Thread(Thread[http-listener-1(5),5,main])--PERSIST operation called on: JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null).
+Info:   22:36:38.200 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.200 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(928320133)--Thread(Thread[http-listener-1(5),5,main])--assign sequence to the object (25 -> JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:38.200 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.200 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.201 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.201 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:38.201 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(928320133)--Thread(Thread[http-listener-1(5),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:38.201 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(928320133)--Thread(Thread[http-listener-1(5),5,main])--begin unit of work commit
+Info:   22:36:38.201 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user2
+Info:   22:36:38.201 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:38.201 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.202 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.203 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:38.203 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(931920874)--Thread(Thread[http-listener-1(5),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:38.203 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user2
+Info:   22:36:38.203 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user2
+Info:   22:36:38.203 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(928320133)--Thread(Thread[http-listener-1(5),5,main])--Execute query InsertObjectQuery(JruTbl(id=25, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:38.203 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user2
+Info:   22:36:38.204 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.204 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.204 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.204 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(884106753)--Thread(Thread[http-listener-1(5),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:38.204 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(931920874)--Thread(Thread[http-listener-1(5),5,main])--reconnecting to external connection pool
+Info:   22:36:38.204 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user2
+Info:   22:36:38.205 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user2');  END;
+Info:   22:36:38.205 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(931920874)--Connection(724321072)--Thread(Thread[http-listener-1(5),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [25, user2, asdasdsds]
+Info:   22:36:38.207 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user2
+Info:   22:36:38.207 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user2
+Info:   22:36:38.208 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user2
+Info:   22:36:38.208 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user2
+Info:   22:36:38.208 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user2
+Info:   22:36:38.209 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:38.209 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(884106753)--Thread(Thread[http-listener-1(5),5,main])--Connection released to connection pool [default].
+Info:   22:36:38.212 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(928320133)--Thread(Thread[http-listener-1(5),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:38.212 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user2
+Info:   22:36:38.212 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(928320133)--Thread(Thread[http-listener-1(5),5,main])--end unit of work commit
+Info:   22:36:38.213 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.213 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.213 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(928320133)--Thread(Thread[http-listener-1(5),5,main])--release unit of work
+Info:   22:36:38.213 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user2
+Info:   22:36:38.213 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user2
+Info:   22:36:38.214 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user2
+Info:   22:36:38.214 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(931920874)--Thread(Thread[http-listener-1(5),5,main])--client released
+Info:   22:36:38.214 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user2
+Info:   22:36:38.214 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:38.567 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:38.567 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('asdasdsds', 'user2')
+Info:   22:36:38.567 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:38.567 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user2
+Info:   22:36:38.581 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(3),5,main])--client acquired: 1209479633
+Info:   22:36:38.581 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user2
+Info:   22:36:38.581 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(195748088)--Thread(Thread[http-listener-1(3),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:38.581 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1209479633)--Thread(Thread[http-listener-1(3),5,main])--acquire unit of work: 195748088
+Info:   22:36:38.582 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(195748088)--Thread(Thread[http-listener-1(3),5,main])--PERSIST operation called on: JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null).
+Info:   22:36:38.582 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.582 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(195748088)--Thread(Thread[http-listener-1(3),5,main])--assign sequence to the object (26 -> JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:38.582 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.583 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.583 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.583 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:38.583 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(195748088)--Thread(Thread[http-listener-1(3),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:38.583 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(195748088)--Thread(Thread[http-listener-1(3),5,main])--begin unit of work commit
+Info:   22:36:38.583 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user2
+Info:   22:36:38.584 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:38.584 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.584 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.584 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:38.584 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1209479633)--Thread(Thread[http-listener-1(3),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:38.585 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user2
+Info:   22:36:38.585 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user2
+Info:   22:36:38.585 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(195748088)--Thread(Thread[http-listener-1(3),5,main])--Execute query InsertObjectQuery(JruTbl(id=26, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:38.585 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user2
+Info:   22:36:38.585 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.585 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.586 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.586 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(607694684)--Thread(Thread[http-listener-1(3),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:38.586 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1209479633)--Thread(Thread[http-listener-1(3),5,main])--reconnecting to external connection pool
+Info:   22:36:38.587 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user2
+Info:   22:36:38.587 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user2');  END;
+Info:   22:36:38.588 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(1209479633)--Connection(2026452483)--Thread(Thread[http-listener-1(3),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [26, user2, asdasdsds]
+Info:   22:36:38.589 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user2
+Info:   22:36:38.589 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user2
+Info:   22:36:38.590 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user2
+Info:   22:36:38.590 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user2
+Info:   22:36:38.590 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user2
+Info:   22:36:38.591 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:38.591 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(607694684)--Thread(Thread[http-listener-1(3),5,main])--Connection released to connection pool [default].
+Info:   22:36:38.594 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(195748088)--Thread(Thread[http-listener-1(3),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:38.594 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user2
+Info:   22:36:38.595 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(195748088)--Thread(Thread[http-listener-1(3),5,main])--end unit of work commit
+Info:   22:36:38.595 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.595 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(3),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:38.596 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(195748088)--Thread(Thread[http-listener-1(3),5,main])--release unit of work
+Info:   22:36:38.596 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user2
+Info:   22:36:38.596 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user2
+Info:   22:36:38.596 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user2
+Info:   22:36:38.596 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1209479633)--Thread(Thread[http-listener-1(3),5,main])--client released
+Info:   22:36:38.597 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user2
+Info:   22:36:38.597 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:40.221 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:40.221 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('123123213', 'user1')
+Info:   22:36:40.221 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:40.221 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user1
+Info:   22:36:40.229 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(1),5,main])--client acquired: 1882871247
+Info:   22:36:40.229 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user1
+Info:   22:36:40.229 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1235027262)--Thread(Thread[http-listener-1(1),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:40.229 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1882871247)--Thread(Thread[http-listener-1(1),5,main])--acquire unit of work: 1235027262
+Info:   22:36:40.229 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1235027262)--Thread(Thread[http-listener-1(1),5,main])--PERSIST operation called on: JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null).
+Info:   22:36:40.230 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.230 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(1235027262)--Thread(Thread[http-listener-1(1),5,main])--assign sequence to the object (27 -> JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:40.230 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.230 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.230 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.230 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:40.230 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1235027262)--Thread(Thread[http-listener-1(1),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:40.231 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1235027262)--Thread(Thread[http-listener-1(1),5,main])--begin unit of work commit
+Info:   22:36:40.231 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user1
+Info:   22:36:40.231 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:40.232 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.232 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.232 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:40.232 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1882871247)--Thread(Thread[http-listener-1(1),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:40.232 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user1
+Info:   22:36:40.232 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user1
+Info:   22:36:40.233 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(1235027262)--Thread(Thread[http-listener-1(1),5,main])--Execute query InsertObjectQuery(JruTbl(id=27, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:40.233 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user1
+Info:   22:36:40.233 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.233 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.233 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.233 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1539212181)--Thread(Thread[http-listener-1(1),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:40.233 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1882871247)--Thread(Thread[http-listener-1(1),5,main])--reconnecting to external connection pool
+Info:   22:36:40.234 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user1
+Info:   22:36:40.234 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user1');  END;
+Info:   22:36:40.234 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(1882871247)--Connection(2049689897)--Thread(Thread[http-listener-1(1),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [27, user1, 123123213]
+Info:   22:36:40.235 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user1
+Info:   22:36:40.235 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user1
+Info:   22:36:40.235 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user1
+Info:   22:36:40.236 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user1
+Info:   22:36:40.236 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user1
+Info:   22:36:40.236 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:40.237 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1539212181)--Thread(Thread[http-listener-1(1),5,main])--Connection released to connection pool [default].
+Info:   22:36:40.239 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1235027262)--Thread(Thread[http-listener-1(1),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:40.240 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user1
+Info:   22:36:40.241 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1235027262)--Thread(Thread[http-listener-1(1),5,main])--end unit of work commit
+Info:   22:36:40.241 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.242 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(1),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.242 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1235027262)--Thread(Thread[http-listener-1(1),5,main])--release unit of work
+Info:   22:36:40.242 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user1
+Info:   22:36:40.242 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user1
+Info:   22:36:40.243 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user1
+Info:   22:36:40.243 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1882871247)--Thread(Thread[http-listener-1(1),5,main])--client released
+Info:   22:36:40.243 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user1
+Info:   22:36:40.243 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:40.409 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:40.409 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('123123213', 'user1')
+Info:   22:36:40.409 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:40.409 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user1
+Info:   22:36:40.413 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(4),5,main])--client acquired: 1375608572
+Info:   22:36:40.413 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user1
+Info:   22:36:40.413 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1212356726)--Thread(Thread[http-listener-1(4),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:40.414 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1375608572)--Thread(Thread[http-listener-1(4),5,main])--acquire unit of work: 1212356726
+Info:   22:36:40.414 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1212356726)--Thread(Thread[http-listener-1(4),5,main])--PERSIST operation called on: JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null).
+Info:   22:36:40.415 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.415 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(1212356726)--Thread(Thread[http-listener-1(4),5,main])--assign sequence to the object (28 -> JruTbl(id=null, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:40.415 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.416 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.416 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.416 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:40.416 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1212356726)--Thread(Thread[http-listener-1(4),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:40.417 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1212356726)--Thread(Thread[http-listener-1(4),5,main])--begin unit of work commit
+Info:   22:36:40.417 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user1
+Info:   22:36:40.417 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:40.417 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.417 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.418 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user1
+Info:   22:36:40.418 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1375608572)--Thread(Thread[http-listener-1(4),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:40.419 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user1
+Info:   22:36:40.419 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user1
+Info:   22:36:40.419 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(1212356726)--Thread(Thread[http-listener-1(4),5,main])--Execute query InsertObjectQuery(JruTbl(id=28, testData=123123213, jpaUser=user1, jruJrnl=null))
+Info:   22:36:40.419 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user1
+Info:   22:36:40.420 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.420 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.420 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.420 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(312994733)--Thread(Thread[http-listener-1(4),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:40.422 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1375608572)--Thread(Thread[http-listener-1(4),5,main])--reconnecting to external connection pool
+Info:   22:36:40.422 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user1
+Info:   22:36:40.423 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user1');  END;
+Info:   22:36:40.423 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(1375608572)--Connection(1115148583)--Thread(Thread[http-listener-1(4),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [28, user1, 123123213]
+Info:   22:36:40.424 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user1
+Info:   22:36:40.425 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user1
+Info:   22:36:40.426 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user1
+Info:   22:36:40.426 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user1
+Info:   22:36:40.426 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user1
+Info:   22:36:40.427 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:40.427 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(312994733)--Thread(Thread[http-listener-1(4),5,main])--Connection released to connection pool [default].
+Info:   22:36:40.430 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1212356726)--Thread(Thread[http-listener-1(4),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:40.430 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user1
+Info:   22:36:40.432 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1212356726)--Thread(Thread[http-listener-1(4),5,main])--end unit of work commit
+Info:   22:36:40.432 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.432 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(4),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:40.433 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1212356726)--Thread(Thread[http-listener-1(4),5,main])--release unit of work
+Info:   22:36:40.433 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user1
+Info:   22:36:40.433 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user1
+Info:   22:36:40.433 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user1
+Info:   22:36:40.433 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1375608572)--Thread(Thread[http-listener-1(4),5,main])--client released
+Info:   22:36:40.433 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user1
+Info:   22:36:40.434 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:42.357 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:42.357 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('asdasdsds', 'user2')
+Info:   22:36:42.357 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:42.357 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user2
+Info:   22:36:42.368 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(2),5,main])--client acquired: 106758603
+Info:   22:36:42.368 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user2
+Info:   22:36:42.369 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1422037703)--Thread(Thread[http-listener-1(2),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:42.369 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(106758603)--Thread(Thread[http-listener-1(2),5,main])--acquire unit of work: 1422037703
+Info:   22:36:42.369 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1422037703)--Thread(Thread[http-listener-1(2),5,main])--PERSIST operation called on: JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null).
+Info:   22:36:42.369 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.369 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(1422037703)--Thread(Thread[http-listener-1(2),5,main])--assign sequence to the object (29 -> JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:42.370 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.370 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.370 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.370 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:42.371 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1422037703)--Thread(Thread[http-listener-1(2),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:42.372 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1422037703)--Thread(Thread[http-listener-1(2),5,main])--begin unit of work commit
+Info:   22:36:42.372 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user2
+Info:   22:36:42.372 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:42.372 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.373 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.373 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:42.373 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(106758603)--Thread(Thread[http-listener-1(2),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:42.374 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user2
+Info:   22:36:42.374 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user2
+Info:   22:36:42.375 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(1422037703)--Thread(Thread[http-listener-1(2),5,main])--Execute query InsertObjectQuery(JruTbl(id=29, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:42.376 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user2
+Info:   22:36:42.376 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.377 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.377 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.377 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(53982629)--Thread(Thread[http-listener-1(2),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:42.377 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(106758603)--Thread(Thread[http-listener-1(2),5,main])--reconnecting to external connection pool
+Info:   22:36:42.378 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user2
+Info:   22:36:42.379 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user2');  END;
+Info:   22:36:42.379 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(106758603)--Connection(1134775214)--Thread(Thread[http-listener-1(2),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [29, user2, asdasdsds]
+Info:   22:36:42.382 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user2
+Info:   22:36:42.382 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user2
+Info:   22:36:42.382 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user2
+Info:   22:36:42.384 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user2
+Info:   22:36:42.384 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user2
+Info:   22:36:42.384 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:42.385 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(53982629)--Thread(Thread[http-listener-1(2),5,main])--Connection released to connection pool [default].
+Info:   22:36:42.386 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1422037703)--Thread(Thread[http-listener-1(2),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:42.386 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user2
+Info:   22:36:42.386 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1422037703)--Thread(Thread[http-listener-1(2),5,main])--end unit of work commit
+Info:   22:36:42.386 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.387 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(2),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.387 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1422037703)--Thread(Thread[http-listener-1(2),5,main])--release unit of work
+Info:   22:36:42.387 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user2
+Info:   22:36:42.387 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user2
+Info:   22:36:42.388 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user2
+Info:   22:36:42.389 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(106758603)--Thread(Thread[http-listener-1(2),5,main])--client released
+Info:   22:36:42.389 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user2
+Info:   22:36:42.389 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null
+Info:   22:36:42.514 TRACE .btsoft.jru.model.service.EntityService(doTest:45) - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   22:36:42.514 TRACE .btsoft.jru.model.service.EntityService(doTest:46) - doTest('asdasdsds', 'user2')
+Info:   22:36:42.514 TRACE .btsoft.jru.model.service.EntityService(doTest:48) - ThreadLocalMap[clientIdentifier]: null
+Info:   22:36:42.514 TRACE aSessionEventAdapter(postAcquireClientSession:153) - postAcquireClientSession: user2
+Info:   22:36:42.518 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Thread(Thread[http-listener-1(5),5,main])--client acquired: 1407193479
+Info:   22:36:42.518 TRACE .JpaSessionEventAdapter(postAcquireUnitOfWork:350) - postAcquireUnitOfWork: user2
+Info:   22:36:42.518 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1580338512)--Thread(Thread[http-listener-1(5),5,main])--TX binding to tx mgr, status=STATUS_ACTIVE
+Info:   22:36:42.518 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1407193479)--Thread(Thread[http-listener-1(5),5,main])--acquire unit of work: 1580338512
+Info:   22:36:42.519 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1580338512)--Thread(Thread[http-listener-1(5),5,main])--PERSIST operation called on: JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null).
+Info:   22:36:42.519 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.519 TRACE rg.eclipse.persistence.logging.sequencing(log:132) - UnitOfWork(1580338512)--Thread(Thread[http-listener-1(5),5,main])--assign sequence to the object (30 -> JruTbl(id=null, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:42.519 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.520 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.520 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.520 TRACE .btsoft.jru.model.service.EntityService(doTest:58) - doTest end
+Info:   22:36:42.520 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1580338512)--Thread(Thread[http-listener-1(5),5,main])--TX beforeCompletion callback, status=STATUS_ACTIVE
+Info:   22:36:42.521 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1580338512)--Thread(Thread[http-listener-1(5),5,main])--begin unit of work commit
+Info:   22:36:42.521 TRACE nt.JpaSessionEventAdapter(preCommitUnitOfWork:329) - preCommitUnitOfWork: user2
+Info:   22:36:42.521 TRACE nEventAdapter(preCalculateUnitOfWorkChangeSet:319) - preCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:42.522 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.522 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.522 TRACE EventAdapter(postCalculateUnitOfWorkChangeSet:324) - postCalculateUnitOfWorkChangeSet: user2
+Info:   22:36:42.523 TRACE g.eclipse.persistence.logging.transaction(log:132) - ClientSession(1407193479)--Thread(Thread[http-listener-1(5),5,main])--TX beginTransaction, status=STATUS_ACTIVE
+Info:   22:36:42.524 TRACE nt.JpaSessionEventAdapter(preBeginTransaction:299) - preBeginTransaction: user2
+Info:   22:36:42.524 TRACE t.JpaSessionEventAdapter(postBeginTransaction:304) - postBeginTransaction: user2
+Info:   22:36:42.524 TRACE org.eclipse.persistence.logging.query(log:132)     - UnitOfWork(1580338512)--Thread(Thread[http-listener-1(5),5,main])--Execute query InsertObjectQuery(JruTbl(id=30, testData=asdasdsds, jpaUser=user2, jruJrnl=null))
+Info:   22:36:42.525 TRACE nevent.JpaSessionEventAdapter(preExecuteQuery:289) - preExecuteQuery: user2
+Info:   22:36:42.525 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.525 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.526 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.526 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1651218209)--Thread(Thread[http-listener-1(5),5,main])--Connection acquired from connection pool [default].
+Info:   22:36:42.528 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1407193479)--Thread(Thread[http-listener-1(5),5,main])--reconnecting to external connection pool
+Info:   22:36:42.529 TRACE .JpaSessionEventAdapter(postAcquireConnection:193) - postAcquireConnection: user2
+Info:   22:36:42.530 TRACE ssionevent.JpaSessionEventAdapter(setClientId:101) - SQL: BEGIN DBMS_SESSION.SET_IDENTIFIER('user2');  END;
+Info:   22:36:42.530 DEBUG org.eclipse.persistence.logging.sql(log:135)       - ClientSession(1407193479)--Connection(1722998537)--Thread(Thread[http-listener-1(5),5,main])--INSERT INTO SCHEMAOWNER.JRU_TBL (ID, JPA_USER, TXT) VALUES (?, ?, ?)
+	bind => [30, user2, asdasdsds]
+Info:   22:36:42.532 TRACE event.JpaSessionEventAdapter(postExecuteQuery:294) - postExecuteQuery: user2
+Info:   22:36:42.533 TRACE vent.JpaSessionEventAdapter(prepareUnitOfWork:361) - prepareUnitOfWork: user2
+Info:   22:36:42.533 TRACE t.JpaSessionEventAdapter(preCommitTransaction:309) - preCommitTransaction: user2
+Info:   22:36:42.533 TRACE .JpaSessionEventAdapter(postCommitTransaction:314) - postCommitTransaction: user2
+Info:   22:36:42.533 TRACE t.JpaSessionEventAdapter(preReleaseConnection:208) - preReleaseConnection: user2
+Info:   22:36:42.534 TRACE ionevent.JpaSessionEventAdapter(clearClientid:134) - SQL: BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;
+Info:   22:36:42.534 TRACE rg.eclipse.persistence.logging.connection(log:132) - ServerSession(1978814097)--Connection(1651218209)--Thread(Thread[http-listener-1(5),5,main])--Connection released to connection pool [default].
+Info:   22:36:42.537 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1580338512)--Thread(Thread[http-listener-1(5),5,main])--TX afterCompletion callback, status=COMMITTED
+Info:   22:36:42.537 TRACE t.JpaSessionEventAdapter(postCommitUnitOfWork:334) - postCommitUnitOfWork: user2
+Info:   22:36:42.537 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1580338512)--Thread(Thread[http-listener-1(5),5,main])--end unit of work commit
+Info:   22:36:42.537 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_get. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.537 TRACE org.eclipse.persistence.logging.weaver(log:132)    - Thread(Thread[http-listener-1(5),5,main])--Calling [hu.btsoft.jru.model.entity.JruTbl]._persistence_set. Class loaders: context [215f1760], instance [215f1760]
+Info:   22:36:42.538 TRACE g.eclipse.persistence.logging.transaction(log:132) - UnitOfWork(1580338512)--Thread(Thread[http-listener-1(5),5,main])--release unit of work
+Info:   22:36:42.538 TRACE t.JpaSessionEventAdapter(preReleaseUnitOfWork:279) - preReleaseUnitOfWork: user2
+Info:   22:36:42.538 TRACE .JpaSessionEventAdapter(postReleaseUnitOfWork:284) - postReleaseUnitOfWork: user2
+Info:   22:36:42.539 TRACE paSessionEventAdapter(preReleaseClientSession:164) - preReleaseClientSession: user2
+Info:   22:36:42.539 TRACE rg.eclipse.persistence.logging.connection(log:132) - ClientSession(1407193479)--Thread(Thread[http-listener-1(5),5,main])--client released
+Info:   22:36:42.539 TRACE aSessionEventAdapter(postReleaseClientSession:175) - postReleaseClientSession: user2
+Info:   22:36:42.539 TRACE aSessionEventAdapter(postReleaseClientSession:177) - postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> null

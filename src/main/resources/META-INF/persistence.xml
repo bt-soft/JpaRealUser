@@ -15,6 +15,14 @@
             <property name="eclipselink.logging.thread" value="true"/>
             <property name="eclipselink.target-database" value="Oracle"/>
             <property name="eclipselink.session-event-listener" value="hu.btsoft.jru.core.jpa.sessionevent.JpaSessionEventAdapter"/>
+
+
+            <!--
+             <property name="eclipselink.cache.shared.default" value="false"/>
+            <property name="eclipselink.jdbc.exclusive-connection.mode" value="Always" />
+            <property name="eclipselink.query-results-cache" value="false" />
+            -->
+
         </properties>
     </persistence-unit>
 </persistence>

@@ -63,6 +63,18 @@ public class MainView extends ViewBase {
     }
 
     /**
+     * Test Insert indítása
+     */
+    public void doTestCallerPrincipal() {
+        JruTbl entity = entityService.doTest(testData);
+        if (entity.getId() != null) {
+            addJsfMessage("growl", FacesMessage.SEVERITY_INFO, "OK");
+        } else {
+            addJsfMessage("growl", FacesMessage.SEVERITY_ERROR, "Hiba");
+        }
+    }
+
+    /**
      * Eltérő JPA userek kigyűjtése
      */
     @RolesAllowed("APP_JRU_ADMIN")

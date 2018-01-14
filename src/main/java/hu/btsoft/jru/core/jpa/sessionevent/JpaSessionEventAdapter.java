@@ -17,17 +17,134 @@ import java.sql.Statement;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.persistence.exceptions.DatabaseException;
 import org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor;
-import org.eclipse.persistence.sessions.Session;
 import org.eclipse.persistence.sessions.SessionEvent;
 import org.eclipse.persistence.sessions.SessionEventListener;
 
 /**
+ *
+ *
+ *
  *
  * @author BT
  */
 @Slf4j
 public class JpaSessionEventAdapter /*extends SessionEventAdapter*/ implements SessionEventListener {
 
+// org.eclipse.persistence.internal.sessions.AbstractSession:
+//
+//    /**
+//     * INTERNAL:
+//     * This method rises appropriate for the session event(s)
+//     * right after connection is acquired.
+//     */
+//    public void postAcquireConnection(Accessor accessor) {
+//        if (getProject().hasVPDIdentifier(this)) {
+//            if (getPlatform().supportsVPD()) {
+//                DatabaseQuery query = getPlatform().getVPDSetIdentifierQuery(getProject().getVPDIdentifier());
+//                List argValues = new ArrayList();
+//                query.addArgument(getProject().getVPDIdentifier());
+//                argValues.add(getProperty(getProject().getVPDIdentifier()));
+//                executeQuery(query, argValues);
+//            } else {
+//                throw ValidationException.vpdNotSupported(getPlatform().getClass().getName());
+//            }
+//        }
+//
+//        if (this.eventManager != null) {
+//            this.eventManager.postAcquireConnection(accessor);
+//        }
+//    }
+//
+//    /**
+//     * INTERNAL:
+//     * This method rises appropriate for the session event(s)
+//     * right before the connection is released.
+//     */
+//    public void preReleaseConnection(Accessor accessor) {
+//        if (getProject().hasVPDIdentifier(this)) {
+//            if (getPlatform().supportsVPD()) {
+//                DatabaseQuery query = getPlatform().getVPDClearIdentifierQuery(getProject().getVPDIdentifier());
+//                List argValues = new ArrayList();
+//                query.addArgument(getProject().getVPDIdentifier());
+//                argValues.add(getProperty(getProject().getVPDIdentifier()));
+//                executeQuery(query, argValues);
+//            } else {
+//                throw ValidationException.vpdNotSupported(getPlatform().getClass().getName());
+//            }
+//        }
+//
+//        if (this.eventManager != null) {
+//            this.eventManager.preReleaseConnection(accessor);
+//        }
+//    }
+//
+    /**
+     * Client ID beállítása
+     *
+     * @param event event
+     */
+    private void setClientId(SessionEvent event) {
+        String clientIdentifier = (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID);
+        if (clientIdentifier != null) {
+
+            DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
+
+//XXX: ?
+            //Session session = (Session) event.getSession();
+            //accessor.incrementCallCount((AbstractSession) session);
+//
+            try (Statement stmt = accessor.getConnection().createStatement();) {
+
+                String sql = "BEGIN DBMS_SESSION.SET_IDENTIFIER('" + clientIdentifier + "'); " + " END;";
+                stmt.execute(sql);
+
+                log.trace("SQL: {}", sql);
+
+            } catch (DatabaseException e) {
+                log.error("DB Error", e);
+            } catch (SQLException e) {
+                log.error("SQL Error", e);
+            }
+        }
+    }
+
+    /**
+     * Client ID törlése
+     *
+     * @param event event
+     */
+    private void clearClientid(SessionEvent event) {
+
+//        Session session = (Session) event.getSession();
+//        String clientIdentifier = (String) session.getProperty("client_identifier");
+//
+        String clientIdentifier = (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID);
+        if (clientIdentifier != null) {
+
+            DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
+
+            try (Statement stmt = accessor.getConnection().createStatement();) {
+
+                final String SQL = "BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;";
+                stmt.execute(SQL);
+
+//XXX: ?
+                //accessor.decrementCallCount();
+//
+                log.trace("SQL: {}", SQL);
+
+            } catch (DatabaseException e) {
+                log.error("DB Error", e);
+            } catch (SQLException e) {
+                log.error("SQL Error", e);
+            }
+        }
+
+    }
+
+//
+//-------------------------------------------------------------------
+//
     /**
      * PUBLIC:
      * This event is raised on the client session after creation/acquiring.
@@ -59,10 +176,10 @@ public class JpaSessionEventAdapter /*extends SessionEventAdapter*/ implements S
     @Override
     public void postReleaseClientSession(SessionEvent event) {
         log.trace("postReleaseClientSession: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
+        ThreadLocalMap.remove(ThreadLocalMap.KEY_CLIENT_ID);
+        log.trace("postReleaseClientSession: ThreadLocalMap.KEY_CLIENT_ID törölve -> {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
+
     }
-//
-//-------------------------------------------------------------------
-//
 
     /**
      * PUBLIC:
@@ -75,28 +192,7 @@ public class JpaSessionEventAdapter /*extends SessionEventAdapter*/ implements S
     public void postAcquireConnection(SessionEvent event) {
         log.trace("postAcquireConnection: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
 
-        String clientIdentifier = (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID);
-        if (clientIdentifier != null) {
-
-            DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
-
-//XXX: ?
-            //Session session = (Session) event.getSession();
-            //accessor.incrementCallCount((AbstractSession) session);
-//
-            try (Statement stmt = accessor.getConnection().createStatement();) {
-
-                String sql = "BEGIN DBMS_SESSION.SET_IDENTIFIER('" + clientIdentifier + "'); " + " END;";
-                stmt.execute(sql);
-
-                log.trace("SQL: {}", sql);
-
-            } catch (DatabaseException e) {
-                log.error("DB Error", e);
-            } catch (SQLException e) {
-                log.error("SQL Error", e);
-            }
-        }
+        setClientId(event);
 
     }
 
@@ -111,29 +207,8 @@ public class JpaSessionEventAdapter /*extends SessionEventAdapter*/ implements S
     public void preReleaseConnection(SessionEvent event) {
         log.trace("preReleaseConnection: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
 
-        Session session = (Session) event.getSession();
-        String clientIdentifier = (String) session.getProperty("client_identifier");
+        clearClientid(event);
 
-        if (clientIdentifier != null) {
-
-            DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
-
-            try (Statement stmt = accessor.getConnection().createStatement();) {
-
-                final String SQL = "BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;";
-                stmt.execute(SQL);
-
-//XXX: ?
-                //accessor.decrementCallCount();
-//
-                log.trace("SQL: {}", SQL);
-
-            } catch (DatabaseException e) {
-                log.error("DB Error", e);
-            } catch (SQLException e) {
-                log.error("SQL Error", e);
-            }
-        }
     }
 
 //
@@ -141,122 +216,122 @@ public class JpaSessionEventAdapter /*extends SessionEventAdapter*/ implements S
 //
     @Override
     public void postAcquireExclusiveConnection(SessionEvent event) {
-        log.trace("postAcquireExclusiveConnection");
+        log.trace("postAcquireExclusiveConnection: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preReleaseExclusiveConnection(SessionEvent event) {
-        log.trace("preReleaseExclusiveConnection");
+        log.trace("preReleaseExclusiveConnection: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preLogin(SessionEvent event) {
-        log.trace("preLogin");
+        log.trace("preLogin: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postLogin(SessionEvent event) {
-        log.trace("postLogin");
+        log.trace("postLogin: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preLogout(SessionEvent event) {
-        log.trace("preLogout");
+        log.trace("preLogout: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postLogout(SessionEvent event) {
-        log.trace("postLogout");
+        log.trace("postLogout: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preRollbackTransaction(SessionEvent event) {
-        log.trace("preRollbackTransaction");
+        log.trace("preRollbackTransaction: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postRollbackTransaction(SessionEvent event) {
-        log.trace("postRollbackTransaction");
+        log.trace("postRollbackTransaction: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preMergeUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("preMergeUnitOfWorkChangeSet");
+        log.trace("preMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postMergeUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("postMergeUnitOfWorkChangeSet");
+        log.trace("postMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preDistributedMergeUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("preDistributedMergeUnitOfWorkChangeSet");
+        log.trace("preDistributedMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postDistributedMergeUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("postDistributedMergeUnitOfWorkChangeSet");
+        log.trace("postDistributedMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preReleaseUnitOfWork(SessionEvent event) {
-        log.trace("preReleaseUnitOfWork");
+        log.trace("preReleaseUnitOfWork: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postReleaseUnitOfWork(SessionEvent event) {
-        log.trace("postReleaseUnitOfWork");
+        log.trace("postReleaseUnitOfWork: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preExecuteQuery(SessionEvent event) {
-        log.trace("preExecuteQuery");
+        log.trace("preExecuteQuery: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postExecuteQuery(SessionEvent event) {
-        log.trace("postExecuteQuery");
+        log.trace("postExecuteQuery: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preBeginTransaction(SessionEvent event) {
-        log.trace("preBeginTransaction");
+        log.trace("preBeginTransaction: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postBeginTransaction(SessionEvent event) {
-        log.trace("postBeginTransaction");
+        log.trace("postBeginTransaction: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preCommitTransaction(SessionEvent event) {
-        log.trace("preCommitTransaction");
+        log.trace("preCommitTransaction: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postCommitTransaction(SessionEvent event) {
-        log.trace("postCommitTransaction");
+        log.trace("postCommitTransaction: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preCalculateUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("preCalculateUnitOfWorkChangeSet");
+        log.trace("preCalculateUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postCalculateUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("postCalculateUnitOfWorkChangeSet");
+        log.trace("postCalculateUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void preCommitUnitOfWork(SessionEvent event) {
-        log.trace("preCommitUnitOfWork");
+        log.trace("preCommitUnitOfWork: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postCommitUnitOfWork(SessionEvent event) {
-        log.trace("postCommitUnitOfWork");
+        log.trace("postCommitUnitOfWork: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
 //
@@ -267,43 +342,43 @@ public class JpaSessionEventAdapter /*extends SessionEventAdapter*/ implements S
 //
     @Override
     public void postResumeUnitOfWork(SessionEvent event) {
-        log.trace("postResumeUnitOfWork");
+        log.trace("postResumeUnitOfWork: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postAcquireUnitOfWork(SessionEvent event) {
-        log.trace("postAcquireUnitOfWork");
+        log.trace("postAcquireUnitOfWork: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void postConnect(SessionEvent event) {
-        log.trace("postConnect");
+        log.trace("postConnect: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     //-----------------------
     @Override
     public void prepareUnitOfWork(SessionEvent event) {
-        log.trace("prepareUnitOfWork");
+        log.trace("prepareUnitOfWork: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void outputParametersDetected(SessionEvent event) {
-        log.trace("outputParametersDetected");
+        log.trace("outputParametersDetected: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void noRowsModified(SessionEvent event) {
-        log.trace("noRowsModified");
+        log.trace("noRowsModified: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void moreRowsDetected(SessionEvent event) {
-        log.trace("moreRowsDetected");
+        log.trace("moreRowsDetected: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
     @Override
     public void missingDescriptor(SessionEvent event) {
-        log.trace("missingDescriptor");
+        log.trace("missingDescriptor: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
     }
 
 }

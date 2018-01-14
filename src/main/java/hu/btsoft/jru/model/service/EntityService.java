@@ -14,7 +14,10 @@ package hu.btsoft.jru.model.service;
 import hu.btsoft.jru.core.jsf.ThreadLocalMap;
 import hu.btsoft.jru.model.entity.JruJrnl;
 import hu.btsoft.jru.model.entity.JruTbl;
+import java.security.Principal;
 import java.util.List;
+import javax.annotation.Resource;
+import javax.ejb.SessionContext;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,6 +35,9 @@ public class EntityService {
     @PersistenceContext
     private EntityManager em;
 
+    @Resource
+    SessionContext ctx;
+
     /**
      * Tábla insert
      *
@@ -47,21 +53,46 @@ public class EntityService {
 
         log.trace("ThreadLocalMap[clientIdentifier]: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
 
-        try {
-            ThreadLocalMap.put(ThreadLocalMap.KEY_CLIENT_ID, currentUser);
+        ThreadLocalMap.put(ThreadLocalMap.KEY_CLIENT_ID, currentUser);
 
-            JruTbl entity = new JruTbl();
-            entity.setJpaUser(currentUser);
-            entity.setTestData(testdata);
-            em.persist(entity);
+        JruTbl entity = new JruTbl();
+        entity.setJpaUser(currentUser);
+        entity.setTestData(testdata);
+        em.persist(entity);
 
-            log.trace("doTest end");
+        log.trace("doTest end, id: {}", entity.getId());
 
-            return entity;
+        return entity;
 
-        } finally {
-            ThreadLocalMap.remove(ThreadLocalMap.KEY_CLIENT_ID);
-        }
+    }
+
+    /**
+     * Tábla insert
+     *
+     * @param testdata test adat
+     *
+     * @return perzisztált entitás
+     */
+    public JruTbl doTest(String testdata) {
+
+        Principal callerPrincipal = ctx.getCallerPrincipal();
+
+        log.trace("-------------------------------------------------------------------------------------------------------------------------------------------");
+
+        log.trace("doTest('{}') -> callerPrincipal: {}", testdata, callerPrincipal.getName());
+
+        log.trace("ThreadLocalMap[clientIdentifier]: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
+
+        ThreadLocalMap.put(ThreadLocalMap.KEY_CLIENT_ID, callerPrincipal.getName());
+
+        JruTbl entity = new JruTbl();
+        entity.setJpaUser(callerPrincipal.getName());
+        entity.setTestData(testdata);
+        em.persist(entity);
+
+        log.trace("doTest end, id: {}", entity.getId());
+
+        return entity;
 
     }
 

@@ -19,3 +19,5 @@ select *
  inner join JRU_JRNL j
     on t.id = j.jru_tbl_id
  where t.jpa_user != j.jpa_user
+
+--@e:\Munka\JruTest\docs\db-setup\2-from-schemaowner.sql

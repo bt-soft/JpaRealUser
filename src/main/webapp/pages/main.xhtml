@@ -23,7 +23,7 @@
         <h:form id="mainForm">
 
             <h:panelGrid columns="2" style="width: 100%">
-                <p:panelGrid columns="3" styleClass="noBorderPanelGrid transparentpanelGrid">
+                <p:panelGrid columns="4" styleClass="noBorderPanelGrid transparentpanelGrid">
                     <h:outputLabel for="testData" value="Test data:" />
                     <p:inputText id="testData"
                                  value="#{mainView.testData}"
@@ -39,6 +39,13 @@
                                      action="#{mainView.doTest()}"
                                      update=":growl"/>
                     <!--disabled="#{empty mainView.testData}"-->
+
+                    <p:commandButton id="submitBtn2"
+                                     value="Submit (Principal)"
+                                     icon="fa fa-floppy-o"
+                                     action="#{mainView.doTestCallerPrincipal()}"
+                                     update=":growl"/>
+
                 </p:panelGrid>
 
 
