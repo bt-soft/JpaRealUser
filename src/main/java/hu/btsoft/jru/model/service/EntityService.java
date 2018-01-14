@@ -42,19 +42,27 @@ public class EntityService {
      */
     public JruTbl doTest(String testdata, String currentUser) {
 
+        log.trace("-------------------------------------------------------------------------------------------------------------------------------------------");
         log.trace("doTest('{}', '{}')", testdata, currentUser);
-        ThreadLocalMap.put(ThreadLocalMap.KEY_CLIENT_ID, currentUser);
 
-        JruTbl entity = new JruTbl();
-        entity.setJpaUser(currentUser);
-        entity.setTestData(testdata);
-        em.persist(entity);
+        log.trace("ThreadLocalMap[clientIdentifier]: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
 
-        ThreadLocalMap.removeAll();
+        try {
+            ThreadLocalMap.put(ThreadLocalMap.KEY_CLIENT_ID, currentUser);
 
-        log.trace("doTest end");
+            JruTbl entity = new JruTbl();
+            entity.setJpaUser(currentUser);
+            entity.setTestData(testdata);
+            em.persist(entity);
 
-        return entity;
+            log.trace("doTest end");
+
+            return entity;
+
+        } finally {
+            ThreadLocalMap.remove(ThreadLocalMap.KEY_CLIENT_ID);
+        }
+
     }
 
     /**

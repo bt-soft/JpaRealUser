@@ -27,21 +27,28 @@
                     <h:outputLabel for="testData" value="Test data:" />
                     <p:inputText id="testData"
                                  value="#{mainView.testData}"
+                                 required="true"
+                                 requiredMessage="The test data must be provided "
                                  >
-                        <p:ajax event="keyup" delay="10" update="submitBtn" />
+                        <!--<p:ajax event="keyup" delay="10" update="submitBtn" />-->
                     </p:inputText>
 
                     <p:commandButton id="submitBtn"
                                      value="Submit"
                                      icon="fa fa-floppy-o"
                                      action="#{mainView.doTest()}"
-                                     disabled="#{empty mainView.testData}"
                                      update=":growl"/>
+                    <!--disabled="#{empty mainView.testData}"-->
                 </p:panelGrid>
 
 
 
-                <p:commandButton id="logoutBtn" value="Logout" icon="fa fa-sign-out" action="#{jsfLib.logout()}" update=":growl" style="float: right"/>
+                <p:commandButton id="logoutBtn"
+                                 value="Logout"
+                                 icon="fa fa-sign-out"
+                                 action="#{jsfLib.logout()}"
+                                 immediate="true"
+                                 style="float: right"/>
             </h:panelGrid>
         </h:form>
 
@@ -77,8 +84,24 @@
                              rowsPerPageTemplate="5,10,15"
                              >
 
-                    <p:column headerText="jnrl Id" style="width: 5em">
+                    <p:column headerText="Journal Id"
+                              style="width: 5em"
+                              styleClass="alignCenter">
                         <h:outputText value="#{jnrl.id}"/>
+                    </p:column>
+
+                    <p:column headerText="Data Id"
+                              style="width: 5em"
+                              styleClass="alignCenter">
+                        <h:outputText value="#{jnrl.jruTbl.id}"/>
+                    </p:column>
+
+                    <p:column headerText="Jpa user">
+                        <h:outputText value="#{jnrl.jruTbl.jpaUser}"/>
+                    </p:column>
+
+                    <p:column headerText="Journal user">
+                        <h:outputText value="#{jnrl.jpaUser}"/>
                     </p:column>
 
                     <p:column headerText="Date">
@@ -89,19 +112,7 @@
                         </h:outputText>
                     </p:column>
 
-                    <p:column headerText="jnrl.jpaUser">
-                        <h:outputText value="#{jnrl.jpaUser}"/>
-                    </p:column>
-
-                    <p:column headerText="jnrl.jruTbl.jpaUser">
-                        <h:outputText value="#{jnrl.jruTbl.jpaUser}"/>
-                    </p:column>
-
-
-
                 </p:dataTable>
-
-
 
             </h:form>
         </bt:disablePanel>

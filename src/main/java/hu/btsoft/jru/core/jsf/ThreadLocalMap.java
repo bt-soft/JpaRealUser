@@ -17,10 +17,6 @@ import java.util.Map;
 /**
  * Threadlocal Map implementáció
  *
- * Ötlet:
- *
- * @see
- * https://github.com/dlee0113/java_ee_patterns_and_best_practices/blob/master/ContextHolder/src/java/com/abien/patterns/kitchensink/contextholder/threadlocal/control/ServiceThreadLocal.java
  *
  * @author BT
  */
@@ -31,7 +27,7 @@ public class ThreadLocalMap {
     /**
      * ThreadLocal Map
      */
-    private static final ThreadLocal<Map<String, Object>> THREADLOCAL_MAP = new ThreadLocal<Map<String, Object>>();
+    private static final ThreadLocal<Map<String, Object>> THREADLOCAL_MAP = new ThreadLocal<>();
 
     /**
      * privát konstruktor
@@ -50,6 +46,7 @@ public class ThreadLocalMap {
             THREADLOCAL_MAP.set(new HashMap<>());
         }
         THREADLOCAL_MAP.get().put(key, value);
+
     }
 
     /**
@@ -64,9 +61,22 @@ public class ThreadLocalMap {
     }
 
     /**
+     * ThreadLocal Map bejegyzés törlése kulcs alapján
+     *
+     * @param key map kulcs
+     */
+    public static void remove(String key) {
+        if (THREADLOCAL_MAP.get() != null && THREADLOCAL_MAP.get().containsKey(key)) {
+            THREADLOCAL_MAP.get().remove(key);
+        }
+    }
+
+    /**
      * ThreadLocal Map törlése
      */
-    public static void removeAll() {
-        THREADLOCAL_MAP.remove();
+    public static void clearAll() {
+        if (THREADLOCAL_MAP.get() != null) {
+            THREADLOCAL_MAP.get().clear();
+        }
     }
 }
