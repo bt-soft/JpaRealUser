@@ -35,7 +35,8 @@ grant select on SCHEMAOWNER.JRU_SEQ to jru_role;
 create table JRU_TBL
 (
   id  NUMBER not null,
-  txt VARCHAR2(512) not null
+  txt VARCHAR2(512) not null,
+  jpa_user VARCHAR2(50) not null
 )
 tablespace TESTTBLSPC
   pctfree 10
@@ -53,6 +54,8 @@ comment on table JRU_TBL
 -- Add comments to the columns
 comment on column JRU_TBL.id
   is 'Primary Key';
+comment on column SCHEMAOWNER.JRU_TBL.jpa_user
+  is 'JPA user';
 comment on column JRU_TBL.txt
   is 'Test Data';
 -- Create/Recreate primary, unique and foreign key constraints

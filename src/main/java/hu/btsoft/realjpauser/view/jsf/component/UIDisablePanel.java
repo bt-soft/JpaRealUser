@@ -100,7 +100,7 @@ public class UIDisablePanel extends UIComponentBase {
             }
 
         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            log.error("nincs ilyen metódusa, vagy nem érhető el a metódus", e);
+            log.error(String.format("A(z) '{}' osztálynak nincs '{}' property-je", uiOutput.getClass().getName(), BEAN_STYLECLASS_PROPERTY), e);
         }
 
     }

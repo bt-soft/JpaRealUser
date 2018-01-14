@@ -2,13 +2,14 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
 
                 xmlns:bt="http://bt-soft.hu/jsf/ui"
 
-                template="./../templates/pageTemplate.xhtml">
+                template="./../templates/pageTemplate.xhtml"
+                >
 
     <ui:define name="title">
         JRU -Test
@@ -23,26 +24,36 @@
 
         <h:form id="mainForm">
 
-            <p:panelGrid columns="3" styleClass="noBorderPanelGrid transparentpanelGrid">
-                <h:outputLabel for="testData" value="Test data:" />
-                <h:inputText id="testData" value="#{mainView.testData}" />
-                <p:commandButton id="submitBtn" value="Submit" icon="fa fa-floppy-o" action="#{mainView.doTest()}" update=":growl"/>
-            </p:panelGrid>
+            <h:panelGrid columns="2" style="width: 100%">
+                <p:panelGrid columns="3" styleClass="noBorderPanelGrid transparentpanelGrid">
+                    <h:outputLabel for="testData" value="Test data:" />
+                    <p:inputText id="testData"
+                                 value="#{mainView.testData}"
+                                 >
+                        <p:ajax event="keyup" delay="10" update="submitBtn" />
+                    </p:inputText>
 
-            <br/>
+                    <p:commandButton id="submitBtn"
+                                     value="Submit"
+                                     icon="fa fa-floppy-o"
+                                     action="#{mainView.doTest()}"
+                                     disabled="#{empty mainView.testData}"
+                                     update=":growl"/>
+                </p:panelGrid>
 
-            <p:commandButton id="logoutBtn" value="Logout" icon="fa fa-sign-out" action="#{jsfLib.logout()}" update=":growl"/>
+
+
+                <p:commandButton id="logoutBtn" value="Logout" icon="fa fa-sign-out" action="#{jsfLib.logout()}" update=":growl" style="float: right"/>
+            </h:panelGrid>
         </h:form>
 
+        <p:separator />
 
         <bt:disablePanel disabled="#{not isAdmin}">
 
-            <p:separator />
+            <h:outputText value="Errors" style="font-size: 2em"/>
 
             <h:form id="adminForm">
-                <h:outputLabel id="adminLabel" value="Label"/>
-                <br/>
-                <h:outputText id="adminText" value="Text" />
             </h:form>
         </bt:disablePanel>
 

@@ -19,7 +19,7 @@
                 <h:outputText value="#{pfExceptionHandler.message}" style="color: red; font-weight: bold"/>
 
                 <!--<input type="button" onclick="window.location.replace(document.referrer);" value="Vissza" style="float: right"/>-->
-                <p:commandButton onclick="window.location.replace(document.referrer);" icon="fa fa-reply"  value="Vissza" ajax="false" style="float: right; margin-top: -1em"/>
+                <p:commandButton onclick="window.history.go(-1); return false;" icon="fa fa-reply"  value="Vissza" ajax="false" style="float: right; margin-top: -1em"/>
             </p:panel>
 
             <p:panel style="background: whitesmoke; padding-left: 2em">

@@ -28,9 +28,18 @@ public class JruService {
     @PersistenceContext
     private EntityManager em;
 
-    public JruTbl doTest(String testdata) {
+    /**
+     * Tábla insert
+     *
+     * @param testdata    test adat
+     * @param currentUser bejelentkezett user
+     *
+     * @return
+     */
+    public JruTbl doTest(String testdata, String currentUser) {
 
         JruTbl entity = new JruTbl();
+        entity.setJpaUser(currentUser);
         entity.setTestData(testdata);
         em.persist(entity);
 

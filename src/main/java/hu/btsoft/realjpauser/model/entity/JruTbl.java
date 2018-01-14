@@ -26,7 +26,7 @@ import lombok.Data;
  * @author BT
  */
 @Entity
-@Table(name = "JRU_TBL", catalog = "", schema = "schemaowner")
+@Table(name = "JRU_TBL", catalog = "", schema = "SCHEMAOWNER")
 @Data
 public class JruTbl implements Serializable {
 
@@ -36,8 +36,11 @@ public class JruTbl implements Serializable {
     @Column(name = "ID", nullable = false, updatable = false)
     //Before Insert Trigger  -> do not have to deal with the sequence and @NotNull
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JRU_SEQ")
-    @SequenceGenerator(name = "JRU_SEQ", sequenceName = "SCHEMAOWNER.JRU_SEQ")
+    @SequenceGenerator(name = "JRU_SEQ", sequenceName = "JRU_SEQ", schema = "SCHEMAOWNER")
     private Long id;
+
+    @Column(name = "JPA_USER", nullable = false)
+    private String jpaUser;
 
     @Column(name = "TXT", nullable = false)
     private String testData;

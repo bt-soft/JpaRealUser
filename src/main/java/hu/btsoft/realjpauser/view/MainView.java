@@ -36,7 +36,7 @@ public class MainView extends ViewBase {
     private String testData;
 
     public void doTest() {
-        JruTbl entity = jruService.doTest(testData);
+        JruTbl entity = jruService.doTest(testData, currentUser);
         if (entity.getId() != null) {
             addJsfMessage("growl", FacesMessage.SEVERITY_INFO, "OK");
         } else {

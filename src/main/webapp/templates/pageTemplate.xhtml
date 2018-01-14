@@ -44,7 +44,8 @@
 
     </h:head>
 
-    <h:body id="body" onload="noBack();" onunload="">
+    <!--<h:body id="body" onload="noBack();">-->
+    <h:body id="body">
 
         <!-- runtime konstansok -->
         <c:set var="isDeveloperMode" scope="request" value="#{'Development' eq facesContext.application.projectStage}" />
@@ -53,8 +54,6 @@
 
         <p:growl id="growl" widgetVar="growl" showDetail="true" showSummary="true"/>
         <ui:debug hotkey="x" rendered="#{isDeveloperMode}" />
-
-        #{isAdmin}
 
         <div id="bodyWrapper">
             <div id="header">
