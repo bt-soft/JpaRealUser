@@ -11,7 +11,14 @@
  */
 package hu.btsoft.jru.core.jpa.sessionevent;
 
+import hu.btsoft.jru.core.jsf.ThreadLocalMap;
+import java.sql.SQLException;
+import java.sql.Statement;
 import lombok.extern.slf4j.Slf4j;
+import org.eclipse.persistence.exceptions.DatabaseException;
+import org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor;
+import org.eclipse.persistence.internal.sessions.AbstractSession;
+import org.eclipse.persistence.sessions.Session;
 import org.eclipse.persistence.sessions.SessionEvent;
 import org.eclipse.persistence.sessions.SessionEventAdapter;
 
@@ -34,24 +41,26 @@ public class JpaSessionEventAdapter extends SessionEventAdapter {
 
         log.trace("postAcquireConnection");
 
-//        ThreadLocalStore threadLocalStore = ThreadLocalStore.getThreadLocalStore();
-//
-//
-//        DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
-//        Session session = (Session) event.getSession();
-//        accessor.incrementCallCount((AbstractSession) session);
-//
-//        try (Statement stmt = accessor.getConnection().createStatement();) {
-//
-//            String clientIdentifier = (String) session.getProperty("client_identifier");
-//            if (clientIdentifier != null) {
-//                stmt.execute("BEGIN DBMS_SESSION.SET_IDENTIFIER('" + clientIdentifier + "'); " + " END;");
-//            }
-//        } catch (DatabaseException e) {
-//            log.error("DB Error", e);
-//        } catch (SQLException e) {
-//            log.error("SQL Error", e);
-//        }
+        String clientIdentifier = (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID);
+        if (clientIdentifier != null) {
+
+            Session session = (Session) event.getSession();
+
+            DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
+            accessor.incrementCallCount((AbstractSession) session);
+
+            try (Statement stmt = accessor.getConnection().createStatement();) {
+
+                String sql = "BEGIN DBMS_SESSION.SET_IDENTIFIER('" + clientIdentifier + "'); " + " END;";
+                stmt.execute(sql);
+                log.trace("SQL: {}", sql);
+
+            } catch (DatabaseException e) {
+                log.error("DB Error", e);
+            } catch (SQLException e) {
+                log.error("SQL Error", e);
+            }
+        }
     }
 
     /**
@@ -65,24 +74,28 @@ public class JpaSessionEventAdapter extends SessionEventAdapter {
     public void preReleaseConnection(SessionEvent event) {
         log.trace("preReleaseConnection");
 
-//        DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
-//
-//        // Reset the client identifier to make sure that nothing is
-//        // inadvertantly updated with the wrong client_information.
-//        Session session = (Session) event.getSession();
-//        String clientIdentifier = (String) session.getProperty("client_identifier");
-//
-//        try (Statement stmt = accessor.getConnection().createStatement();) {
-//
-//            if (clientIdentifier != null) {
-//                stmt.execute("BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;");
-//            }
-//        } catch (DatabaseException e) {
-//            log.error("DB Error", e);
-//        } catch (SQLException e) {
-//            log.error("SQL Error", e);
-//        }
-//        accessor.decrementCallCount();
+        Session session = (Session) event.getSession();
+        String clientIdentifier = (String) session.getProperty("client_identifier");
+
+        if (clientIdentifier != null) {
+
+            DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
+
+            try (Statement stmt = accessor.getConnection().createStatement();) {
+
+                final String SQL = "BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;";
+                stmt.execute(SQL);
+                log.trace("SQL: {}", SQL);
+
+            } catch (DatabaseException e) {
+                log.error("DB Error", e);
+            } catch (SQLException e) {
+                log.error("SQL Error", e);
+            }
+
+            accessor.decrementCallCount();
+        }
+
     }
 
     /**

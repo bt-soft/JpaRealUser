@@ -11,6 +11,7 @@
  */
 package hu.btsoft.jru.model.service;
 
+import hu.btsoft.jru.core.jsf.ThreadLocalMap;
 import hu.btsoft.jru.model.entity.JruTbl;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -34,14 +35,21 @@ public class JruService {
      * @param testdata    test adat
      * @param currentUser bejelentkezett user
      *
-     * @return
+     * @return perzisztált entitás
      */
     public JruTbl doTest(String testdata, String currentUser) {
+
+        log.trace("doTest('{}', '{}')", testdata, currentUser);
+        ThreadLocalMap.put(ThreadLocalMap.KEY_CLIENT_ID, currentUser);
 
         JruTbl entity = new JruTbl();
         entity.setJpaUser(currentUser);
         entity.setTestData(testdata);
         em.persist(entity);
+
+        ThreadLocalMap.removeAll();
+
+        log.trace("doTest end");
 
         return entity;
     }
