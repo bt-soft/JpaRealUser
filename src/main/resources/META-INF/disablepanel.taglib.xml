@@ -23,7 +23,7 @@
         <description>Gyerek komponenseket is tiltó/engedélyező nem látható (csak vezérlő) JSF panel</description>
 
         <component>
-            <component-type>hu.btsoft.gfmon.core.jsf.component.UIDisablePanel</component-type>
+            <component-type>hu.btsoft.realjpauser.view.jsf.component.UIDisablePanel</component-type>
         </component>
 
         <attribute>

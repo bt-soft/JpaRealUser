@@ -133,7 +133,7 @@ public class UIDisablePanel extends UIComponentBase {
     }
 
     /**
-     * A JSF komponensfán véggigyalogolava engedélyezi/tiltja az erre alkalmas komponenseket
+     * A JSF komponens fán véggigyalogolva engedélyezi/tiltja az erre alkalmas komponenseket
      *
      * @param root      komponensfa gyökér elem
      * @param toDisable tiltás/engedélyezés
