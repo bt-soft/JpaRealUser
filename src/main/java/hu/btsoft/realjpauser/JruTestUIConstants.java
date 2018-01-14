@@ -19,5 +19,4 @@ public class JruTestUIConstants {
 
     public static final String SHORT_APP_NAME = "JRU Test";
     public static final String LONG_APP_NAME = "JPA Real User Test";
-    public static final String VERSION = "0.0.1";
 }

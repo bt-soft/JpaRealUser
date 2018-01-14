@@ -6,12 +6,9 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 
-
-
-
     <div class="ui-g">
         <div class="ui-g-4" style="text-align: left; padding: 0">
-            <h:outputText value="#{jruTestUIConstants.SHORT_APP_NAME} #{jruTestUIConstants.VERSION}"/>
+            <h:outputText value="#{jruTestUIConstants.SHORT_APP_NAME} #{jsfLib.version}"/>
         </div>
         <div class="ui-g-4" style="text-align: center; padding: 0">
             <h:outputText value="#{request.servletContext.serverInfo}"/>

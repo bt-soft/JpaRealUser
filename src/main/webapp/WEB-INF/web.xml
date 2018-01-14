@@ -183,4 +183,9 @@
         <role-name>APP_JRU_USER</role-name>
     </security-role>
 
+    <security-role>
+        <description>JRU admin</description>
+        <role-name>APP_JRU_ADMIN</role-name>
+    </security-role>
+
 </web-app>

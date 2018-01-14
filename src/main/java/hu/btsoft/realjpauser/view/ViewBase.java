@@ -11,6 +11,7 @@
  */
 package hu.btsoft.realjpauser.view;
 
+import hu.btsoft.realjpauser.view.jsf.JsfLib;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;

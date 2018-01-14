@@ -9,8 +9,9 @@
  *
  *  ------------------------------------------------------------------------------------
  */
-package hu.btsoft.realjpauser.view;
+package hu.btsoft.realjpauser.view.jsf;
 
+import hu.btsoft.realjpauser.core.VersionUtils;
 import java.io.Serializable;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.FacesContext;
@@ -24,6 +25,15 @@ import org.primefaces.context.RequestContext;
 @Named(value = "jsfLib")
 @ApplicationScoped
 public class JsfLib implements Serializable {
+
+    /**
+     * Verzió lekérdezése a Maven által karbantartott versionInfo.properties állományból
+     *
+     * @return verzió String
+     */
+    public String getVersion() {
+        return VersionUtils.getModuleVersionStr(JsfLib.class);
+    }
 
     /**
      * JSF implementáció verziójának lekérdezése

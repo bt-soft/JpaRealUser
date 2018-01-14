@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ....................................................................................
+
+ GF Monitor project
+
+ Module:  gfmon-ui (gfmon-ui)
+ File:    disablepanel.taglib.xml
+ Created: 2018.01.01. 16:18:23
+
+ ....................................................................................
+-->
+<facelet-taglib xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd"
+                version="2.2">
+
+
+    <namespace>http://bt-soft.hu/jsf/ui</namespace>
+
+    <tag>
+        <tag-name>disablePanel</tag-name>
+        <description>Gyerek komponenseket is tiltó/engedélyező nem látható (csak vezérlő) JSF panel</description>
+
+        <component>
+            <component-type>hu.btsoft.gfmon.core.jsf.component.UIDisablePanel</component-type>
+        </component>
+
+        <attribute>
+            <name>disabled</name>
+        </attribute>
+
+    </tag>
+</facelet-taglib>
