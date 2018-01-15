@@ -194,200 +194,200 @@ public class JpaSessionEventAdapter extends SessionEventAdapter {
         log.trace("postReleaseClientSession: KEY_CLIENT_ID törölve -> {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
     }
 
-//<editor-fold defaultstate="collapsed" desc="Csak logoló, amúgy másra nem használt események">
+////<editor-fold defaultstate="collapsed" desc="Csak logoló, amúgy másra nem használt események">
+////
+////-------------------------------------------------------------------
+////
+//    /**
+//     * PUBLIC:
+//     * This event is raised on the client session after creation/acquiring.
+//     *
+//     * @param event
+//     */
+//    @Override
+//    public void postAcquireClientSession(SessionEvent event) {
+//        log.trace("postAcquireClientSession: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
 //
-//-------------------------------------------------------------------
+//    /**
+//     * PUBLIC:
+//     * This event is raised on the client session before releasing.
+//     *
+//     * @param event
+//     */
+//    @Override
+//    public void preReleaseClientSession(SessionEvent event) {
+//        log.trace("preReleaseClientSession: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+////
+////-------------------------------------------------------------------
+////
 //
-    /**
-     * PUBLIC:
-     * This event is raised on the client session after creation/acquiring.
-     *
-     * @param event
-     */
-    @Override
-    public void postAcquireClientSession(SessionEvent event) {
-        log.trace("postAcquireClientSession: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    /**
-     * PUBLIC:
-     * This event is raised on the client session before releasing.
-     *
-     * @param event
-     */
-    @Override
-    public void preReleaseClientSession(SessionEvent event) {
-        log.trace("preReleaseClientSession: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
+//    @Override
+//    public void postAcquireExclusiveConnection(SessionEvent event) {
+//        log.trace("postAcquireExclusiveConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
 //
-//-------------------------------------------------------------------
+//    @Override
+//    public void preReleaseExclusiveConnection(SessionEvent event) {
+//        log.trace("preReleaseExclusiveConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
 //
-
-    @Override
-    public void postAcquireExclusiveConnection(SessionEvent event) {
-        log.trace("postAcquireExclusiveConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preReleaseExclusiveConnection(SessionEvent event) {
-        log.trace("preReleaseExclusiveConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preLogin(SessionEvent event) {
-        log.trace("preLogin: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postLogin(SessionEvent event) {
-        log.trace("postLogin: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preLogout(SessionEvent event) {
-        log.trace("preLogout: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postLogout(SessionEvent event) {
-        log.trace("postLogout: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preRollbackTransaction(SessionEvent event) {
-        log.trace("preRollbackTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postRollbackTransaction(SessionEvent event) {
-        log.trace("postRollbackTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preMergeUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("preMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postMergeUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("postMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preDistributedMergeUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("preDistributedMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postDistributedMergeUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("postDistributedMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preReleaseUnitOfWork(SessionEvent event) {
-        log.trace("preReleaseUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postReleaseUnitOfWork(SessionEvent event) {
-        log.trace("postReleaseUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preExecuteQuery(SessionEvent event) {
-        log.trace("preExecuteQuery: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postExecuteQuery(SessionEvent event) {
-        log.trace("postExecuteQuery: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preBeginTransaction(SessionEvent event) {
-        log.trace("preBeginTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postBeginTransaction(SessionEvent event) {
-        log.trace("postBeginTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preCommitTransaction(SessionEvent event) {
-        log.trace("preCommitTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postCommitTransaction(SessionEvent event) {
-        log.trace("postCommitTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preCalculateUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("preCalculateUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postCalculateUnitOfWorkChangeSet(SessionEvent event) {
-        log.trace("postCalculateUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void preCommitUnitOfWork(SessionEvent event) {
-        log.trace("preCommitUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postCommitUnitOfWork(SessionEvent event) {
-        log.trace("postCommitUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
+//    @Override
+//    public void preLogin(SessionEvent event) {
+//        log.trace("preLogin: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
 //
-//----------------------------------------------------------------------------------
+//    @Override
+//    public void postLogin(SessionEvent event) {
+//        log.trace("postLogin: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
 //
+//    @Override
+//    public void preLogout(SessionEvent event) {
+//        log.trace("preLogout: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
 //
-//----
+//    @Override
+//    public void postLogout(SessionEvent event) {
+//        log.trace("postLogout: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
 //
-    @Override
-    public void postResumeUnitOfWork(SessionEvent event) {
-        log.trace("postResumeUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postAcquireUnitOfWork(SessionEvent event) {
-        log.trace("postAcquireUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void postConnect(SessionEvent event) {
-        log.trace("postConnect: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    //-----------------------
-    @Override
-    public void prepareUnitOfWork(SessionEvent event) {
-        log.trace("prepareUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void outputParametersDetected(SessionEvent event) {
-        log.trace("outputParametersDetected: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void noRowsModified(SessionEvent event) {
-        log.trace("noRowsModified: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void moreRowsDetected(SessionEvent event) {
-        log.trace("moreRowsDetected: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-
-    @Override
-    public void missingDescriptor(SessionEvent event) {
-        log.trace("missingDescriptor: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-    }
-//</editor-fold>
+//    @Override
+//    public void preRollbackTransaction(SessionEvent event) {
+//        log.trace("preRollbackTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postRollbackTransaction(SessionEvent event) {
+//        log.trace("postRollbackTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void preMergeUnitOfWorkChangeSet(SessionEvent event) {
+//        log.trace("preMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postMergeUnitOfWorkChangeSet(SessionEvent event) {
+//        log.trace("postMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void preDistributedMergeUnitOfWorkChangeSet(SessionEvent event) {
+//        log.trace("preDistributedMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postDistributedMergeUnitOfWorkChangeSet(SessionEvent event) {
+//        log.trace("postDistributedMergeUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void preReleaseUnitOfWork(SessionEvent event) {
+//        log.trace("preReleaseUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postReleaseUnitOfWork(SessionEvent event) {
+//        log.trace("postReleaseUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void preExecuteQuery(SessionEvent event) {
+//        log.trace("preExecuteQuery: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postExecuteQuery(SessionEvent event) {
+//        log.trace("postExecuteQuery: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void preBeginTransaction(SessionEvent event) {
+//        log.trace("preBeginTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postBeginTransaction(SessionEvent event) {
+//        log.trace("postBeginTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void preCommitTransaction(SessionEvent event) {
+//        log.trace("preCommitTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postCommitTransaction(SessionEvent event) {
+//        log.trace("postCommitTransaction: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void preCalculateUnitOfWorkChangeSet(SessionEvent event) {
+//        log.trace("preCalculateUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postCalculateUnitOfWorkChangeSet(SessionEvent event) {
+//        log.trace("postCalculateUnitOfWorkChangeSet: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void preCommitUnitOfWork(SessionEvent event) {
+//        log.trace("preCommitUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postCommitUnitOfWork(SessionEvent event) {
+//        log.trace("postCommitUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+////
+////----------------------------------------------------------------------------------
+////
+////
+////----
+////
+//    @Override
+//    public void postResumeUnitOfWork(SessionEvent event) {
+//        log.trace("postResumeUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postAcquireUnitOfWork(SessionEvent event) {
+//        log.trace("postAcquireUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void postConnect(SessionEvent event) {
+//        log.trace("postConnect: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    //-----------------------
+//    @Override
+//    public void prepareUnitOfWork(SessionEvent event) {
+//        log.trace("prepareUnitOfWork: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void outputParametersDetected(SessionEvent event) {
+//        log.trace("outputParametersDetected: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void noRowsModified(SessionEvent event) {
+//        log.trace("noRowsModified: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void moreRowsDetected(SessionEvent event) {
+//        log.trace("moreRowsDetected: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+//
+//    @Override
+//    public void missingDescriptor(SessionEvent event) {
+//        log.trace("missingDescriptor: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+//    }
+////</editor-fold>
 }
