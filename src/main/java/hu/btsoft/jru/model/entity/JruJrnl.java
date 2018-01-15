@@ -52,10 +52,6 @@ public class JruJrnl implements Serializable {
     @Column(name = "OLD_VALUE", length = 512)
     private String oldValue;
 
-    @Size(max = 512)
-    @Column(name = "NEW_VALUE", length = 512)
-    private String newValue;
-
     @NotNull
     @Size(min = 1, max = 50)
     @Column(name = "ORA_USER", nullable = false, length = 50)

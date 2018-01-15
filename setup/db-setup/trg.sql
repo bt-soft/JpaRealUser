@@ -53,13 +53,12 @@ create or replace trigger JRU_JRNL_TRG
 declare
 begin
   INSERT INTO JRU_JRNL
-    (JRU_TBL_ID, OLD_VALUE, NEW_VALUE, ORA_USER, JPA_USER, MOD_TIMESTAMP)
+    (JRU_TBL_ID, OLD_VALUE, ORA_USER, JPA_USER, MOD_TIMESTAMP)
   VALUES
     (:new.id,
      :old.txt,
-     :new.txt,
-     (select user as ora_user from dual),
-     NVL((SELECT SYS_CONTEXT('userenv', 'client_identifier') AS JPA_USER
+     (select user as from dual),
+     NVL((SELECT SYS_CONTEXT('userenv', 'client_identifier')
            FROM dual),
          '! client_identifier not set !'),
 
@@ -67,8 +66,8 @@ begin
 EXCEPTION
   WHEN OTHERS THEN
     INSERT INTO JRU_JRNL
-      (JRU_TBL_ID, OLD_VALUE, NEW_VALUE)
+      (JRU_TBL_ID, OLD_VALUE)
     VALUES
-      (:new.id, 'ERROR', 'ERROR');
+      (:new.id, 'ERROR');
 end JRU_TBL_JRN;
 /

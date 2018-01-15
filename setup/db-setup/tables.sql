@@ -66,7 +66,6 @@ create table JRU_JRNL
   id              NUMBER(10) not null,
   jru_tbl_id      NUMBER(10) not null,
   old_value       VARCHAR2(512),
-  new_value       VARCHAR2(512),
   ora_user        VARCHAR2(50) not null,
   jpa_user        VARCHAR2(50) not null,
   mod_timestamp   TIMESTAMP(6) not null
@@ -88,7 +87,6 @@ comment on table JRU_JRNL  is 'JRU Test Journal table';
 comment on column JRU_JRNL.id  is 'Primary key';
 comment on column JRU_JRNL.jru_tbl_id  is 'JRU table ID';
 comment on column JRU_JRNL.old_value  is 'Old value';
-comment on column JRU_JRNL.new_value  is 'New value';
 comment on column JRU_JRNL.ora_user  is 'Oracle level user';
 comment on column JRU_JRNL.jpa_user  is 'JPA level user';
 comment on column JRU_JRNL.mod_timestamp  is 'Change date';
