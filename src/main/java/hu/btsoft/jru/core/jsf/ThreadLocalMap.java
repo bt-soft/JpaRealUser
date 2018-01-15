@@ -22,8 +22,6 @@ import java.util.Map;
  */
 public class ThreadLocalMap {
 
-    public static final String KEY_CLIENT_ID = "client_identifier";
-
     /**
      * ThreadLocal Map
      */

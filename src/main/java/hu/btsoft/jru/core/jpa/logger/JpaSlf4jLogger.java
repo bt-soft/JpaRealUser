@@ -253,6 +253,12 @@ public class JpaSlf4jLogger extends AbstractSessionLog {
         return logLevel;
     }
 
+    /**
+     *
+     * @param str
+     *
+     * @return
+     */
     private static boolean hasText(String str) {
         return str != null;
     }

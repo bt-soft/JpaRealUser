@@ -11,6 +11,7 @@
  */
 package hu.btsoft.jru.model.service;
 
+import hu.btsoft.jru.core.jpa.sessionevent.JpaSessionEventAdapter;
 import hu.btsoft.jru.core.jsf.ThreadLocalMap;
 import hu.btsoft.jru.model.entity.JruJrnl;
 import hu.btsoft.jru.model.entity.JruTbl;
@@ -25,6 +26,7 @@ import javax.persistence.Query;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * A két entitást kezelő SLSB bean
  *
  * @author BT
  */
@@ -36,24 +38,20 @@ public class EntityService {
     private EntityManager em;
 
     @Resource
-    SessionContext ctx;
+    private SessionContext ctx;
 
     /**
-     * Tábla insert
+     * Entitás létrehozása és elmentése
      *
-     * @param testdata    test adat
+     * @param testdata    teszt adat
      * @param currentUser bejelentkezett user
      *
-     * @return perzisztált entitás
+     * @return mentett entitás
      */
-    public JruTbl doTest(String testdata, String currentUser) {
+    private JruTbl persist(String testdata, String currentUser) {
 
-        log.trace("-------------------------------------------------------------------------------------------------------------------------------------------");
-        log.trace("doTest('{}', '{}')", testdata, currentUser);
-
-        log.trace("ThreadLocalMap[clientIdentifier]: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
-
-        ThreadLocalMap.put(ThreadLocalMap.KEY_CLIENT_ID, currentUser);
+        //Eltesszük egy threadlocal változóba a kliend ID-t
+        ThreadLocalMap.put(JpaSessionEventAdapter.KEY_CLIENT_ID, currentUser);
 
         JruTbl entity = new JruTbl();
         entity.setJpaUser(currentUser);
@@ -63,37 +61,45 @@ public class EntityService {
         log.trace("doTest end, id: {}", entity.getId());
 
         return entity;
+    }
+
+    /**
+     * Tábla insert
+     * A bejelentkezett usert paraméterként kapja
+     *
+     * @param testdata    teszt adat
+     * @param currentUser bejelentkezett user
+     *
+     * @return perzisztált entitás
+     */
+    public JruTbl doTest(String testdata, String currentUser) {
+
+        log.trace("-------------------------------------------------------------------------------------------------------------------------------------------");
+        log.trace("doTest('{}', '{}')", testdata, currentUser);
+        log.trace("ThreadLocalMap[clientIdentifier]: {}", (String) ThreadLocalMap.get(JpaSessionEventAdapter.KEY_CLIENT_ID));
+
+        return persist(testdata, currentUser);
 
     }
 
     /**
      * Tábla insert
+     * A bejelentkezett usert az EJB SessionContext-ből nyeri ki
      *
-     * @param testdata test adat
+     * @param testdata teszt adat
      *
      * @return perzisztált entitás
      */
     public JruTbl doTest(String testdata) {
 
         Principal callerPrincipal = ctx.getCallerPrincipal();
+        String currentUser = callerPrincipal.getName();
 
         log.trace("-------------------------------------------------------------------------------------------------------------------------------------------");
+        log.trace("doTest('{}') -> callerPrincipal: {}", testdata, currentUser);
+        log.trace("ThreadLocalMap[clientIdentifier]: {}", (String) ThreadLocalMap.get(JpaSessionEventAdapter.KEY_CLIENT_ID));
 
-        log.trace("doTest('{}') -> callerPrincipal: {}", testdata, callerPrincipal.getName());
-
-        log.trace("ThreadLocalMap[clientIdentifier]: {}", (String) ThreadLocalMap.get(ThreadLocalMap.KEY_CLIENT_ID));
-
-        ThreadLocalMap.put(ThreadLocalMap.KEY_CLIENT_ID, callerPrincipal.getName());
-
-        JruTbl entity = new JruTbl();
-        entity.setJpaUser(callerPrincipal.getName());
-        entity.setTestData(testdata);
-        em.persist(entity);
-
-        log.trace("doTest end, id: {}", entity.getId());
-
-        return entity;
-
+        return persist(testdata, currentUser);
     }
 
     /**
