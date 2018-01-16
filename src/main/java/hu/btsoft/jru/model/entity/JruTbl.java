@@ -47,11 +47,14 @@ public class JruTbl implements Serializable {
     @SequenceGenerator(name = "JRU_SEQ", sequenceName = "JRU_SEQ", schema = "SCHEMAOWNER")
     private Long id;
 
+    /**
+     * Paraméterben megadott user /
+     */
+    @Column(name = "PARAM_USER", nullable = false)
+    private String paramUser;
+
     @Column(name = "TXT", nullable = false)
     private String testData;
-
-    @Column(name = "JPA_USER", nullable = false)
-    private String jpaUser;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "jruTbl", fetch = FetchType.EAGER)
     private List<JruJrnl> jruJrnl;

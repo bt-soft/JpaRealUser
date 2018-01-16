@@ -5,19 +5,26 @@
         <jta-data-source>jdbc/jruTest</jta-data-source>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
-
             <property name="eclipselink.session-event-listener" value="hu.btsoft.jru.core.jpa.sessionevent.JpaSessionEventAdapter"/>
-            <property name="eclipselink.logging.logger" value="hu.btsoft.jru.core.jpa.logger.JpaSlf4jLogger"/>
-            <property name="eclipselink.logging.level" value="ALL"/>
-            <!--<property name="eclipselink.logging.level.sql" value="FINEST"/>-->
-            <!--<property name="eclipselink.logging.level.transaction" value="FINEST"/>-->
-            <!--<property name="eclipselink.logging.level.event" value="FINEST"/>-->
-            <!--<property name="eclipselink.logging.level.connection" value="FINEST"/>-->
+
+            <!-- GF 4.1.x esetén -->
+            <property name="eclipselink.logging.logger" value="JavaLogger"/>
+
+            <!-- GF 5 esetén -->
+            <!--<property name="eclipselink.logging.logger" value="org.eclipse.persistence.logging.slf4j.SLF4JLogger"/>-->
+
+            <property name="eclipselink.logging.level" value="WARNING"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+            <property name="eclipselink.logging.level.event" value="FINE"/>
             <!--<property name="eclipselink.logging.level.query" value="FINEST"/>-->
+            <property name="eclipselink.logging.level.sequencing" value="FINE"/>
+            <property name="eclipselink.logging.level.jpa" value="FINE"/>
+
+            <property name="eclipselink.logging.level.connection" value="FINE"/>
+
+            <!--<property name="eclipselink.logging.level.transaction" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.cache" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.propagation" value="FINEST"/>-->
-            <!--<property name="eclipselink.logging.level.sequencing" value="FINEST"/>-->
-            <!--<property name="eclipselink.logging.level.jpa" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.ejb" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.dms" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.metadata" value="FINEST"/>-->
@@ -28,11 +35,13 @@
             <!--<property name="eclipselink.logging.level.properties" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.ddl" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.jpars" value="FINEST"/>-->
+
             <property name="eclipselink.logging.parameters" value="true"/>
             <property name="eclipselink.logging.connection" value="true"/>
             <property name="eclipselink.logging.session" value="true"/>
             <property name="eclipselink.logging.timestamp" value="false"/>
-            <property name="eclipselink.logging.thread" value="true"/>
+            <property name="eclipselink.logging.thread" value="false"/>
+
             <property name="eclipselink.target-database" value="Oracle"/>
         </properties>
     </persistence-unit>

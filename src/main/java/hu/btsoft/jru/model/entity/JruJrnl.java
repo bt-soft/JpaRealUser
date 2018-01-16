@@ -37,7 +37,7 @@ import lombok.Data;
 @Table(name = "JRU_JRNL", catalog = "", schema = "SCHEMAOWNER")
 @Data
 @NamedQueries({
-    @NamedQuery(name = "JruJrnl.findAllErrors", query = "SELECT j from JruJrnl j INNER JOIN j.jruTbl t WHERE j.jruTbl.id = t.id AND j.jpaUser != t.jpaUser ORDER BY j.modTimestamp")
+    @NamedQuery(name = "JruJrnl.findAllErrors", query = "SELECT j from JruJrnl j INNER JOIN j.jruTbl t WHERE j.jruTbl.id = t.id AND j.clientIdentifier != t.paramUser ORDER BY j.modTimestamp DESC")
 })
 public class JruJrnl implements Serializable {
 
@@ -59,8 +59,8 @@ public class JruJrnl implements Serializable {
 
     @NotNull
     @Size(min = 1, max = 50)
-    @Column(name = "JPA_USER", nullable = false, length = 50)
-    private String jpaUser;
+    @Column(name = "CLIENT_IDENTIFIER", nullable = false, length = 50)
+    private String clientIdentifier;
 
     @NotNull
     @Column(name = "MOD_TIMESTAMP", nullable = false)

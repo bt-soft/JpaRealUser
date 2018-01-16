@@ -54,7 +54,7 @@ public class EntityService {
         ThreadLocalMap.put(JpaSessionEventAdapter.KEY_CLIENT_ID, currentUser);
 
         JruTbl entity = new JruTbl();
-        entity.setJpaUser(currentUser);
+        entity.setParamUser(currentUser);
         entity.setTestData(testdata);
         em.persist(entity);
 

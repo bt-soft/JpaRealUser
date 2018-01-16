@@ -54,14 +54,14 @@
           </elementProp>
           <elementProp name="threadLoopCount" elementType="Argument">
             <stringProp name="Argument.name">threadLoopCount</stringProp>
-            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.value">5</stringProp>
             <stringProp name="Argument.desc">Tesztelő szálak hányszor ismételjék a tesztet</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="threadRampUp" elementType="Argument">
             <stringProp name="Argument.name">threadRampUp</stringProp>
             <stringProp name="Argument.value">60</stringProp>
-            <stringProp name="Argument.desc">Az összes threas indítása mennyi idő alatt menjen végbe?</stringProp>
+            <stringProp name="Argument.desc">Az összes thread indítása mennyi idő alatt menjen végbe?</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>

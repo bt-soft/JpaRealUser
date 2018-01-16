@@ -19,7 +19,8 @@ select *
   from jru_tbl t
  inner join JRU_JRNL j
     on t.id = j.jru_tbl_id
- where t.jpa_user != j.jpa_user;
+ where t.param_user != j.client_identifier
+ order by j.mod_timestamp desc;
 
 -- JPA sessions
 select v.SID, v.SERIAL#, v.USERNAME, v.STATUS, v.state
