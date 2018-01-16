@@ -1,5 +1,5 @@
 @echo off
-rem set GF_ASDAMIN_HOME=d:\JEE\glassfish5\bin
+set GF_ASDAMIN_HOME=d:\JEE\glassfish5\bin
 rem set GF_ASDAMIN_HOME=d:\JEE\lassfish-4.1.2\bin
 set testUsersCnt=100
 setlocal EnableDelayedExpansion
