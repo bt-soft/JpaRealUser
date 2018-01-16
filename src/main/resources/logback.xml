@@ -17,7 +17,7 @@
     </appender>
 
 
-    <root level="Trace">
+    <root level="Info">
         <appender-ref ref="Console"/>
     </root>
 

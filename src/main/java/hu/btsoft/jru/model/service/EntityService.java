@@ -76,7 +76,6 @@ public class EntityService {
 
         log.trace("-------------------------------------------------------------------------------------------------------------------------------------------");
         log.trace("doTest('{}', '{}')", testdata, currentUser);
-        log.trace("ThreadLocalMap[clientIdentifier]: {}", (String) ThreadLocalMap.get(JpaSessionEventAdapter.KEY_CLIENT_ID));
 
         return persist(testdata, currentUser);
 
@@ -97,7 +96,6 @@ public class EntityService {
 
         log.trace("-------------------------------------------------------------------------------------------------------------------------------------------");
         log.trace("doTest('{}') -> callerPrincipal: {}", testdata, currentUser);
-        log.trace("ThreadLocalMap[clientIdentifier]: {}", (String) ThreadLocalMap.get(JpaSessionEventAdapter.KEY_CLIENT_ID));
 
         return persist(testdata, currentUser);
     }

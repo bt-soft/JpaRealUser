@@ -4,8 +4,13 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="./../templates/simplePageTemplate.xhtml"
                 >
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setStatus(500)}" />
+    </f:metadata>
 
     <ui:define name="title">
         Hiba

@@ -9,7 +9,7 @@
                 >
 
     <ui:define name="title">
-        #{GFMonUIConstants.SHORT_APP_NAME} - Bejelentkezés
+        JRU - Login
     </ui:define>
 
     <ui:define name="htmlHead">
@@ -83,7 +83,8 @@
                 <p:separator/>
 
                 <h:panelGroup>
-                    <p:commandButton value="Login"
+                    <p:commandButton id="loginBtn"
+                                     value="Login"
                                      ajax="false"
                                      icon="ui-icon-person"
                                      style="float: right"

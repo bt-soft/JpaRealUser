@@ -1,6 +1,6 @@
 @echo off
 set GF_ASDAMIN_HOME=d:\JEE\glassfish5\bin
-set testUsersCnt=50
+set testUsersCnt=100
 setlocal EnableDelayedExpansion
 
 rem --- fileReaml

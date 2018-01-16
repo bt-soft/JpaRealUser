@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Resource Definitions//EN" "http://glassfish.org/dtds/glassfish-resources_1_5.dtd">
 <resources>
-    <!--  JDBC -->
-    <jdbc-resource enabled="true" jndi-name="jdbc/jruTest" object-type="user" pool-name="connectionPool_JruTest">
+    <jdbc-resource enabled="true"
+                   jndi-name="jdbc/jruTest"
+                   object-type="user"
+                   pool-name="connectionPool_JruTest">
         <description>JPA Real User Test DataSource</description>
     </jdbc-resource>
-    <jdbc-connection-pool datasource-classname="oracle.jdbc.pool.OracleDataSource" init-sql="BEGIN EXECUTE IMMEDIATE('ALTER SESSION SET CURRENT_SCHEMA = schemaowner'); END;" max-pool-size="100" name="connectionPool_JruTest" pool-resize-quantity="1" res-type="javax.sql.ConnectionPoolDataSource" steady-pool-size="0">
+
+    <jdbc-connection-pool name="connectionPool_JruTest"
+                          datasource-classname="oracle.jdbc.pool.OracleDataSource"
+                          res-type="javax.sql.ConnectionPoolDataSource"
+
+                          steady-pool-size="0"
+                          pool-resize-quantity="2"
+                          max-pool-size="10"
+
+                          init-sql="BEGIN EXECUTE IMMEDIATE('ALTER SESSION SET CURRENT_SCHEMA = schemaowner'); END;"
+    >
+
         <description>JPA Real User Test ConnectionPool</description>
+
         <property name="User" value="jpauser"/>
         <property name="Password" value="jpauser"/>
-        <!--
-        <property name="User" value="schemaowner"></property>
-        <property name="Password" value="schemaowner"></property>
-        -->
         <property name="URL" value="jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = Test)))"/>
     </jdbc-connection-pool>
-    <jdbc-connection-pool allow-non-component-callers="false" associate-with-thread="false" connection-creation-retry-attempts="0" connection-creation-retry-interval-in-seconds="10" connection-leak-reclaim="false" connection-leak-timeout-in-seconds="0" connection-validation-method="auto-commit" datasource-classname="oracle.jdbc.pool.OracleDataSource" fail-all-connections="false" idle-timeout-in-seconds="300" is-connection-validation-required="false" is-isolation-level-guaranteed="true" lazy-connection-association="false" lazy-connection-enlistment="false" match-connections="false" max-connection-usage-count="0" max-pool-size="32" max-wait-time-in-millis="60000" name="oracle-thin_TEST_schemaownerPool" non-transactional-connections="false" pool-resize-quantity="2" res-type="javax.sql.DataSource" statement-timeout-in-seconds="-1" steady-pool-size="8" validate-atmost-once-period-in-seconds="0" wrap-jdbc-objects="false">
-        <property name="serverName" value="localhost"/>
-        <property name="portNumber" value="1521"/>
-        <property name="databaseName" value="TEST"/>
-        <property name="User" value="schemaowner"/>
-        <property name="Password" value="schemaowner"/>
-        <property name="URL" value="jdbc:oracle:thin:@localhost:1521:TEST"/>
-        <property name="driverClass" value="oracle.jdbc.OracleDriver"/>
-    </jdbc-connection-pool>
-    <jdbc-resource enabled="true" jndi-name="a" object-type="user" pool-name="oracle-thin_TEST_schemaownerPool"/>
+
 </resources>
