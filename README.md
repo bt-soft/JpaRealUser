@@ -279,7 +279,8 @@ Biztosítani kell még azt (mivel pool-olt a session), hogy a kliens session kap
         log.trace("postReleaseClientSession: KEY_CLIENT_ID törölve -> {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
     }
 ```
->A fenti *EntityService* demó osztály *persist()* metódusában ne is próbálkozzunk a törléssel: mikor a metódus már visszaadta a vezérlést, >addig még bőven folynak JPA műveletek az adatbázisban.
+
+> A fenti *EntityService* demó osztály *persist()* metódusában ne is próbálkozzunk a törléssel: mikor a metódus már visszaadta a vezérlést, addig még bőven folynak JPA műveletek az adatbázisban.
 
 
 
@@ -295,10 +296,10 @@ Info:   15:33:23.749 DEBUG - [http-listener-1(4)] - eclipselink.logging.connecti
 Info:   15:33:23.755 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - Connection acquired from connection pool [read]
 Info:   15:33:23.755 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - reconnecting to external connection pool
 Info:   15:33:23.814 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:53) - postAcquireConnection: user001
-Info:   15:33:23.848 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:66) - SQL: <b>BEGIN DBMS_SESSION.SET_IDENTIFIER('user001');  END;</b>
+Info:   15:33:23.848 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:66) - SQL: <b><span style="color: red">BEGIN DBMS_SESSION.SET_IDENTIFIER('user001');  END;</b></span>
 Info:   15:33:23.848 DEBUG - [http-listener-1(4)] - eclipselink.logging.sql(log:59)                              - SELECT SCHEMAOWNER.JRU_SEQ.NEXTVAL FROM DUAL
 Info:   15:33:23.915 TRACE - [http-listener-1(4)] - sessionevent.JpaSessionEventAdapter(preReleaseConnection:88) - preReleaseConnection: user001
-Info:   15:33:23.929 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(preReleaseConnection:101) - SQL: <b>BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;</b>
+Info:   15:33:23.929 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(preReleaseConnection:101) - SQL: <b><span style="color: red">BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;</b></span>
 Info:   15:33:23.931 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - Connection released to connection pool [read].
 Info:   15:33:23.932 TRACE - [http-listener-1(4)] - eclipselink.logging.sequencing(log:47)                       - sequencing preallocation for JRU_SEQ: objects: 50 , first: 7, last: 56
 Info:   15:33:23.932 TRACE - [http-listener-1(4)] - eclipselink.logging.sequencing(log:47)                       - assign sequence to the object (7 -> JruTbl(id=null, paramUser=user001, testData=test data, jruJrnl=null))
@@ -306,15 +307,15 @@ Info:   15:33:23.936 TRACE - [http-listener-1(4)] - hu.btsoft.jru.model.service.
 Info:   15:33:23.947 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - Connection acquired from connection pool [default].
 Info:   15:33:23.947 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - reconnecting to external connection pool
 Info:   15:33:23.954 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:53) - postAcquireConnection: user001
-Info:   15:33:23.955 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:66) - SQL: <b>BEGIN DBMS_SESSION.SET_IDENTIFIER('user001');  END;</b>
+Info:   15:33:23.955 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:66) - SQL: <b><span style="color: red">BEGIN DBMS_SESSION.SET_IDENTIFIER('user001');  END;</b></span>
 Info:   15:33:23.955 DEBUG - [http-listener-1(4)] - eclipselink.logging.sql(log:59)                              - INSERT INTO SCHEMAOWNER.JRU_TBL (ID, PARAM_USER, TXT) VALUES (?, ?, ?)
 	bind => [7, user001, test data]
 Info:   15:33:23.958 TRACE - [http-listener-1(4)] - sessionevent.JpaSessionEventAdapter(preReleaseConnection:88) - preReleaseConnection: user001
-Info:   15:33:23.962 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(preReleaseConnection:101) - SQL: <b>BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;</b>
+Info:   15:33:23.962 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(preReleaseConnection:101) - SQL: <b><span style="color: red">BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;</b></span>
 Info:   15:33:23.962 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - Connection released to connection pool [default].
 Info:   15:33:23.964 DEBUG - [http-listener-1(4)] - eclipselink.logging.connection(log:59)                       - client released
 Info:   15:33:23.964 TRACE - [http-listener-1(4)] - onevent.JpaSessionEventAdapter(postReleaseClientSession:123) - postReleaseClientSession: user001
-Info:   15:33:23.964 TRACE - [http-listener-1(4)] - onevent.JpaSessionEventAdapter(postReleaseClientSession:126) - postReleaseClientSession: KEY_CLIENT_ID törölve -> null
+Info:   15:33:23.964 TRACE - [http-listener-1(4)] - onevent.JpaSessionEventAdapter(postReleaseClientSession:126) - postReleaseClientSession: <b><span style="color: red">KEY_CLIENT_ID törölve -> null</b></span>
 </pre></code></span>
 
 
@@ -327,16 +328,16 @@ A megoldás terheléses tesztje egy egyidejűleg 100, a UI felületre bejelentke
 
 ### Adatbázis objektumok
 
-Az adatbázis oldal végtelenül leegyszerűsített, de mégis a valós környezetben zajló folyamatokhoz közelítő modell, amelyben két tábla van. A `JruTbl` az adatttáblát reprezentálja, ahova a felhasználók és egyéb háttérfolyamatok dolgoznak, valamint a `JruJrnl` journal tábla, amelyet a jruTbl-re akasztott adatbázis trigger tölt. Mindkét tábla ID-jét egy adatbázis szekvenciából tölti fel egy egy trigger. Az adatbázis objektumok a `schemaowner` Oracle account tulajdonában vannak, míg a JPA a `jpauser` technikai account-al dolgozik az adatbázisban és a `jru_role` szerepkörön keresztül éri el az adattáblákat.
+Az adatbázis oldal végtelenül leegyszerűsített, de mégis a valós környezetben zajló folyamatokhoz közelítő modell, amelyben két tábla van. A `Jru_Tbl` az adatttáblát reprezentálja, ahova a felhasználók és egyéb háttérfolyamatok dolgoznak, valamint a `Jru_Jrnl` journal tábla, amelyet a jruTbl-re akasztott adatbázis trigger tölt. Mindkét tábla ID-jét egy adatbázis szekvenciából tölti fel egy egy trigger. Az adatbázis objektumok a `schemaowner` Oracle account tulajdonában vannak, míg a JPA a `jpauser` technikai account-al dolgozik az adatbázisban és a `jru_role` szerepkörön keresztül éri el az adattáblákat.
 
    <img src="docs/entities.png" height="50%" width="50%"/>
 
 
-A `JruTbl` táblába JPA oldalról két adatot küldünk:
+A `Jru_Tbl` táblába JPA oldalról két adatot küldünk:
 - Egy véletlenszerű szöveges adatot
 - A UI felületen bejelentkezett valós felhasználó azonosítóját. (Majd ezzel tudjuk a trigger által kiolvasott felhasználó neveket összevetni.)
 
-A `JruJrnl` táblát egy szokásos (<code>after insert or update or delete</code>) journal trigger írja, ami viszont inkább figyelmet érdemel, hogy viszonylag egyszerűen lehet megállapítani a változást kiváltó felhasználó azonosítóját.  A leírás elején említett legacy Oracle Forms-os triggereket így csak az alábbiak szerint kell majd módosítani, ha a módosító user-t szeretnék megállapítani.
+A `Jru_Jrnl` táblát egy szokásos (<code>after insert or update or delete</code>) journal trigger írja, ami viszont inkább figyelmet érdemel, hogy viszonylag egyszerűen lehet megállapítani a változást kiváltó felhasználó azonosítóját.  A leírás elején említett legacy Oracle Forms-os triggereket így csak az alábbiak szerint kell majd módosítani, ha a módosító user-t szeretnék megállapítani.
 
 ```sql
 select NVL(SYS_CONTEXT('userenv', 'client_identifier'), user) FROM dual
@@ -390,7 +391,7 @@ A megoldás valódi működőképességének komolyabb tesztelését pl.: egy JM
 Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klikkelgetési' teljesítményét: az egyes műveletek között un: `ThinkingTime` időt várunk, ami itt szálanként véletlenszerűen 1.5..3.5 másodperc lesz. (Ha növeltük a GlassFish teszt userek számát, akkor javítsunk a [jmeter\create-jmeter-test-users.cmd](jmeter\create-jmeter-test-users.cmd) állomány *testUsersCnt* változóján, majd indítsuk el a parancs állományt.) A jelenlegi beállításokkal 25.000 tranzakció lesz.
 
 
-- Töltsük be a JMeter-be a [jmeter\jrutest-plan.jmx]() állományt
+- Töltsük be a JMeter-be a [jmeter\jrutest-plan.jmx](jmeter\jrutest-plan.jmx) állományt
 - Az 'User Defined Variables'-ben ellenőrizzük, és szüksége esetén változtassunk az értékeken
  
     <img src="docs/jmeter-user-defined-variables.png" height="60%" width="60%"/>
@@ -404,7 +405,7 @@ Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klik
 
     <img src="docs/jmeter-end-test.png" height="40%" width="40%"/>
 
-- **Mindenképpen ellenőrizzük az adatokat az adatbázisban**: keressünk olyan rekordokat, ahol a `JruTbl.param_user` mezője nem egyezik a megfelelő `JruJrnl.client_identifier` mezőjével. **Ha nincs ilyen, akkor minden rendben.**
+- **Mindenképpen ellenőrizzük az adatokat az adatbázisban**: keressünk olyan rekordokat, ahol a `Jru_Tbl.param_user` mezője nem egyezik a megfelelő `Jru_Jrnl.client_identifier` mezőjével. **Ha nincs ilyen, akkor minden rendben.**
 ```sql
 -- Search for faulty records where the username is different
 select *
