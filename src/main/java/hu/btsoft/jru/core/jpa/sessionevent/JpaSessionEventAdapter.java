@@ -71,7 +71,6 @@ public class JpaSessionEventAdapter extends SessionEventAdapter {
                 log.error("SQL Error", e);
             }
         }
-
     }
 
     /**

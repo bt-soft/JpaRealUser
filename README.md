@@ -256,7 +256,7 @@ public class EntityService {
 
 Persze pont ez az Achilles sarka ennek a megoldásnak: ha a *ThreadLocalMap.put(JpaSessionEventAdapter.KEY_CLIENT_ID, currentUser);* hívást elfelejtjük kiadni, akkor marad az eredeti probléma: az audit a JPA technikai user-el fog megtörténni. Bár ezen lehetne segíteni egy az osztályra/metódusra ráhúzott inteceptor segítségével...
 
-Biztosítani kell még azt (mivel pool-olt a session), hogy a kliens session kapcsolat elengedésével mindenképpen törlődjön a *ThreadLocalMap* ezen kulcsa. Ezt a *JpaSessionEventAdapter* osztály *postReleaseClientSession()* metódusában végezzük. (A fenti *EntityService* demó osztály *persist()* metódusában ne is próbálkozzunk a törléssel: mikor a metódus már visszaadta a vezérlést, addig még bőven folynak JPA műveletek az adatbázisban!)
+Biztosítani kell még azt (mivel pool-olt a session), hogy a kliens session kapcsolat elengedésével mindenképpen törlődjön a *ThreadLocalMap* ezen kulcsa. Ezt a *JpaSessionEventAdapter* osztály *postReleaseClientSession()* metódusában végezzük. 
 
 ```java
 /**
@@ -277,9 +277,57 @@ Biztosítani kell még azt (mivel pool-olt a session), hogy a kliens session kap
         log.trace("postReleaseClientSession: KEY_CLIENT_ID törölve -> {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
     }
 ```
+A fenti *EntityService* demó osztály *persist()* metódusában ne is próbálkozzunk a törléssel: mikor a metódus már visszaadta a vezérlést, addig még bőven folynak JPA műveletek az adatbázisban.
 
 
 
+### A teszt futtatás
+
+A teszt során a felhúzott session event listener már végzi a dolgát: minden releváns SQL utasítás előtt/után végrehajtódik a `client_identifier` DB oldali változó automatikus beállítása és törlése, valamint az adott szál *ThreadLocalMap*  kulcsának a törlése is.
+
+<span style="font-size:0.6em">
+<pre><code>
+Info:   15:33:23.733 TRACE - [http-listener-1(4)] - hu.btsoft.jru.model.service.EntityService(doTest:77)         - -------------------------------------------------------------------------------------------------------------------------------------------
+Info:   15:33:23.733 TRACE - [http-listener-1(4)] - hu.btsoft.jru.model.service.EntityService(doTest:78)         - doTest('test data', 'user001')
+Info:   15:33:23.749 DEBUG - [http-listener-1(4)] - eclipselink.logging.connection(log:59)                       - client acquired: 1873423915
+Info:   15:33:23.755 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - Connection acquired from connection pool [read]
+Info:   15:33:23.755 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - reconnecting to external connection pool
+Info:   15:33:23.814 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:53) - postAcquireConnection: user001
+Info:   15:33:23.848 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:66) - SQL: <b>BEGIN DBMS_SESSION.SET_IDENTIFIER('user001');  END;</b>
+Info:   15:33:23.848 DEBUG - [http-listener-1(4)] - eclipselink.logging.sql(log:59)                              - SELECT SCHEMAOWNER.JRU_SEQ.NEXTVAL FROM DUAL
+Info:   15:33:23.915 TRACE - [http-listener-1(4)] - sessionevent.JpaSessionEventAdapter(preReleaseConnection:88) - preReleaseConnection: user001
+Info:   15:33:23.929 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(preReleaseConnection:101) - SQL: <b>BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;</b>
+Info:   15:33:23.931 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - Connection released to connection pool [read].
+Info:   15:33:23.932 TRACE - [http-listener-1(4)] - eclipselink.logging.sequencing(log:47)                       - sequencing preallocation for JRU_SEQ: objects: 50 , first: 7, last: 56
+Info:   15:33:23.932 TRACE - [http-listener-1(4)] - eclipselink.logging.sequencing(log:47)                       - assign sequence to the object (7 -> JruTbl(id=null, paramUser=user001, testData=test data, jruJrnl=null))
+Info:   15:33:23.936 TRACE - [http-listener-1(4)] - hu.btsoft.jru.model.service.EntityService(persist:61)        - doTest end, id: 7
+Info:   15:33:23.947 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - Connection acquired from connection pool [default].
+Info:   15:33:23.947 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - reconnecting to external connection pool
+Info:   15:33:23.954 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:53) - postAcquireConnection: user001
+Info:   15:33:23.955 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(postAcquireConnection:66) - SQL: <b>BEGIN DBMS_SESSION.SET_IDENTIFIER('user001');  END;</b>
+Info:   15:33:23.955 DEBUG - [http-listener-1(4)] - eclipselink.logging.sql(log:59)                              - INSERT INTO SCHEMAOWNER.JRU_TBL (ID, PARAM_USER, TXT) VALUES (?, ?, ?)
+	bind => [7, user001, test data]
+Info:   15:33:23.958 TRACE - [http-listener-1(4)] - sessionevent.JpaSessionEventAdapter(preReleaseConnection:88) - preReleaseConnection: user001
+Info:   15:33:23.962 TRACE - [http-listener-1(4)] - essionevent.JpaSessionEventAdapter(preReleaseConnection:101) - SQL: <b>BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;</b>
+Info:   15:33:23.962 TRACE - [http-listener-1(4)] - eclipselink.logging.connection(log:47)                       - Connection released to connection pool [default].
+Info:   15:33:23.964 DEBUG - [http-listener-1(4)] - eclipselink.logging.connection(log:59)                       - client released
+Info:   15:33:23.964 TRACE - [http-listener-1(4)] - onevent.JpaSessionEventAdapter(postReleaseClientSession:123) - postReleaseClientSession: user001
+Info:   15:33:23.964 TRACE - [http-listener-1(4)] - onevent.JpaSessionEventAdapter(postReleaseClientSession:126) - postReleaseClientSession: KEY_CLIENT_ID törölve -> null
+</pre></code></span>
+
+
+## A környezet kialakítása
+
+Az egyszerű tesztelői környezetről bővebben a setup mappában olvashatunk.
+
+## Stress teszt
+
+A megoldás működőképességének komolyabb tesztelését egy JMeter projektben lehet ellenőrizi.
+Erről bővebben a jmeter mappában lehet olvasni.
+
+## UI felület
+
+A fejlesztéshez és a próbálgatáshoz készült, a feladat szempontjából nincs túl nagy jelentősége.
 
 
 

@@ -18,14 +18,12 @@
             <property name="eclipselink.logging.logger" value="org.eclipse.persistence.logging.slf4j.SLF4JLogger"/>
 
             <property name="eclipselink.logging.level" value="WARNING"/>
-            <property name="eclipselink.logging.level.sql" value="FINE"/>
-            <property name="eclipselink.logging.level.event" value="FINE"/>
+            <property name="eclipselink.logging.level.sql" value="WARNING"/>
+            <property name="eclipselink.logging.level.event" value="WARNING"/>
+            <property name="eclipselink.logging.level.sequencing" value="WARNING"/>
+            <property name="eclipselink.logging.level.connection" value="WARNING"/>
+            <!--<property name="eclipselink.logging.level.jpa" value="FINE"/>-->
             <!--<property name="eclipselink.logging.level.query" value="FINEST"/>-->
-            <property name="eclipselink.logging.level.sequencing" value="FINE"/>
-            <property name="eclipselink.logging.level.jpa" value="FINE"/>
-
-            <property name="eclipselink.logging.level.connection" value="FINE"/>
-
             <!--<property name="eclipselink.logging.level.transaction" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.cache" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.propagation" value="FINEST"/>-->
@@ -35,7 +33,7 @@
             <!--<property name="eclipselink.logging.level.monitoring" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.misc" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.metamodel" value="FINEST"/>-->
-            <!--<property name="eclipselink.logging.level.weaver" value="FINEST"/>-->
+            <property name="eclipselink.logging.level.weaver" value="OFF"/>
             <!--<property name="eclipselink.logging.level.properties" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.ddl" value="FINEST"/>-->
             <!--<property name="eclipselink.logging.level.jpars" value="FINEST"/>-->
