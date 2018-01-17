@@ -401,6 +401,7 @@ Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klik
 
 - A teszt futása közben fél szemmel érdemes a GlassFish naplóját is figyelemmel kísérni
 - Ha a JMeter végzett, akkor esetleg érdemes átnézni a jelentéseket
+
     <img src="docs/jmeter-end-test.png" height="40%" width="40%"/>
 
 - **Mindenképpen ellenőrizzük az adatokat az adatbázisban**: keressünk olyan rekordokat, ahol a `JruTbl.param_user` mezője nem egyezik a megfelelő `JruJrnl.client_identifier` mezőjével. **Ha nincs ilyen, akkor minden rendben.**
