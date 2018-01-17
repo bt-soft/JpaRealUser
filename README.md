@@ -410,7 +410,7 @@ Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klik
 -- Search for faulty records where the username is different
 select *
   from jru_tbl t
- inner join JRU_JRNL j
+ inner join jru_jrnl j
     on t.id = j.jru_tbl_id
  where t.param_user != j.client_identifier
  order by j.mod_timestamp desc;
