@@ -1,3 +1,5 @@
+
+
 # RealJpaUser (JRU)
 Test the transfer of the real user ID to the Oracle database when using connection pool
 
@@ -9,7 +11,7 @@ Hogyan lehet megoldani, hogy egy JPA pool-olt session kapcsolatban biztonságosa
 Adott egy korábbi, több instance-ból álló Oracle RAC adatbázison(DB) alapuló rendszer, Oracle Forms felhasználói felülettel, sok ezer interaktív felhasználóval, háttérben futó batch jellegű job-okkal, stb.
 Ehhez a környezethez kell illeszteni egy olyan újabb JEE7/JSF/JPA architektúrát - ami már szintén rendelkezik viszonylag számos alkalmazással - úgy, hogy a két alkalmazástér továbbra is párhuzamosan működjön tovább.
 
-A jelenleg megoldandó problémát az jelenti, hogy a korábbi rendszerek olyan DB trigger (after insert or update or delete) alapú audit/journal megoldást használnak, ami az adatbázis `user` SQL függvény segítségével
+>A jelenleg megoldandó problémát az jelenti, hogy a korábbi rendszerek olyan DB trigger (after insert or update or delete) alapú audit/journal megoldást használnak, ami az adatbázis `user` SQL függvény segítségével
 állapítja meg az aktuális felhasználót. A JEE környezetben a JPA pooling miatt az Alkalmazásszerver (AS) és a DB között technikai user van, így egy módosító SQL esetén a DB triggerek a technikai user account-ját
 írják be az audit táblamezőkbe a tényleges felhasználó helyett.
 A klasszikus JPA entitás életciklus annotációk (@Pre/PostPersist|Update|Remove) a DB triggerek miatt nem segítenek.
@@ -277,7 +279,7 @@ Biztosítani kell még azt (mivel pool-olt a session), hogy a kliens session kap
         log.trace("postReleaseClientSession: KEY_CLIENT_ID törölve -> {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
     }
 ```
-A fenti *EntityService* demó osztály *persist()* metódusában ne is próbálkozzunk a törléssel: mikor a metódus már visszaadta a vezérlést, addig még bőven folynak JPA műveletek az adatbázisban.
+>A fenti *EntityService* demó osztály *persist()* metódusában ne is próbálkozzunk a törléssel: mikor a metódus már visszaadta a vezérlést, >addig még bőven folynak JPA műveletek az adatbázisban.
 
 
 
@@ -316,22 +318,100 @@ Info:   15:33:23.964 TRACE - [http-listener-1(4)] - onevent.JpaSessionEventAdapt
 </pre></code></span>
 
 
-A megoldás terheléses tesztje egy egyidejűleg 100 interaktív felhasználót szimuláló (felhasználónként 50 véletlenszerű tesztadatot beküldő és mindezt 5 iterációban megismétlő) környezetben is jól szerepelt, így valószínűleg érdemes vele tovább foglalkozni.  
+A megoldás terheléses tesztje egy egyidejűleg 100, a UI felületre bejelentkező, egy interaktív felhasználó kattintgatását szimuláló (felhasználónként 50 véletlenszerű tesztadatot beküldő és mindezt 5 iterációban megismétlő) környezetben is hibátlanul teljesített, így valószínűleg érdemes vele tovább foglalkozni.  
 
 
-## A környezet kialakítása
-
-Az egyszerű tesztelői környezetről bővebben a `setup` mappában olvashatunk.
-
-## Stress teszt
-
-A megoldás működőképességének komolyabb tesztelését egy JMeter projekt segítségével lehet ellenőrizi.
-Erről bővebben a `jmeter` mappában lehet olvasni.
-
-## UI felület
-
-A fejlesztéshez és a próbálgatáshoz készült, a feladat szempontjából nincs túl nagy jelentősége.
+## A tesztkörnyezet kialakítása
 
 
 
+### Adatbázis objektumok
+
+Az adatbázis oldal végtelenül leegyszerűsített, de mégis a valós környezetben zajló folyamatokhoz közelítő modell, amelyben két tábla van. A `JruTbl` az adatttáblát reprezentálja, ahova a felhasználók és egyéb háttérfolyamatok dolgoznak, valamint a `JruJrnl` journal tábla, amelyet a jruTbl-re akasztott adatbázis trigger tölt. Mindkét tábla ID-jét egy adatbázis szekvenciából tölti fel egy egy trigger. Az adatbázis objektumok a `schemaowner` Oracle account tulajdonában vannak, míg a JPA a `jpauser` technikai account-al dolgozik az adatbázisban és a `jru_role` szerepkörön keresztül éri el az adattáblákat.
+
+
+![entitások](docs/entities.png){:height="50%" width="50%"}
+
+A `JruTbl` táblába JPA oldalról két adatot küldünk:
+- Egy véletlenszerű szöveges adatot
+- A UI felületen bejelentkezett valós felhasználó azonosítóját. (Majd ezzel tudjuk a trigger által kiolvasott felhasználó neveket összevetni.)
+
+A `JruJrnl` táblát egy szokásos (<code>after insert or update or delete</code>) journal trigger írja, ami viszont inkább figyelmet érdemel, hogy viszonylag egyszerűen lehet megállapítani a változást kiváltó felhasználó azonosítóját.  A leírás elején említett legacy Oracle Forms-os triggereket így csak az alábbiak szerint kell majd módosítani, ha a módosító user-t szeretnék megállapítani.
+
+```sql
+select NVL(SYS_CONTEXT('userenv', 'client_identifier'), user) FROM dual
+```
+
+#### Adatbázis objektumok beállítása
+
+>Figyelem: A leírásban szereplő scriptek, cmd és más állományok elindítása előtt mindig ellenőrizzük, fussuk át őket, és **írjuk át a saját környezetünknek megfelelően!**
+
+1) Egy 'nyers' adatbázis kialakítását a [setup/db-setup/1-run-from-sys.sql](setup\db-setup\1-run-from-sys.sql) SYSDBA szerepkörrel rendelkező user alól történő indításával kezdhetjük el, amely az alábbiakat hozza létre: 
+- `testtblspc` táblatér (a teszt után a teljes táblatér eldobható)
+- `schemaowner` user
+- `jpauser` user
+- `jru_role` szerepkört, és a `jpauser`-nek adja
+
+
+2) A `schemaowner`-be bejelentkezve indítsuk el a [setup/db-setup/2-run-from-schemaowner.sql](setup\db-setup\2-run-from-schemaowner.sql) scriptet, amely az alábbiakat végzi el:
+- droppol minden korábban, ebben a scriptben használt  létrehozott objektumot
+- táblák, indexek, szekvenciák, triggerek
+- grantok kiadása 
+
+
+#### GalssFish beállítása
+Ellenőrizzük és írjuk át a GF_ASDAMIN_HOME környezeti változó értékét, esetleg a létrehozandó tesz userek számát (testUsersCnt), majd indítsuk el a [setup\gf-setup\GlassFish-config.cmd](setup\gf-setup\GlassFish-config.cmd) parancs állományt. Ez létrehozza a GalssFish példányunk default domain-jében az alábbiakat:
+- jru-fileRealm fileRealm
+- admin usert, JRU_USER és JRU_ADMIN szerepkörrel (jelszó: pass12)
+- user001...user100 teszt user-t, JRU_USER szerepkörrel (jelszó: pass12)
+
+
+Ezekkel a lépésekkel a tesztkörnyezet tulajdonképpen meg is is van.
+
+### UI felület
+
+A fejlesztéshez és a próbálgatáshoz készült, a feladat szempontjából nincs túl nagy jelentősége. A projekt build-je és deploy után be is jelentkezhetünk (url: http://localhost:8080/JruTest)
+
+![](docs/ui-login.png){:height="40%" width="40%"}    ![](docs/ui-main.png){:height="40%" width="40%"}
+
+A felület nem túl bonyolult: a bejelentkezett user küldhet teszt adatokat, a hibák megjelenítésére csak az admin usernek van joga, leginkább a JMeter-es teszt lebonyolítása miatt került kialakításra, talán elég ennyi róla.
+
+
+## Stressz teszt
+
+A megoldás valódi működőképességének komolyabb tesztelését pl.: egy JMeter projekt segítségével lehet ellenőrizni. A JMeter segítségével több virtuális felhasználót tudunk ráereszteni az UI felületre:
+- bejelentkeztetni
+- adatot íratni az input mezőbe
+- megnyomatni vele a submit gombot, ezt ismételjük párszor
+- majd kilép az user a logout gombra klikkelve
+
+Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klikkelgetési' teljesítményét: az egyes műveletek között un: `ThinkingTime` időt várunk, ami itt szálanként véletlenszerűen 1.5..3.5 másodperc lesz. (Ha növeltük a GlassFish teszt userek számát, akkor javítsunk a [jmeter\create-jmeter-test-users.cmd](jmeter\create-jmeter-test-users.cmd) állomány *testUsersCnt* változóján, majd indítsuk el a parancs állományt.)
+
+
+- Töltsük be a JMeter-be a [jmeter\jrutest-plan.jmx](jmeter\jrutest-plan.jmx) állományt
+- Az 'User Defined Variables'-ben ellenőrizzük, és szüksége esetén változtassunk az értékeken
+
+    ![](docs/jmeter-user-defined-variables.png){:height="60%" width="60%"}
+- Indítsuk el a JMeter projektet (Érdemes a JruTest projekt LogBack log level szintjét Warn-ra állítani a teszt közben, akár menet közben is lehet...)
+![](docs/jmeter-run-test.png){:height="40%" width="40%"}
+
+- A teszt futása közben fél szemmel érdemes a GlassFish naplóját is figyelemmel kísérni
+- Ha a JMeter végzett, akkor esetleg érdemes átnézni a jelentéseket
+  ![](docs/jmeter-end-test.png){:height="40%" width="40%"}
+
+- **Mindenképpen ellenőrizzük az adatokat az adatbázisban**: keressünk olyan rekordokat, ahol a `JruTbl.param_user` mezője nem egyezik a megfelelő `JruJrnl.client_identifier` mezőjével. **Ha nincs ilyen, akkor minden rendben.**
+```sql
+-- Search for faulty records where the username is different
+select *
+  from jru_tbl t
+ inner join JRU_JRNL j
+    on t.id = j.jru_tbl_id
+ where t.param_user != j.client_identifier
+ order by j.mod_timestamp desc;
+```
+
+
+
+
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?style=plastic)]()
 
