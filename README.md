@@ -32,7 +32,7 @@ Tehát azt kell megoldani, hogy az adatbázisban a tranzakció alatt biztosítsu
 Az EclipseLink a VPD műveletek számára a `DBMS_SESSION.SET_IDENTIFIER` és `DBMS_SESSION.CLEAR_IDENTIFIER` tárolt eljárások segítségével állítja/törli a `SYS_CONTEXT('USERENV','CLIENT_IDENTIFIER')` függvény által elérhető `client_identifier` session változót. Az EclipseLink az AbstractSession osztály session event események postAcquireConnection() és preReleaseConnection() metódusain keresztül - Oracle DB esetén - az OraclePlatform osztály getVPDSetIdentifierQuery() és getVPDClearIdentifierQuery() metódusai segítségével oldja meg.
 
 
-
+ 
 ```java
 /**
  * INTERNAL:
