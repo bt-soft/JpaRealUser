@@ -168,7 +168,7 @@ public class JpaSessionEventAdapter extends SessionEventAdapter {
     }
 ```
 <span style="font-size: 0.7em;">
-(Mivel ez csak egy megoldás integrációs tesztje, így sokat logol, és a hibakezelések szofisztikáltabb implementációja sem annyira
+(Mivel ez csak egy implementációs teszt, így sokat logol, és a hibakezelések szofisztikáltabb implementációja sem annyira
 neuralgikus pont.) 
 </span>
 
