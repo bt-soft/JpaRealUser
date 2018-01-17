@@ -316,7 +316,7 @@ Info:   15:33:23.964 TRACE - [http-listener-1(4)] - onevent.JpaSessionEventAdapt
 </pre></code></span>
 
 
-A megoldás terheléses tesztje egy egyzserre 100 interaktív felhasználó szimuláló (felhasználónként 50 véletlenszerű tesztadatot beküldő és mindezt 5 iterációban megismétlő) környezetben is jól szerepelt, így valószínűleg érdemes vele tovább foglalkozni.  
+A megoldás terheléses tesztje egy egyszerre 100 interaktív felhasználó szimuláló (felhasználónként 50 véletlenszerű tesztadatot beküldő és mindezt 5 iterációban megismétlő) környezetben is jól szerepelt, így valószínűleg érdemes vele tovább foglalkozni.  
 
 
 ## A környezet kialakítása
