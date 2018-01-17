@@ -316,14 +316,17 @@ Info:   15:33:23.964 TRACE - [http-listener-1(4)] - onevent.JpaSessionEventAdapt
 </pre></code></span>
 
 
+A megoldás terheléses tesztje egy 100 szimulált interaktív felhasználói környezetben is jól szerepelt, így valószínűleg érdemes vele tovább foglakozni.  
+
+
 ## A környezet kialakítása
 
-Az egyszerű tesztelői környezetről bővebben a setup mappában olvashatunk.
+Az egyszerű tesztelői környezetről bővebben a `setup` mappában olvashatunk.
 
 ## Stress teszt
 
-A megoldás működőképességének komolyabb tesztelését egy JMeter projektben lehet ellenőrizi.
-Erről bővebben a jmeter mappában lehet olvasni.
+A megoldás működőképességének komolyabb tesztelését egy JMeter projekt segítségével lehet ellenőrizi.
+Erről bővebben a `jmeter` mappában lehet olvasni.
 
 ## UI felület
 
