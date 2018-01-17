@@ -23,10 +23,11 @@ import org.eclipse.persistence.sessions.SessionEventAdapter;
 /**
  * JPA Session event adapter
  *
- * A JPA postAcquireConnection()/preReleaseConnection() eseményeire ráköltözbe álítjuk be/töröljük ki
- * (Az EclipseLink VPD is így csinálja, lehet, hogy nekünk is jó lesz)
- * A DB session-ból a 'client_identifier' userenv változót
- * A trigger inne tudja kiszedni az aktuális felhasználót
+ * A JPA postAcquireConnection()/preReleaseConnection() eseményeire ráköltözve
+ * álítjuk be/töröljük ki a DB session-ból a 'client_identifier' userenv
+ * változót (Az EclipseLink VPD is így csinálja, lehet, hogy nekünk is jó lesz)
+ *
+ * A DB trigger innen tudja majd kiszedni az aktuális felhasználót
  *
  * A többi esemény csak a log trace kedvéért implementált, és csak logol
  *
@@ -37,65 +38,19 @@ public class JpaSessionEventAdapter extends SessionEventAdapter {
 
     public static final String KEY_CLIENT_ID = "client_identifier";
 
-//
-// Az EclipseLink VPD így csinálja
-//
-// org.eclipse.persistence.internal.sessions.AbstractSession:
-//
-//    /**
-//     * INTERNAL:
-//     * This method rises appropriate for the session event(s)
-//     * right after connection is acquired.
-//     */
-//    public void postAcquireConnection(Accessor accessor) {
-//        if (getProject().hasVPDIdentifier(this)) {
-//            if (getPlatform().supportsVPD()) {
-//                DatabaseQuery query = getPlatform().getVPDSetIdentifierQuery(getProject().getVPDIdentifier());
-//                List argValues = new ArrayList();
-//                query.addArgument(getProject().getVPDIdentifier());
-//                argValues.add(getProperty(getProject().getVPDIdentifier()));
-//                executeQuery(query, argValues);
-//            } else {
-//                throw ValidationException.vpdNotSupported(getPlatform().getClass().getName());
-//            }
-//        }
-//
-//        if (this.eventManager != null) {
-//            this.eventManager.postAcquireConnection(accessor);
-//        }
-//    }
-//
-//    /**
-//     * INTERNAL:
-//     * This method rises appropriate for the session event(s)
-//     * right before the connection is released.
-//     */
-//    public void preReleaseConnection(Accessor accessor) {
-//        if (getProject().hasVPDIdentifier(this)) {
-//            if (getPlatform().supportsVPD()) {
-//                DatabaseQuery query = getPlatform().getVPDClearIdentifierQuery(getProject().getVPDIdentifier());
-//                List argValues = new ArrayList();
-//                query.addArgument(getProject().getVPDIdentifier());
-//                argValues.add(getProperty(getProject().getVPDIdentifier()));
-//                executeQuery(query, argValues);
-//            } else {
-//                throw ValidationException.vpdNotSupported(getPlatform().getClass().getName());
-//            }
-//        }
-//
-//        if (this.eventManager != null) {
-//            this.eventManager.preReleaseConnection(accessor);
-//        }
-//    }
-//
     /**
      * Client ID beállítása
-     * (csak azért van kiemelve külön metódusba,
-     * hogy könyebben meg lehessen találni azt az eseményt, ahova be kell illeszteni)
      *
-     * @param event event
+     * PUBLIC: This event is raised on when using the server/client sessions.
+     * This event is raised after a connection is acquired from a connection
+     * pool.
+     *
+     * @param event
      */
-    private void setClientId(SessionEvent event) {
+    @Override
+    public void postAcquireConnection(SessionEvent event) {
+
+        log.trace("postAcquireConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
         String clientIdentifier = (String) ThreadLocalMap.get(KEY_CLIENT_ID);
 
         //Ha van definiált 'client_identifier', akkor beállítjuk a session-nak
@@ -116,16 +71,22 @@ public class JpaSessionEventAdapter extends SessionEventAdapter {
                 log.error("SQL Error", e);
             }
         }
+
     }
 
     /**
      * Client ID törlése
-     * (csak azért van kiemelve külön metódusba,
-     * hogy könyebben meg lehessen találni azt az eseményt, ahova be kell illeszteni)
      *
-     * @param event event
+     * PUBLIC: This event is raised on when using the server/client sessions.
+     * This event is raised before a connection is released into a connection
+     * pool.
+     *
+     * @param event
      */
-    private void clearClientid(SessionEvent event) {
+    @Override
+    public void preReleaseConnection(SessionEvent event) {
+
+        log.trace("preReleaseConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
 
         //Ha van definiált 'client_identifier', akkor töröljük a session-ból
         String clientIdentifier = (String) ThreadLocalMap.get(KEY_CLIENT_ID);
@@ -148,40 +109,11 @@ public class JpaSessionEventAdapter extends SessionEventAdapter {
         }
     }
 
-//
-//-------------------------------------------------------------------
-//
     /**
-     * PUBLIC:
-     * This event is raised on when using the server/client sessions.
-     * This event is raised after a connection is acquired from a connection pool.
+     * A 'client_identifier' ThreadLocal változót a biztonság kedvéért
+     * mindenképpen töröljük!
      *
-     * @param event
-     */
-    @Override
-    public void postAcquireConnection(SessionEvent event) {
-
-        log.trace("postAcquireConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-        setClientId(event);
-    }
-
-    /**
-     * PUBLIC:
-     * This event is raised on when using the server/client sessions.
-     * This event is raised before a connection is released into a connection pool.
-     *
-     * @param event
-     */
-    @Override
-    public void preReleaseConnection(SessionEvent event) {
-
-        log.trace("preReleaseConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
-        clearClientid(event);
-    }
-
-    /**
-     * PUBLIC:
-     * This event is raised on the client session after releasing.
+     * PUBLIC: This event is raised on the client session after releasing.
      *
      * @param event
      */
@@ -191,6 +123,7 @@ public class JpaSessionEventAdapter extends SessionEventAdapter {
         //Ha a klien kilép az adatbázisból, akkor töröljük a ThreadLocal 'client_identifier' változót
         log.trace("postReleaseClientSession: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
         ThreadLocalMap.remove(KEY_CLIENT_ID);
+
         log.trace("postReleaseClientSession: KEY_CLIENT_ID törölve -> {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
     }
 

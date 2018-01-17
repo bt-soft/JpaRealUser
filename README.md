@@ -29,10 +29,9 @@ A klasszikus JPA entitás életciklus annotációk (@Pre/PostPersist|Update|Remo
 
 Tehát azt kell megoldani, hogy az adatbázisban a tranzakció alatt biztosítsuk azt, a triggerek számára is elérhetővé váljék az aktuális felhasználó neve, mindezt pool-ot session-okban. A feladathoz kísértetiesen hasonlít az EclipseLink VPD (Virtual Private Database) támogatása, abban szintén meg kell oldani ugyan ezt a problémát. 
 
-Az EclipseLink a VPD műveletek számára a `DBMS_SESSION.SET_IDENTIFIER` és `DBMS_SESSION.CLEAR_IDENTIFIER` tárolt eljárások segítségével állítja/törli a `SYS_CONTEXT('USERENV','CLIENT_IDENTIFIER')` függvény által elérhető `client_identifier` session változót. Az EclipseLink az AbstractSession osztály session event események postAcquireConnection() és preReleaseConnection() metódusain keresztül - Oracle DB esetén - az OraclePlatform osztály getVPDSetIdentifierQuery() és getVPDClearIdentifierQuery() metódusai segítségével oldja meg.
+Az EclipseLink a VPD műveletek számára a `DBMS_SESSION.SET_IDENTIFIER` és `DBMS_SESSION.CLEAR_IDENTIFIER` tárolt eljárások segítségével állítja be/törli a `SYS_CONTEXT('USERENV','CLIENT_IDENTIFIER')` függvény által elérhető `client_identifier` session változót. Az EclipseLink az *AbstractSession* osztály *postAcquireConnection()* és *preReleaseConnection()* session event esemény metódusain keresztül - Oracle DB esetén - az *OraclePlatform* osztály a *getVPDSetIdentifierQuery()* és a *getVPDClearIdentifierQuery()* metódusai segítségével oldja meg.
 
 
- 
 ```java
 /**
  * INTERNAL:
@@ -41,7 +40,7 @@ Az EclipseLink a VPD műveletek számára a `DBMS_SESSION.SET_IDENTIFIER` és `D
 @Override
 public DatabaseQuery getVPDSetIdentifierQuery(String vpdIdentifier) {
     if (vpdSetIdentifierQuery == null) {
-        vpdSetIdentifierQuery = new DataModifyQuery("CALL DBMS_SESSION.SET_IDENTIFIER(#" + vpdIdentifier + ")");
+        vpdSetIdentifierQuery = new DataModifyQuery("CALL DBMS_SESSION.SET_IDENTIFIER('" + vpdIdentifier + "')");
     }
     
     return vpdSetIdentifierQuery;
@@ -59,6 +58,227 @@ public DatabaseQuery getVPDSetIdentifierQuery(String vpdIdentifier) {
         return vpdClearIdentifierQuery;
     }
 ```
+
+### Az implementáció
+
+A jelenlegi megoldás is erre a lehetőségre támaszkodik, implementálja a *postAcquireConnection()* és *preReleaseConnection()* session esemény metódusokat. Ezt az EclipseLink *org.eclipse.persistence.sessions* csomag *SessionEventAdapter* osztályának leszármaztatásával végezhetjük el, felülírjuk a két fenti metódust az alábbiak szerint. 
+
+#### JpaSessionEventAdapter osztály
+
+
+```java
+package hu.btsoft.jru.core.jpa.sessionevent
+
+import hu.btsoft.jru.core.jsf.ThreadLocalMap;
+import java.sql.SQLException;
+import java.sql.Statement;
+import lombok.extern.slf4j.Slf4j;
+import org.eclipse.persistence.exceptions.DatabaseException;
+import org.eclipse.persistence.internal.databaseaccess.DatabaseAccessor;
+import org.eclipse.persistence.sessions.SessionEvent;
+import org.eclipse.persistence.sessions.SessionEventAdapter;
+
+/**
+ * JPA Session event adapter
+ *
+ * A JPA postAcquireConnection()/preReleaseConnection() eseményeire ráköltözve
+ * álítjuk be/töröljük ki a DB session-ból a 'client_identifier' userenv
+ * változót (Az EclipseLink VPD is így csinálja, lehet, hogy nekünk is jó lesz)
+ *
+ * A DB trigger innen tudja majd kiszedni az aktuális felhasználót
+ *
+ * A többi esemény csak a log trace kedvéért implementált, és csak logol
+ *
+ * @author BT
+ */
+@Slf4j
+public class JpaSessionEventAdapter extends SessionEventAdapter {
+
+    public static final String KEY_CLIENT_ID = "client_identifier";
+
+    /**
+     * Client ID beállítása
+     *
+     * PUBLIC: This event is raised on when using the server/client sessions.
+     * This event is raised after a connection is acquired from a connection
+     * pool.
+     *
+     * @param event
+     */
+    @Override
+    public void postAcquireConnection(SessionEvent event) {
+
+        log.trace("postAcquireConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+        String clientIdentifier = (String) ThreadLocalMap.get(KEY_CLIENT_ID);
+
+        //Ha van definiált 'client_identifier', akkor beállítjuk a session-nak
+        if (clientIdentifier != null) {
+
+            DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
+
+            try (Statement stmt = accessor.getConnection().createStatement();) {
+
+                String sql = "BEGIN DBMS_SESSION.SET_IDENTIFIER('" + clientIdentifier + "'); " + " END;";
+                stmt.execute(sql);
+
+                log.trace("SQL: {}", sql);
+
+            } catch (DatabaseException e) {
+                log.error("DB Error", e);
+            } catch (SQLException e) {
+                log.error("SQL Error", e);
+            }
+        }
+
+    }
+
+    /**
+     * Client ID törlése
+     *
+     * PUBLIC: This event is raised on when using the server/client sessions.
+     * This event is raised before a connection is released into a connection
+     * pool.
+     *
+     * @param event
+     */
+    @Override
+    public void preReleaseConnection(SessionEvent event) {
+
+        log.trace("preReleaseConnection: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+
+        //Ha van definiált 'client_identifier', akkor töröljük a session-ból
+        String clientIdentifier = (String) ThreadLocalMap.get(KEY_CLIENT_ID);
+        if (clientIdentifier != null) {
+
+            DatabaseAccessor accessor = (DatabaseAccessor) event.getResult();
+
+            try (Statement stmt = accessor.getConnection().createStatement();) {
+
+                final String SQL = "BEGIN DBMS_SESSION.CLEAR_IDENTIFIER; END;";
+                stmt.execute(SQL);
+
+                log.trace("SQL: {}", SQL);
+
+            } catch (DatabaseException e) {
+                log.error("DB Error", e);
+            } catch (SQLException e) {
+                log.error("SQL Error", e);
+            }
+        }
+    }
+```
+<span style="font-size: 0.7em;">
+(Mivel ez csak egy megoldás integrációs tesztje, így sokat logol, és a hibakezelések szofisztikáltabb implementációja sem annyira
+neuralgikus pont.) 
+</span>
+
+
+#### JPA persistence.xml
+Az EclipseLink session event listener élesítése a *persistence.xml* fájlban megadott *eclipselink.session-event-listener* property-jében végezhető el.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" 
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    
+    <persistence-unit name="JruTest-PU" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <jta-data-source>jdbc/jruTest</jta-data-source>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="eclipselink.session-event-listener" value="hu.btsoft.jru.core.jpa.sessionevent.JpaSessionEventAdapter"/>
+
+            <!-- GF 4.1.x esetén -->
+            <!--<property name="eclipselink.logging.logger" value="JavaLogger"/>-->
+
+            <!-- GF 5 esetén -->
+            <property name="eclipselink.logging.logger" value="org.eclipse.persistence.logging.slf4j.SLF4JLogger"/>
+```
+
+A fentiekből következik, hogy az esemény figyelőnk példányosítását és kezelését az EclipseLink JPA provider végzi. Viszont az eseménymetódusok szignatúrája nem teszi lehetővé azt, hogy további információkat adjuk át a példánynak, így a felhasználó azonosítójának átadását még meg kell oldani. Erre egy JEE környezetben nem túl sok mód adódik, de talán a legegyszerűbb egy ThreadLocal változó bevetése.
+
+#### JPA entitás műveletek osztályai (DAL/DAO/Service/stb...)
+
+A fenti kód egy *ThreadLocalMap* osztályban veszi át az aktuális felhasználó azonosítóját a 'client_identifier' Map kulcson. Ha ez a kulcs létezik, akkor meghívja a tárolt eljárást az adatbázis művelet előtt és után, ha nem létezik akkor nem. Ezzel a módszerrel biztosítható az, hogy az alkalmazás korábbi kódbázisainak működésében ne okozzunk változást, új kódok esetén csak ezt a változót kell beállítani a módosító DB műveletek hívása előtt. (Bár akár egy SQL lekérdezésben is lehetnek olyan eljárás- vagy függvényhívások, amik audit logot vezethetnek, így talán érdemesebb minden olyan DB hívásba beépíteni, ahol már ismert az interaktív UI felhasználó)
+
+
+```java
+import hu.btsoft.jru.core.jpa.sessionevent.JpaSessionEventAdapter;
+import hu.btsoft.jru.core.jsf.ThreadLocalMap;
+import hu.btsoft.jru.model.entity.JruJrnl;
+import hu.btsoft.jru.model.entity.JruTbl;
+import java.security.Principal;
+import java.util.List;
+import javax.annotation.Resource;
+import javax.ejb.SessionContext;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import lombok.extern.slf4j.Slf4j;
+
+@Stateless
+@Slf4j
+public class EntityService {
+
+    @PersistenceContext
+    private EntityManager em;
+
+    @Resource
+    private SessionContext ctx;
+
+    /**
+     * Entitás létrehozása és elmentése
+     *
+     * @param testdata    teszt adat
+     * @param currentUser bejelentkezett user
+     *
+     * @return mentett entitás
+     */
+    private JruTbl persist(String testdata, String currentUser) {
+
+        //Eltesszük egy threadlocal változóba a kliend ID-t
+        ThreadLocalMap.put(JpaSessionEventAdapter.KEY_CLIENT_ID, currentUser);
+
+        JruTbl entity = new JruTbl();
+        entity.setParamUser(currentUser);
+        entity.setTestData(testdata);
+        em.persist(entity);
+
+        log.trace("doTest end, id: {}", entity.getId());
+
+        return entity;
+    }
+```
+
+
+Persze pont ez az Achilles sarka ennek a megoldásnak: ha a *ThreadLocalMap.put(JpaSessionEventAdapter.KEY_CLIENT_ID, currentUser);* hívást elfelejtjük kiadni, akkor marad az eredeti probléma: az audit a JPA technikai user-el fog megtörténni. Bár ezen lehetne segíteni egy az osztályra/metódusra ráhúzott inteceptor segítségével...
+
+Biztosítani kell még azt (mivel pool-olt a session), hogy a kliens session kapcsolat elengedésével mindenképpen törlődjön a *ThreadLocalMap* ezen kulcsa. Ezt a *JpaSessionEventAdapter* osztály *postReleaseClientSession()* metódusában végezzük. (A fenti *EntityService* demó osztály *persist()* metódusában ne is próbálkozzunk a törléssel: mikor a metódus már visszaadta a vezérlést, addig még bőven folynak JPA műveletek az adatbázisban!)
+
+```java
+/**
+     * A 'client_identifier' ThreadLocal változót a biztonság kedvéért
+     * mindenképpen töröljük!
+     *
+     * PUBLIC: This event is raised on the client session after releasing.
+     *
+     * @param event
+     */
+    @Override
+    public void postReleaseClientSession(SessionEvent event) {
+
+        //Ha a klien kilép az adatbázisból, akkor töröljük a ThreadLocal 'client_identifier' változót
+        log.trace("postReleaseClientSession: {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+        ThreadLocalMap.remove(KEY_CLIENT_ID);
+
+        log.trace("postReleaseClientSession: KEY_CLIENT_ID törölve -> {}", (String) ThreadLocalMap.get(KEY_CLIENT_ID));
+    }
+```
+
+
 
 
 
