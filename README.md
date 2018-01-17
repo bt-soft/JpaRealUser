@@ -390,7 +390,7 @@ A megoldás valódi működőképességének komolyabb tesztelését pl.: egy JM
 Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klikkelgetési' teljesítményét: az egyes műveletek között un: `ThinkingTime` időt várunk, ami itt szálanként véletlenszerűen 1.5..3.5 másodperc lesz. (Ha növeltük a GlassFish teszt userek számát, akkor javítsunk a [jmeter\create-jmeter-test-users.cmd](jmeter\create-jmeter-test-users.cmd) állomány *testUsersCnt* változóján, majd indítsuk el a parancs állományt.) A jelenlegi beállításokkal 25.000 tranzakció lesz.
 
 
-- Töltsük be a JMeter-be a [jmeter\jrutest-plan.jmx](jmeter\jrutest-plan.jmx) állományt
+- Töltsük be a JMeter-be a [jmeter\jrutest-plan.jmx]() állományt
 - Az 'User Defined Variables'-ben ellenőrizzük, és szüksége esetén változtassunk az értékeken
  
     <img src="docs/jmeter-user-defined-variables.png" height="60%" width="60%"/>
