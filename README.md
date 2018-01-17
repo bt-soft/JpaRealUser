@@ -329,8 +329,8 @@ A megoldás terheléses tesztje egy egyidejűleg 100, a UI felületre bejelentke
 
 Az adatbázis oldal végtelenül leegyszerűsített, de mégis a valós környezetben zajló folyamatokhoz közelítő modell, amelyben két tábla van. A `JruTbl` az adatttáblát reprezentálja, ahova a felhasználók és egyéb háttérfolyamatok dolgoznak, valamint a `JruJrnl` journal tábla, amelyet a jruTbl-re akasztott adatbázis trigger tölt. Mindkét tábla ID-jét egy adatbázis szekvenciából tölti fel egy egy trigger. Az adatbázis objektumok a `schemaowner` Oracle account tulajdonában vannak, míg a JPA a `jpauser` technikai account-al dolgozik az adatbázisban és a `jru_role` szerepkörön keresztül éri el az adattáblákat.
 
+   <img src="docs/entities.png" height="50%" width="50%"/>
 
-![entitások](docs/entities.png){:height="50%" width="50%"}
 
 A `JruTbl` táblába JPA oldalról két adatot küldünk:
 - Egy véletlenszerű szöveges adatot
@@ -372,7 +372,10 @@ Ezekkel a lépésekkel a tesztkörnyezet tulajdonképpen meg is is van.
 
 A fejlesztéshez és a próbálgatáshoz készült, a feladat szempontjából nincs túl nagy jelentősége. A projekt build-je és deploy után be is jelentkezhetünk (url: http://localhost:8080/JruTest)
 
-![](docs/ui-login.png){:height="40%" width="40%"}    ![](docs/ui-main.png){:height="40%" width="40%"}
+
+   <img src="docs/ui-login.png" height="40%" width="40%"/>
+   <img src="docs/ui-main.png" height="40%" width="40%"/>
+
 
 A felület nem túl bonyolult: a bejelentkezett user küldhet teszt adatokat, a hibák megjelenítésére csak az admin usernek van joga, leginkább a JMeter-es teszt lebonyolítása miatt került kialakításra, talán elég ennyi róla.
 
@@ -385,19 +388,20 @@ A megoldás valódi működőképességének komolyabb tesztelését pl.: egy JM
 - megnyomatni vele a submit gombot, ezt ismételjük párszor
 - majd kilép az user a logout gombra klikkelve
 
-Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klikkelgetési' teljesítményét: az egyes műveletek között un: `ThinkingTime` időt várunk, ami itt szálanként véletlenszerűen 1.5..3.5 másodperc lesz. (Ha növeltük a GlassFish teszt userek számát, akkor javítsunk a [jmeter\create-jmeter-test-users.cmd](jmeter\create-jmeter-test-users.cmd) állomány *testUsersCnt* változóján, majd indítsuk el a parancs állományt.)
+Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klikkelgetési' teljesítményét: az egyes műveletek között un: `ThinkingTime` időt várunk, ami itt szálanként véletlenszerűen 1.5..3.5 másodperc lesz. (Ha növeltük a GlassFish teszt userek számát, akkor javítsunk a [jmeter\create-jmeter-test-users.cmd](jmeter\create-jmeter-test-users.cmd) állomány *testUsersCnt* változóján, majd indítsuk el a parancs állományt.) A jelenlegi beállításokkal 25.000 tranzakció lesz.
 
 
 - Töltsük be a JMeter-be a [jmeter\jrutest-plan.jmx](jmeter\jrutest-plan.jmx) állományt
 - Az 'User Defined Variables'-ben ellenőrizzük, és szüksége esetén változtassunk az értékeken
+ 
+    <img src="docs/jmeter-user-defined-variables.png" height="60%" width="60%"/>
 
-    ![](docs/jmeter-user-defined-variables.png){:height="60%" width="60%"}
 - Indítsuk el a JMeter projektet (Érdemes a JruTest projekt LogBack log level szintjét Warn-ra állítani a teszt közben, akár menet közben is lehet...)
-![](docs/jmeter-run-test.png){:height="40%" width="40%"}
+    <img src="docs/jmeter-run-test.png" height="40%" width="40%"/>
 
 - A teszt futása közben fél szemmel érdemes a GlassFish naplóját is figyelemmel kísérni
 - Ha a JMeter végzett, akkor esetleg érdemes átnézni a jelentéseket
-  ![](docs/jmeter-end-test.png){:height="40%" width="40%"}
+    <img src="docs/jmeter-end-test.png" height="40%" width="40%"/>
 
 - **Mindenképpen ellenőrizzük az adatokat az adatbázisban**: keressünk olyan rekordokat, ahol a `JruTbl.param_user` mezője nem egyezik a megfelelő `JruJrnl.client_identifier` mezőjével. **Ha nincs ilyen, akkor minden rendben.**
 ```sql
