@@ -43,14 +43,14 @@ public class EntityService {
     /**
      * Entitás létrehozása és elmentése
      *
-     * @param testdata    teszt adat
+     * @param testdata teszt adat
      * @param currentUser bejelentkezett user
      *
      * @return mentett entitás
      */
     private JruTbl persist(String testdata, String currentUser) {
 
-        //Eltesszük egy threadlocal változóba a kliend ID-t
+        //Eltesszük egy threadlocal változóba a kliens ID-t
         ThreadLocalMap.put(JpaSessionEventAdapter.KEY_CLIENT_ID, currentUser);
 
         JruTbl entity = new JruTbl();
@@ -64,10 +64,9 @@ public class EntityService {
     }
 
     /**
-     * Tábla insert
-     * A bejelentkezett usert paraméterként kapja
+     * Tábla insert A bejelentkezett usert paraméterként kapja
      *
-     * @param testdata    teszt adat
+     * @param testdata teszt adat
      * @param currentUser bejelentkezett user
      *
      * @return perzisztált entitás
@@ -82,8 +81,7 @@ public class EntityService {
     }
 
     /**
-     * Tábla insert
-     * A bejelentkezett usert az EJB SessionContext-ből nyeri ki
+     * Tábla insert A bejelentkezett usert az EJB SessionContext-ből nyeri ki
      *
      * @param testdata teszt adat
      *

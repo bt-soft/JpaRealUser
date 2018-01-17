@@ -239,7 +239,7 @@ public class EntityService {
      */
     private JruTbl persist(String testdata, String currentUser) {
 
-        //Eltesszük egy threadlocal változóba a kliend ID-t
+        //Eltesszük egy threadlocal változóba a kliens ID-t
         ThreadLocalMap.put(JpaSessionEventAdapter.KEY_CLIENT_ID, currentUser);
 
         JruTbl entity = new JruTbl();
