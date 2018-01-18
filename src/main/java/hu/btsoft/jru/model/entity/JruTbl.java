@@ -57,5 +57,5 @@ public class JruTbl implements Serializable {
     private String testData;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "jruTbl", fetch = FetchType.EAGER)
-    private List<JruJrnl> jruJrnl;
+    private List<JruJrnl> jruJrnls;
 }

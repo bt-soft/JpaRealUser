@@ -321,7 +321,7 @@ Info:   15:33:23.964 TRACE - [http-listener-1(4)] - onevent.JpaSessionEventAdapt
 
 A megoldás terheléses tesztje egy egyidejűleg 100, a UI felületre bejelentkező, egy interaktív felhasználó kattintgatását szimuláló (felhasználónként 50 véletlenszerű tesztadatot beküldő és mindezt 5 iterációban megismétlő) környezetben is hibátlanul teljesített, így valószínűleg érdemes vele tovább foglalkozni.  
 
-
+    
 ## A tesztkörnyezet kialakítása
 
 
@@ -347,21 +347,21 @@ select NVL(SYS_CONTEXT('userenv', 'client_identifier'), user) FROM dual
 
 >Figyelem: A leírásban szereplő scriptek, cmd és más állományok elindítása előtt mindig ellenőrizzük, fussuk át őket, és **írjuk át a saját környezetünknek megfelelően!**
 
-1) Egy 'nyers' adatbázis kialakítását a [setup/db-setup/1-run-from-sys.sql](setup\db-setup\1-run-from-sys.sql) SYSDBA szerepkörrel rendelkező user alól történő indításával kezdhetjük el, amely az alábbiakat hozza létre: 
+1) Egy 'nyers' adatbázis kialakítását a [setup/db-setup/1-run-from-sys.sql](setup/db-setup/1-run-from-sys.sql) SYSDBA szerepkörrel rendelkező user alól történő indításával kezdhetjük el, amely az alábbiakat hozza létre: 
 - `testtblspc` táblatér (a teszt után a teljes táblatér eldobható)
 - `schemaowner` user
 - `jpauser` user
 - `jru_role` szerepkört, és a `jpauser`-nek adja
 
 
-2) A `schemaowner`-be bejelentkezve indítsuk el a [setup/db-setup/2-run-from-schemaowner.sql](setup\db-setup\2-run-from-schemaowner.sql) scriptet, amely az alábbiakat végzi el:
+2) A `schemaowner`-be bejelentkezve indítsuk el a [setup/db-setup/2-run-from-schemaowner.sql](setup/db-setup/2-run-from-schemaowner.sql) scriptet, amely az alábbiakat végzi el:
 - droppol minden korábban, ebben a scriptben használt  létrehozott objektumot
 - táblák, indexek, szekvenciák, triggerek
 - grantok kiadása 
 
 
-#### GalssFish beállítása
-Ellenőrizzük és írjuk át a GF_ASDAMIN_HOME környezeti változó értékét, esetleg a létrehozandó tesz userek számát (testUsersCnt), majd indítsuk el a [setup\gf-setup\GlassFish-config.cmd](setup\gf-setup\GlassFish-config.cmd) parancs állományt. Ez létrehozza a GalssFish példányunk default domain-jében az alábbiakat:
+#### GlassFish beállítása
+Ellenőrizzük és írjuk át a GF_ASDAMIN_HOME környezeti változó értékét, esetleg a létrehozandó tesz userek számát (testUsersCnt), majd indítsuk el a [setup/gf-setup/GlassFish-config.cmd](setup/gf-setup/GlassFish-config.cmd) parancs állományt. Ez létrehozza a GalssFish példányunk default domain-jében az alábbiakat:
 - jru-fileRealm fileRealm
 - admin usert, JRU_USER és JRU_ADMIN szerepkörrel (jelszó: pass12)
 - user001...user100 teszt user-t, JRU_USER szerepkörrel (jelszó: pass12)
@@ -388,10 +388,10 @@ A megoldás valódi működőképességének komolyabb tesztelését pl.: egy JM
 - megnyomatni vele a submit gombot, ezt ismételjük párszor
 - majd kilép az user a logout gombra klikkelve
 
-Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klikkelgetési' teljesítményét: az egyes műveletek között un: `ThinkingTime` időt várunk, ami itt szálanként véletlenszerűen 1.5..3.5 másodperc lesz. (Ha növeltük a GlassFish teszt userek számát, akkor javítsunk a [jmeter\create-jmeter-test-users.cmd](jmeter\create-jmeter-test-users.cmd) állomány *testUsersCnt* változóján, majd indítsuk el a parancs állományt.) A jelenlegi beállításokkal 25.000 tranzakció lesz.
+Mindezt úgy, hogy közben szimuláljuk a létező leggyorsabb valós user 'klikkelgetési' teljesítményét: az egyes műveletek között un: `ThinkingTime` időt várunk, ami itt szálanként véletlenszerűen 1.5..3.5 másodperc lesz. (Ha növeltük a GlassFish teszt userek számát, akkor javítsunk a [jmeter/create-jmeter-test-users.cmd](jmeter/create-jmeter-test-users.cmd) állomány *testUsersCnt* változóján, majd indítsuk el a parancs állományt.) A jelenlegi beállításokkal 25.000 tranzakció lesz.
 
 
-- Töltsük be a JMeter-be a [jmeter\jrutest-plan.jmx](jmeter\jrutest-plan.jmx) állományt
+- Töltsük be a JMeter-be a [jmeter/jrutest-plan.jmx](jmeter/jrutest-plan.jmx) állományt
 - Az 'User Defined Variables'-ben ellenőrizzük, és szüksége esetén változtassunk az értékeken
  
     <img src="docs/jmeter-user-defined-variables.png" height="60%" width="60%"/>
