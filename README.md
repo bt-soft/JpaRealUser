@@ -1,4 +1,5 @@
-
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?style=plastic)]()
+[![JDK 1.8](https://img.shields.io/badge/JDK-1.8-blue.svg?style=plastic)](#protools)
 
 # RealJpaUser (JRU)
 Test the transfer of the real user ID to the Oracle database when using connection pool
@@ -419,5 +420,5 @@ select *
 
 
 
-[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?style=plastic)]()
+
 
