@@ -1,5 +1,5 @@
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?style=plastic)]()
-[![JDK 1.8](https://img.shields.io/badge/JDK-1.8-blue.svg?style=plastic)](#protools)
+[![JDK 1.8](https://img.shields.io/badge/JDK-1.8-blue.svg?style=plastic)]()
 [![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg?style=plastic)](https://travis-ci.org/bt-soft/RealJpaUser.svg?branch=master)
 
 
