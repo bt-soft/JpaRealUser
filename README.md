@@ -1,5 +1,5 @@
-[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?style=plastic)]()
-[![JDK 1.8](https://img.shields.io/badge/JDK-1.8-blue.svg?style=plastic)]()
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg?style=plastic)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![Oracle JDK 1.8](https://img.shields.io/badge/JDK-1.8-blue.svg?style=plastic)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 [![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg?style=plastic)](https://travis-ci.org/bt-soft/RealJpaUser.svg?branch=master)
 
 
