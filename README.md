@@ -3,7 +3,7 @@
 [![Travis branch](https://img.shields.io/travis/rust-lang/rust/master.svg?style=plastic)](https://travis-ci.org/bt-soft/RealJpaUser.svg?branch=master)
 
 
-# RealJpaUser (JRU)
+# JpaRealUser (JRU)
 Test the transfer of the real user ID to the Oracle database when using connection pool
 
 
